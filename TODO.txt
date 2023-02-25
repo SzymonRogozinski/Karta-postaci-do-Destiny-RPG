@@ -1,0 +1,6 @@
+Schemat:
+
+"Grupa zadań:
+    -zadanie 1
+    -zadanie 2
+    ..."

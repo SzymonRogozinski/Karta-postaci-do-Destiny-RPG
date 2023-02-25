@@ -1,0 +1,8 @@
+Schemat:
+
+"Sprint x:
+    -zadanie 1 (Data rozpoczęcia - Data wykonania)
+    -zadanie 2 (Data rozpoczęcia)
+    -zadanie 3
+    ...
+"
