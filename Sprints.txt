@@ -6,3 +6,10 @@ Schemat:
     -zadanie 3
     ...
 "
+
+Sprint 1:
+    - Stworzenie listy elementów, które należy umieścić na karcie (27.02.2023 - 27.02.2023)
+    - Podzielenie elementów w grupy
+    - Określenie akceptowalnych wartości dla danych elementów
+    - Zapisanie powiązań między elementami
+    - Zaproponowanie struktury elementów z uwględnieniem powyższych kroków 
