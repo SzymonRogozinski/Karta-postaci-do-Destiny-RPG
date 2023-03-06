@@ -10,6 +10,6 @@ Schemat:
 Sprint 1:
     - Stworzenie listy elementów, które należy umieścić na karcie (27.02.2023 - 27.02.2023)
     - Podzielenie elementów w grupy (27.02.2023 - 28.02.2023)
-    - Określenie akceptowalnych wartości dla danych elementów (28.02.2023)
-    - Zapisanie powiązań między elementami (28.02.2023)
+    - Określenie akceptowalnych wartości dla danych elementów (28.02.2023 - 06.03.2023)
+    - Zapisanie powiązań między elementami (28.02.2023 - 06.03.2023)
     - Zaproponowanie struktury elementów z uwględnieniem powyższych kroków 
