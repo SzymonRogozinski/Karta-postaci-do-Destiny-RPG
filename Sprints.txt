@@ -12,4 +12,4 @@ Sprint 1:
     - Podzielenie elementów w grupy (27.02.2023 - 28.02.2023)
     - Określenie akceptowalnych wartości dla danych elementów (28.02.2023 - 06.03.2023)
     - Zapisanie powiązań między elementami (28.02.2023 - 06.03.2023)
-    - Zaproponowanie struktury elementów z uwględnieniem powyższych kroków 
+    - Zaproponowanie struktury elementów z uwględnieniem powyższych kroków (08.03.2023)
