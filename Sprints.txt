@@ -13,3 +13,11 @@ Sprint 1:
     - Określenie akceptowalnych wartości dla danych elementów (28.02.2023 - 06.03.2023)
     - Zapisanie powiązań między elementami (28.02.2023 - 06.03.2023)
     - Zaproponowanie struktury elementów z uwględnieniem powyższych kroków (08.03.2023 - 08.03.2023)
+
+Sprint 2:
+    - Stworzenie segmentu "Postać po krótce"
+    - Stworzenie segmentu "Cechy"
+    - Stworzenie segmentu "Umiejętności"
+    - Implementacja relacji pomiędzy istniejącymi atrybutami
+    - Napisanie makra dotyczącego rzutów
+    - Umożliwienie dodawania kolejnych umiejętności
