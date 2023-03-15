@@ -1,13 +1,73 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>Hello world!</h1> <br>
-    <p>Tempor occaecat anim id nostrud aliquip ullamco minim sint veniam aliquip id in. In eiusmod do cupidatat cillum magna nostrud irure id dolore. Magna anim labore cupidatat magna culpa mollit culpa et sint enim. Amet dolor quis tempor sit incididunt dolor ad non eu veniam Lorem cillum. Duis ipsum nisi fugiat commodo sint et sint tempor. Pariatur fugiat dolore tempor consequat dolore amet elit esse consectetur do enim consequat culpa est. Elit Lorem reprehenderit quis minim cillum mollit laboris est mollit reprehenderit enim qui nulla.</p>
-</body>
-</html>
+<div>
+    <!--Postać po krótce-->
+    Imię: <input type="text" name="attr_name"><br><br>
+    Płeć:<select name="attr_gender">
+            <option value="-">-</option>
+            <option value="K">K</option>
+            <option value="M">M</option>
+        </select><br><br>
+    Rasa:<select name="attr_race">
+            <option value="-">-</option>
+            <option value="Człowiek">Człowiek</option>
+            <option value="Exo">Exo</option>
+            <option value="Przebudzony">Przebudzony</option>
+        </select><br><br>
+    Klasa:<select name="attr_class">
+            <option value="-">-</option>
+            <option value="Tytan">Tytan</option>
+            <option value="Łowca">Łowca</option>
+            <option value="Czarownik">Czarownik</option>
+        </select><br><br>
+    Podklasa:<select id="subclass_list" name="attr_subclass">
+                <option value="-">-</option>
+                <option value="Słoneczny pogromca">Słoneczny pogromca</option>
+                <option value="Szturmowiec">Szturmowiec</option>
+                <option value="Wartownik">Wartownik</option>
+                <option value="Strzelec">Strzelec</option>
+                <option value="Gromodzierżca">Gromodzierżca</option>
+                <option value="Tropiciel">Tropiciel</option>
+                <option value="Ostrze świtu">Ostrze świtu</option>
+                <option value="Kroczący przez próżnię">Kroczący przez próżnię</option>
+                <option value="Siewca burz">Siewca burz</option>
+        </select><br><br>
+        Ranga:<input type="text" name="attr_rank" value="-" readonly><br><br>
+        Poziom:<input type="text" name="attr_level" value="0" readonly><br><br>
+        PD:<input type="text" name="attr_EXP_To_Next_Level" value="0" readonly><br><br>
+</div>
+
+
+<input type="number" name="attr_EXP">
+
+
+<script type="text/worker">
+    //Walidacja podklasy
+    on("change:subclass", function(){
+        getAttrs(["class","subclass"], function(values){
+            var cl=values.class;
+            var sc=values.subclass;
+            
+            //sl.options[0] = new Option("-","-");
+            if(cl == "Tytan"){
+                if(sc!="Słoneczny pogromca" && sc!="Szturmowiec" && sc!="Wartownik"){
+                    setAttrs({subclass: "-"});
+                }
+            }else if(cl =="Łowca"){
+                if(sc!="Strzelec" && sc!="Gromodzierżca" && sc!="Tropiciel"){
+                    setAttrs({subclass: "-"});
+                }
+            }else if(cl == "Czarownik"){
+                if(sc!="Ostrze świtu" && sc!="Kroczący przez próżnię" && sc!="Siewca burz"){
+                    setAttrs({subclass: "-"});
+                }
+            }
+        })
+    })
+
+    //Zmiana liczby doświadczenia
+    on("change:EXP", function(){
+        getAttrs(["EXP"], function(values){
+            var e=values.EXP;
+            setAttrs({EXP_To_Next_Level: e%5});
+        })
+    })
+</script>
