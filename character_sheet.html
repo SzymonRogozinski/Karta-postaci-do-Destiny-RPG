@@ -65,9 +65,24 @@
 
     //Zmiana liczby doświadczenia
     on("change:EXP", function(){
-        getAttrs(["EXP"], function(values){
+        getAttrs(["EXP","level"], function(values){
             var e=values.EXP;
-            setAttrs({EXP_To_Next_Level: e%5});
+            setAttrs({
+                EXP_To_Next_Level:e%5,
+                level: parseInt(e/5)
+            });
+            var l=values.level;
+            if(l<9){
+                setAttrs({rank: "Nowicjusz"});
+            }else if(l<17){
+                setAttrs({rank: "Doświadczony"});
+            }else if(l<25){
+                setAttrs({rank: "Weteran"});
+            }else if(l<33){
+                setAttrs({rank: "Heros"});
+            }else{
+                setAttrs({rank: "Legenda"});
+            }
         })
     })
 </script>
