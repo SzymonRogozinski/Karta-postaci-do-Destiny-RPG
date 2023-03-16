@@ -1,23 +1,23 @@
-<div>
+<div id="General_description">
     <!--Postać po krótce-->
-    Imię: <input type="text" name="attr_name"><br><br>
+    Imię: <input type="text" name="attr_name"><br>
     Płeć:<select name="attr_gender">
             <option value="-">-</option>
             <option value="K">K</option>
             <option value="M">M</option>
-        </select><br><br>
+        </select><br>
     Rasa:<select name="attr_race">
             <option value="-">-</option>
             <option value="Człowiek">Człowiek</option>
             <option value="Exo">Exo</option>
             <option value="Przebudzony">Przebudzony</option>
-        </select><br><br>
+        </select><br>
     Klasa:<select name="attr_class">
             <option value="-">-</option>
             <option value="Tytan">Tytan</option>
             <option value="Łowca">Łowca</option>
             <option value="Czarownik">Czarownik</option>
-        </select><br><br>
+        </select><br>
     Podklasa:<select id="subclass_list" name="attr_subclass">
                 <option value="-">-</option>
                 <option value="Słoneczny pogromca">Słoneczny pogromca</option>
@@ -29,14 +29,68 @@
                 <option value="Ostrze świtu">Ostrze świtu</option>
                 <option value="Kroczący przez próżnię">Kroczący przez próżnię</option>
                 <option value="Siewca burz">Siewca burz</option>
-        </select><br><br>
-        Ranga:<input type="text" name="attr_rank" value="-" readonly><br><br>
-        Poziom:<input type="text" name="attr_level" value="0" readonly><br><br>
-        PD:<input type="text" name="attr_EXP_To_Next_Level" value="0" readonly><br><br>
+        </select><br>
+        Ranga:<input type="text" name="attr_rank" value="-" readonly><br>
+        Poziom:<input type="text" name="attr_level" value="0" readonly><br>
+        PD:<input type="text" name="attr_EXP_To_Next_Level" value="0" readonly><br>
 </div>
 
+<div id="Atribute">
+    <!--Cechy postaci-->
+    <h3>Cechy</h3><br>
+    Siła<select name="attr_strength" value="d4">
+        <option value="d4">k4</option>
+        <option value="d6">k6</option>
+        <option value="d8">k8</option>
+        <option value="d10">k10</option>
+        <option value="d12">k12</option>
+    </select>
+    <button type="action" name="act_roll_strength"></button><br>
+    Zręczność<select name="attr_agility" value="d4">
+        <option value="d4">k4</option>
+        <option value="d6">k6</option>
+        <option value="d8">k8</option>
+        <option value="d10">k10</option>
+        <option value="d12">k12</option>
+    </select><br>
+    Spryt<select name="attr_smart" value="d4">
+        <option value="d4">k4</option>
+        <option value="d6">k6</option>
+        <option value="d8">k8</option>
+        <option value="d10">k10</option>
+        <option value="d12">k12</option>
+    </select><br>
+    Duch<select name="attr_spirit" value="d4">
+        <option value="d4">k4</option>
+        <option value="d6">k6</option>
+        <option value="d8">k8</option>
+        <option value="d10">k10</option>
+        <option value="d12">k12</option>
+    </select><br>
+    Wigor<select name="attr_vigor" value="d4">
+        <option value="d4">k4</option>
+        <option value="d6">k6</option>
+        <option value="d8">k8</option>
+        <option value="d10">k10</option>
+        <option value="d12">k12</option>
+    </select><br>
+</div>
 
 <input type="number" name="attr_EXP">
+<input type="hidden" name="attr_test_succes">
+
+
+<rolltemplate class="sheet-rolltemplate-test">
+    <div class="sheet-template-container">
+        <h1>{{name}}</h1>
+        <div class="sheet-results">
+            <h4>Wynik = {{wynik}}</h4><br>
+            <h4>Zdany = {{zdany}}</h4>
+            
+        </div>
+
+    </div>
+</rolltemplate>
 
 
 <script type="text/worker">
@@ -85,4 +139,17 @@
             }
         })
     })
+
+    //Podstawowy rzut
+    on('clicked:roll_strength', (info) => {
+        var basicDice
+        startRoll("&{template:test} {{name=@{name} wykonuje test siły}} {{wynik=[[@{strength}!]]}} {{zdany=@{test_succes}}}", (results) => {
+            basicDice = results.results.wynik.result
+            if(basicDice>=4){
+                setAttrs({test_succes: "Tak"});
+            }else{
+                setAttrs({test_succes: "Nie"});
+            }
+        });
+    });
 </script>
