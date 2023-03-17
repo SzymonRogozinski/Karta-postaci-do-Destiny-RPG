@@ -80,15 +80,19 @@
 <input type="hidden" name="attr_test_succes">
 
 
-<rolltemplate class="sheet-rolltemplate-test">
+<rolltemplate class="sheet-rolltemplate-diceroll">
     <div class="sheet-template-container">
         <h1>{{name}}</h1>
         <div class="sheet-results">
-            <h4>Wynik = {{wynik}}</h4><br>
-            <h4>Zdany = {{zdany}}</h4>
-            
+            <h4>Kość główna = {{wynik}}</h4>
+            <h4>Kość figury = {{pomoc}}</h4>
+            {{#rollGreater() computed::wynik 3}}
+                <h4>Test zdany</h4>
+            {{/rollGreater() computed::wynik 3}}
+            {{#rollLess() computed::wynik 4}}
+                <h4>Test niezdany</h4>
+            {{/rollLess() computed::wynik 4}}
         </div>
-
     </div>
 </rolltemplate>
 
@@ -97,10 +101,8 @@
     //Walidacja podklasy
     on("change:subclass", function(){
         getAttrs(["class","subclass"], function(values){
-            var cl=values.class;
+            var cl=values.class;    
             var sc=values.subclass;
-            
-            //sl.options[0] = new Option("-","-");
             if(cl == "Tytan"){
                 if(sc!="Słoneczny pogromca" && sc!="Szturmowiec" && sc!="Wartownik"){
                     setAttrs({subclass: "-"});
@@ -121,6 +123,7 @@
     on("change:EXP", function(){
         getAttrs(["EXP","level"], function(values){
             var e=values.EXP;
+            //Pierw ile expa brakuje, dalej jaki level
             setAttrs({
                 EXP_To_Next_Level:e%5,
                 level: parseInt(e/5)
@@ -142,14 +145,25 @@
 
     //Podstawowy rzut
     on('clicked:roll_strength', (info) => {
-        var basicDice
-        startRoll("&{template:test} {{name=@{name} wykonuje test siły}} {{wynik=[[@{strength}!]]}} {{zdany=@{test_succes}}}", (results) => {
+        var basicDice   //Kość główna
+        var figDice     //Kość figury
+        var resDice     //Kość wyniku
+        startRoll("&{template:diceroll} {{name=@{name} wykonuje test siły}} {{wynik=[[@{strength}!]]}} {{pomoc=[[d6!]]}}", (results) => {
             basicDice = results.results.wynik.result
-            if(basicDice>=4){
-                setAttrs({test_succes: "Tak"});
+            figDice = results.results.pomoc.result
+            //Jeśli kość główna nie jest równa jeden i figury jest większa, to zamień
+            if(basicDice!=1 && figDice>basicDice){
+                resDice=figDice
             }else{
-                setAttrs({test_succes: "Nie"});
+                resDice=basicDice
             }
+            finishRoll(
+                results.rollId,
+                {
+                    wynik: resDice
+                }
+            );
+
         });
     });
 </script>
