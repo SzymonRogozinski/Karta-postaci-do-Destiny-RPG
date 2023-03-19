@@ -37,7 +37,7 @@
 
 <div id="Atribute">
     <!--Cechy postaci-->
-    <h3>Cechy</h3><br>
+    <h3>Cechy</h3>
 
     Siła<select name="attr_strength" value="d4">
         <option value="d4">k4</option>
@@ -89,10 +89,25 @@
     <input type="hidden" name="attr_vigor_mod" value="0">
     <button type="action" name="act_roll_vigor"></button><br>
 
+    Obrona:<input type="text" name="attr_parry" value="2" readonly><br>
+    <input type="hidden" name="attr_parry_mod" value="0">
+
+    Wytrzymałość:<input type="text" name="attr_tough" value="2" readonly><br>
+    <input type="hidden" name="attr_tough_mod" value="0">
+
+    Charyzma:<input type="text" name="attr_charisma" value="0" readonly><br>
+
+    Tempo:<input type="text" name="attr_speed" value="6" readonly><br>
+
+    Fuksy:<input type="number" name="attr_luck" value="3"><br>
+    <input type="hidden" name="attr_luck_max" value="3">
+    
+
+    Rozmiar:<input type="text" name="attr_size" value="0" readonly><br>
+
 </div>
 
 <input type="number" name="attr_EXP">
-<input type="hidden" name="attr_test_succes">
 
 
 <rolltemplate class="sheet-rolltemplate-BasicDiceRoll">
@@ -155,6 +170,60 @@
             }else{
                 setAttrs({rank: "Legenda"});
             }
+        })
+    })
+
+    //Usuwa przedrostek z nazwy kości
+    function dice_max_value(dice){
+        var v=dice.slice(1)
+        return v!=""?v:0
+    }
+
+    //Sprawdzanie czy rasa Przebudzonych ma odpowiednią wartość ducha
+    on("change:spirit change:race",function(){
+        getAttrs(["spirit","race"],function(values){
+            var r=values.race
+            var s=values.spirit
+        
+            if(r=="Przebudzony" && s=="d4"){
+                setAttrs({spirit: "d6"})
+            }
+        })
+    })
+
+    //Sprawdzanie czy aktualna wartość fuksów nie jest za duża
+    on("change:luck",function(){
+        getAttrs(["luck_max","luck"],function(values){
+            var lm=values.luck_max
+            var l=values.luck
+            if(l<0){
+                setAttrs({luck: 0}) 
+            }else if(l>lm){
+                setAttrs({luck: lm}) 
+            }
+        })
+    })
+
+    //Obliczanie wytrzymałości
+    on("change:vigor change:tough_mod", function(){
+        getAttrs(["vigor","tough_mod","size"], function(values){
+            var v=parseInt(dice_max_value(values.vigor))    //Parsowanie
+            var tm=parseInt(values.tough_mod)
+            var s=parseInt(values.size)
+
+            v=v/2+tm+s+2                                    //Dodanie modyfikatorów
+            setAttrs({tough: v})                            //ustawienie wytrzymałości
+        })
+    })
+
+    //Obliczanie obrony
+    on("change:brawl change:parry_mod", function(){
+        getAttrs(["brawl","parry_mod"], function(values){
+            var p=parseInt(dice_max_value(values.brawl))    //Parsowanie
+            var pm=parseInt(values.parry_mod)
+
+            p=p/2+pm+2                                      //Dodanie modyfikatorów
+            setAttrs({parry: p})                            //ustawienie wytrzymałości
         })
     })
 
