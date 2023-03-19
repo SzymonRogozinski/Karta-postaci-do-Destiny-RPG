@@ -38,6 +38,7 @@
 <div id="Atribute">
     <!--Cechy postaci-->
     <h3>Cechy</h3><br>
+
     Siła<select name="attr_strength" value="d4">
         <option value="d4">k4</option>
         <option value="d6">k6</option>
@@ -45,42 +46,56 @@
         <option value="d10">k10</option>
         <option value="d12">k12</option>
     </select>
+    <input type="hidden" name="attr_strength_mod" value="0">
     <button type="action" name="act_roll_strength"></button><br>
+
     Zręczność<select name="attr_agility" value="d4">
         <option value="d4">k4</option>
         <option value="d6">k6</option>
         <option value="d8">k8</option>
         <option value="d10">k10</option>
         <option value="d12">k12</option>
-    </select><br>
+    </select>
+    <input type="hidden" name="attr_agility_mod" value="0">
+    <button type="action" name="act_roll_agility"></button><br>
+
     Spryt<select name="attr_smart" value="d4">
         <option value="d4">k4</option>
         <option value="d6">k6</option>
         <option value="d8">k8</option>
         <option value="d10">k10</option>
         <option value="d12">k12</option>
-    </select><br>
+    </select>
+    <input type="hidden" name="attr_smart_mod" value="0">
+    <button type="action" name="act_roll_smart"></button><br>
+
     Duch<select name="attr_spirit" value="d4">
         <option value="d4">k4</option>
         <option value="d6">k6</option>
         <option value="d8">k8</option>
         <option value="d10">k10</option>
         <option value="d12">k12</option>
-    </select><br>
+    </select>
+    <input type="hidden" name="attr_spirit_mod" value="0">
+    <button type="action" name="act_roll_spirit"></button><br>
+
     Wigor<select name="attr_vigor" value="d4">
         <option value="d4">k4</option>
         <option value="d6">k6</option>
         <option value="d8">k8</option>
         <option value="d10">k10</option>
         <option value="d12">k12</option>
-    </select><br>
+    </select>
+    <input type="hidden" name="attr_vigor_mod" value="0">
+    <button type="action" name="act_roll_vigor"></button><br>
+
 </div>
 
 <input type="number" name="attr_EXP">
 <input type="hidden" name="attr_test_succes">
 
 
-<rolltemplate class="sheet-rolltemplate-diceroll">
+<rolltemplate class="sheet-rolltemplate-BasicDiceRoll">
     <div class="sheet-template-container">
         <h1>{{name}}</h1>
         <div class="sheet-results">
@@ -143,14 +158,18 @@
         })
     })
 
-    //Podstawowy rzut
-    on('clicked:roll_strength', (info) => {
-        var basicDice   //Kość główna
-        var figDice     //Kość figury
-        var resDice     //Kość wyniku
-        startRoll("&{template:diceroll} {{name=@{name} wykonuje test siły}} {{wynik=[[@{strength}!]]}} {{pomoc=[[d6!]]}}", (results) => {
-            basicDice = results.results.wynik.result
-            figDice = results.results.pomoc.result
+    //Funkcja służąca do podpinania rzutu do przycisku
+    function bind_roll(attribute_name,attribute){
+        var query="&{template:BasicDiceRoll} "                                                          //Szablon rzutu
+        query=query.concat("{{name=@{name} wykonuje test "+attribute_name+"}} ")                        //Nazwa rzutu
+        query=query.concat("{{wynik=[[@{"+attribute+"}!+@{"+attribute+"_mod}+?{Modyfikator|0}]]}} ")    //Rzut kością główną
+        query=query.concat("{{pomoc=[[d6!+@{"+attribute+"_mod}+?{Modyfikator|0}]]}}")                   //Rzut kością figury
+
+        startRoll(query, (results) => {
+            var basicDice = results.results.wynik.result    //Kość główna
+            var figDice = results.results.pomoc.result      //Kość figury
+            var resDice                                     //Kość wyniku
+
             //Jeśli kość główna nie jest równa jeden i figury jest większa, to zamień
             if(basicDice!=1 && figDice>basicDice){
                 resDice=figDice
@@ -162,8 +181,30 @@
                 {
                     wynik: resDice
                 }
-            );
+            )
 
-        });
-    });
+        })
+    }
+
+    //Przypisanie rzutów do cech
+    on('clicked:roll_strength', (info) => {
+        bind_roll("siły","strength")
+    })
+
+    on('clicked:roll_agility', (info) => {
+        bind_roll("zręczności","agility")
+    })
+
+    on('clicked:roll_smart', (info) => {
+        bind_roll("sprytu","smart")
+    })
+
+    on('clicked:roll_spirit', (info) => {
+        bind_roll("ducha","spirit")
+    })
+
+    on('clicked:roll_vigor', (info) => {
+        bind_roll("wigoru","vigor")
+    })
+
 </script>
