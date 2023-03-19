@@ -1,23 +1,27 @@
+<!--Postać po krótce-->
 <div id="General_description">
-    <!--Postać po krótce-->
     Imię: <input type="text" name="attr_name"><br>
+
     Płeć:<select name="attr_gender">
             <option value="-">-</option>
             <option value="K">K</option>
             <option value="M">M</option>
         </select><br>
+
     Rasa:<select name="attr_race">
             <option value="-">-</option>
             <option value="Człowiek">Człowiek</option>
             <option value="Exo">Exo</option>
             <option value="Przebudzony">Przebudzony</option>
         </select><br>
+
     Klasa:<select name="attr_class">
             <option value="-">-</option>
             <option value="Tytan">Tytan</option>
             <option value="Łowca">Łowca</option>
             <option value="Czarownik">Czarownik</option>
         </select><br>
+
     Podklasa:<select id="subclass_list" name="attr_subclass">
                 <option value="-">-</option>
                 <option value="Słoneczny pogromca">Słoneczny pogromca</option>
@@ -30,13 +34,16 @@
                 <option value="Kroczący przez próżnię">Kroczący przez próżnię</option>
                 <option value="Siewca burz">Siewca burz</option>
         </select><br>
-        Ranga:<input type="text" name="attr_rank" value="-" readonly><br>
-        Poziom:<input type="text" name="attr_level" value="0" readonly><br>
-        PD:<input type="text" name="attr_EXP_To_Next_Level" value="0" readonly><br>
+
+    Ranga:<input type="text" name="attr_rank" value="-" readonly><br>
+
+    Poziom:<input type="text" name="attr_level" value="0" readonly><br>
+
+    PD:<input type="text" name="attr_EXP_To_Next_Level" value="0" readonly><br>
 </div>
 
-<div id="Atribute">
-    <!--Cechy postaci-->
+<!--Cechy postaci-->
+<div id="Atributes">
     <h3>Cechy</h3>
 
     Siła<select name="attr_strength" value="d4">
@@ -104,11 +111,45 @@
     
 
     Rozmiar:<input type="text" name="attr_size" value="0" readonly><br>
+</div>
+
+<div id="Skills">
+    <h3>Umiejętności</h3>
+
+    Hazard [Spryt]<select name="attr_gamble" value="-">
+        <option value="-">-</option>
+        <option value="d4">k4</option>
+        <option value="d6">k6</option>
+        <option value="d8">k8</option>
+        <option value="d10">k10</option>
+        <option value="d12">k12</option>
+    </select>
+    <input type="hidden" name="attr_gamble_mod" value="0">
+    <button type="action" name="act_roll_gamble"></button><br>
+
+<!--
+Hazard [Spryt]
+Pilotowanie [Zręczność]
+Prowadzenie [Zręczność]
+ Przekonywanie [Duch]
+ Przetrwanie [Spryt]
+ Reperowanie [Spryt]
+ Ruch [Zręczność]
+ Rzucanie [Zręczność]
+ Skradanie się [Zręczność]
+ Spostrzegawczość [Spryt]
+ Strzelanie [Zręczność]
+ Tropienie [Spryt]
+ Walka wręcz [Zręczność]
+ Wyszukiwanie [Spryt]
+ Wyśmiewanie [Spryt]
+ Włamywanie się [Zręczność]
+ Zastraszanie [Duch]
+-->
 
 </div>
 
 <input type="number" name="attr_EXP">
-
 
 <rolltemplate class="sheet-rolltemplate-BasicDiceRoll">
     <div class="sheet-template-container">
@@ -231,8 +272,20 @@
     function bind_roll(attribute_name,attribute){
         var query="&{template:BasicDiceRoll} "                                                          //Szablon rzutu
         query=query.concat("{{name=@{name} wykonuje test "+attribute_name+"}} ")                        //Nazwa rzutu
-        query=query.concat("{{wynik=[[@{"+attribute+"}!+@{"+attribute+"_mod}+?{Modyfikator|0}]]}} ")    //Rzut kością główną
-        query=query.concat("{{pomoc=[[d6!+@{"+attribute+"_mod}+?{Modyfikator|0}]]}}")                   //Rzut kością figury
+        var atr
+
+        getAttrs([attribute], function(values){
+            atr=values[attribute]
+        })
+        
+        //Sprawdzenie czy umiejętność jest wykupiona
+        if(atr!="-"){
+            query=query.concat("{{wynik=[[@{"+attribute+"}! +@{"+attribute+"_mod} +?{Modyfikator|0}]]}} ")    //Rzut kością główną
+            query=query.concat("{{pomoc=[[d6! +@{"+attribute+"_mod} +?{Modyfikator|0}]]}}")                   //Rzut kością figury
+        }else{
+            query=query.concat("{{wynik=[[d4!]]}} ")    //Rzut kością główną
+            query=query.concat("{{pomoc=[[d6!]]}}")                   //Rzut kością figury
+        }
 
         startRoll(query, (results) => {
             var basicDice = results.results.wynik.result    //Kość główna
@@ -275,5 +328,11 @@
     on('clicked:roll_vigor', (info) => {
         bind_roll("wigoru","vigor")
     })
+
+    //Przypisanie rzutów do umiejętności
+    on('clicked:roll_gamble', (info) => {
+        bind_roll("hazardu","gamble")
+    })
+
 
 </script>
