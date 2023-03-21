@@ -150,6 +150,9 @@ Prowadzenie [Zręczność]
 </div>
 
 <input type="number" name="attr_EXP">
+<input type="text" name="attr_DEBUG">
+<input type="text" name="attr_DEBUG2">
+<input type="text" name="attr_DEBUG3">
 
 <rolltemplate class="sheet-rolltemplate-BasicDiceRoll">
     <div class="sheet-template-container">
@@ -272,39 +275,37 @@ Prowadzenie [Zręczność]
     function bind_roll(attribute_name,attribute){
         var query="&{template:BasicDiceRoll} "                                                          //Szablon rzutu
         query=query.concat("{{name=@{name} wykonuje test "+attribute_name+"}} ")                        //Nazwa rzutu
-        var atr
-
-        getAttrs([attribute], function(values){
-            atr=values[attribute]
-        })
         
-        //Sprawdzenie czy umiejętność jest wykupiona
-        if(atr!="-"){
-            query=query.concat("{{wynik=[[@{"+attribute+"}! +@{"+attribute+"_mod} +?{Modyfikator|0}]]}} ")    //Rzut kością główną
-            query=query.concat("{{pomoc=[[d6! +@{"+attribute+"_mod} +?{Modyfikator|0}]]}}")                   //Rzut kością figury
-        }else{
-            query=query.concat("{{wynik=[[d4!]]}} ")    //Rzut kością główną
-            query=query.concat("{{pomoc=[[d6!]]}}")                   //Rzut kością figury
-        }
-
-        startRoll(query, (results) => {
-            var basicDice = results.results.wynik.result    //Kość główna
-            var figDice = results.results.pomoc.result      //Kość figury
-            var resDice                                     //Kość wyniku
-
-            //Jeśli kość główna nie jest równa jeden i figury jest większa, to zamień
-            if(basicDice!=1 && figDice>basicDice){
-                resDice=figDice
+        getAttrs([attribute], function(values){
+            var atr=values[attribute]
+            //Sprawdzenie czy umiejętność jest wykupiona
+            if(atr!="-"){
+                query=query.concat("{{wynik=[[@{"+attribute+"}! +@{"+attribute+"_mod} +?{Modyfikator|0}]]}} ")    //Rzut kością główną
+                query=query.concat("{{pomoc=[[d6! +@{"+attribute+"_mod} +?{Modyfikator|0}]]}}")                   //Rzut kością figury
             }else{
-                resDice=basicDice
+                query=query.concat("{{wynik=[[d4!-2]]}} +@{"+attribute+"_mod} +?{Modyfikator|0}]]}}")             //Rzut kością główną
+                query=query.concat("{{pomoc=[[d6!-2]]}} +@{"+attribute+"_mod} +?{Modyfikator|0}]]}}")             //Rzut kością figury
             }
-            finishRoll(
-                results.rollId,
-                {
-                    wynik: resDice
-                }
-            )
 
+            startRoll(query, (results) => {
+                var basicDice = results.results.wynik.result    //Kość główna
+                var figDice = results.results.pomoc.result      //Kość figury
+                var resDice                                     //Kość wyniku
+
+                //Jeśli kość główna nie jest równa jeden i figury jest większa, to zamień
+                if(basicDice!=1 && figDice>basicDice){
+                    resDice=figDice
+                }else{
+                    resDice=basicDice
+                }
+                finishRoll(
+                    results.rollId,
+                    {
+                        wynik: resDice
+                    }
+                )
+
+            })
         })
     }
 
