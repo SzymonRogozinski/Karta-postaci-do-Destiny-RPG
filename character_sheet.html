@@ -317,15 +317,23 @@
 
 <rolltemplate class="sheet-rolltemplate-BasicDiceRoll">
     <div class="sheet-template-container">
-        <h1>{{name}}</h1>
+        <div class="sheet-template-header">{{name}}</div>
         <div class="sheet-results">
-            <h4>Kość główna = {{wynik}}</h4>
-            <h4>Kość figury = {{pomoc}}</h4>
+            <div class="sheet-template-row">
+                <span>Kość główna = {{wynik}}</span>
+            </div>
+            <div class="sheet-template-row">
+                <span>Kość figury = {{pomoc}}</span>
+            </div>
             {{#rollGreater() computed::wynik 3}}
-                <h4>Test zdany</h4>
+                <div class="sheet-template-row-won">
+                    <span>Test zdany</span>
+                </div>
             {{/rollGreater() computed::wynik 3}}
             {{#rollLess() computed::wynik 4}}
-                <h4>Test niezdany</h4>
+                <div class="sheet-template-row-lost">
+                    <span>Test niezdany</span>
+                </div>
             {{/rollLess() computed::wynik 4}}
         </div>
     </div>
