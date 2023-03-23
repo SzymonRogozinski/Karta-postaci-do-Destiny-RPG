@@ -3,37 +3,37 @@
     Imię: <input type="text" name="attr_name"><br>
 
     Płeć:<select name="attr_gender">
-            <option value="-">-</option>
-            <option value="K">K</option>
-            <option value="M">M</option>
-        </select><br>
+        <option value="-">-</option>
+        <option value="K">K</option>
+        <option value="M">M</option>
+    </select><br>
 
     Rasa:<select name="attr_race">
-            <option value="-">-</option>
-            <option value="Człowiek">Człowiek</option>
-            <option value="Exo">Exo</option>
-            <option value="Przebudzony">Przebudzony</option>
-        </select><br>
+        <option value="-">-</option>
+        <option value="Człowiek">Człowiek</option>
+        <option value="Exo">Exo</option>
+        <option value="Przebudzony">Przebudzony</option>
+    </select><br>
 
     Klasa:<select name="attr_class">
-            <option value="-">-</option>
-            <option value="Tytan">Tytan</option>
-            <option value="Łowca">Łowca</option>
-            <option value="Czarownik">Czarownik</option>
-        </select><br>
+        <option value="-">-</option>
+        <option value="Tytan">Tytan</option>
+        <option value="Łowca">Łowca</option>
+        <option value="Czarownik">Czarownik</option>
+    </select><br>
 
     Podklasa:<select id="subclass_list" name="attr_subclass">
-                <option value="-">-</option>
-                <option value="Słoneczny pogromca">Słoneczny pogromca</option>
-                <option value="Szturmowiec">Szturmowiec</option>
-                <option value="Wartownik">Wartownik</option>
-                <option value="Strzelec">Strzelec</option>
-                <option value="Gromodzierżca">Gromodzierżca</option>
-                <option value="Tropiciel">Tropiciel</option>
-                <option value="Ostrze świtu">Ostrze świtu</option>
-                <option value="Kroczący przez próżnię">Kroczący przez próżnię</option>
-                <option value="Siewca burz">Siewca burz</option>
-        </select><br>
+        <option value="-">-</option>
+        <option value="Słoneczny pogromca">Słoneczny pogromca</option>
+        <option value="Szturmowiec">Szturmowiec</option>
+        <option value="Wartownik">Wartownik</option>
+        <option value="Strzelec">Strzelec</option>
+        <option value="Gromodzierżca">Gromodzierżca</option>
+        <option value="Tropiciel">Tropiciel</option>
+        <option value="Ostrze świtu">Ostrze świtu</option>
+        <option value="Kroczący przez próżnię">Kroczący przez próżnię</option>
+        <option value="Siewca burz">Siewca burz</option>
+    </select><br>
 
     Ranga:<input type="text" name="attr_rank" value="-" readonly><br>
 
@@ -108,7 +108,7 @@
 
     Fuksy:<input type="number" name="attr_luck" value="3"><br>
     <input type="hidden" name="attr_luck_max" value="3">
-    
+
 
     Rozmiar:<input type="text" name="attr_size" value="0" readonly><br>
 </div>
@@ -193,7 +193,7 @@
     </select>
     <input type="hidden" name="attr_ridicule_mod" value="0">
     <button type="action" name="act_roll_ridicule"></button><br>
-    
+
     <h6>Zręczność</h6>
     Pilotowanie [Zręczność]<select name="attr_pilotage" value="-">
         <option value="-">-</option>
@@ -217,8 +217,7 @@
     <input type="hidden" name="attr_drive_mod" value="0">
     <button type="action" name="act_roll_drive"></button><br>
 
-    Ruch [Zręczność]<select name="attr_move" value="-">
-        <option value="-">-</option>
+    Ruch [Zręczność]<select name="attr_move" value="d4">
         <option value="d4">k4</option>
         <option value="d6">k6</option>
         <option value="d8">k8</option>
@@ -250,8 +249,7 @@
     <input type="hidden" name="attr_stealth_mod" value="0">
     <button type="action" name="act_roll_stealth"></button><br>
 
-    Strzelanie [Zręczność]<select name="attr_shoot" value="-">
-        <option value="-">-</option>
+    Strzelanie [Zręczność]<select name="attr_shoot" value="d4">
         <option value="d4">k4</option>
         <option value="d6">k6</option>
         <option value="d8">k8</option>
@@ -261,8 +259,7 @@
     <input type="hidden" name="attr_shoot_mod" value="0">
     <button type="action" name="act_roll_shoot"></button><br>
 
-    Walka wręcz [Zręczność]<select name="attr_brawl" value="-">
-        <option value="-">-</option>
+    Walka wręcz [Zręczność]<select name="attr_brawl" value="d4">
         <option value="d4">k4</option>
         <option value="d6">k6</option>
         <option value="d8">k8</option>
@@ -271,7 +268,7 @@
     </select>
     <input type="hidden" name="attr_brawl_mod" value="0">
     <button type="action" name="act_roll_brawl"></button><br>
-    
+
     Włamywanie się [Zręczność]<select name="attr_breaking" value="-">
         <option value="-">-</option>
         <option value="d4">k4</option>
@@ -307,7 +304,21 @@
     <button type="action" name="act_roll_intimidate"></button><br>
 
     <h6>Dodatkowe</h6>
-
+    <div>
+        <fieldset class="repeating_newskill">
+            <input type="text" name="attr_nsname">
+            <select name="attr_nsvalue" value="-">
+                <option value="-">-</option>
+                <option value="d4">k4</option>
+                <option value="d6">k6</option>
+                <option value="d8">k8</option>
+                <option value="d10">k10</option>
+                <option value="d12">k12</option>
+            </select>
+            <input type="hidden" name="attr_nsvaluemod" value="0">
+            <button type="action" name="act_rollns"></button><br>
+        </fieldset>
+    </div>
 </div>
 
 <input type="number" name="attr_EXP">
@@ -326,14 +337,14 @@
                 <span>Kość figury = {{pomoc}}</span>
             </div>
             {{#rollGreater() computed::wynik 3}}
-                <div class="sheet-template-row-won">
-                    <span>Test zdany</span>
-                </div>
+            <div class="sheet-template-row-won">
+                <span>Test zdany</span>
+            </div>
             {{/rollGreater() computed::wynik 3}}
             {{#rollLess() computed::wynik 4}}
-                <div class="sheet-template-row-lost">
-                    <span>Test niezdany</span>
-                </div>
+            <div class="sheet-template-row-lost">
+                <span>Test niezdany</span>
+            </div>
             {{/rollLess() computed::wynik 4}}
         </div>
     </div>
@@ -452,8 +463,8 @@
                 query=query.concat("{{wynik=[[@{"+attribute+"}! +@{"+attribute+"_mod} +?{Modyfikator|0}]]}} ")    //Rzut kością główną
                 query=query.concat("{{pomoc=[[d6! +@{"+attribute+"_mod} +?{Modyfikator|0}]]}}")                   //Rzut kością figury
             }else{
-                query=query.concat("{{wynik=[[d4!-2]]}} +@{"+attribute+"_mod} +?{Modyfikator|0}]]}}")             //Rzut kością główną
-                query=query.concat("{{pomoc=[[d6!-2]]}} +@{"+attribute+"_mod} +?{Modyfikator|0}]]}}")             //Rzut kością figury
+                query=query.concat("{{wynik=[[d4!-2 +@{"+attribute+"_mod} +?{Modyfikator|0}]]}}")             //Rzut kością główną
+                query=query.concat("{{pomoc=[[d6!-2 +@{"+attribute+"_mod} +?{Modyfikator|0}]]}}")             //Rzut kością figury
             }
 
             startRoll(query, (results) => {
@@ -462,7 +473,7 @@
                 var resDice                                     //Kość wyniku
 
                 //Jeśli kość główna nie jest równa jeden i figury jest większa, to zamień
-                if(basicDice!=1 && figDice>basicDice){
+                if(basicDice>1 && figDice>basicDice){
                     resDice=figDice
                 }else{
                     resDice=basicDice
@@ -474,6 +485,49 @@
                     }
                 )
 
+            })
+        })
+    }
+
+    //Funkcja służąca do podpinania rzutu do przycisku dla dodanych umiejętności
+    function bind_roll_new(attribute_name,attribute){
+        attribute_name="repeating_newskill_"+attribute_name         //Nazwa umiejętności
+        attribute="repeating_newskill_"+attribute                   //Wartość umiejętności
+        attribute_mod=attribute+"mod"                               //Modyfikator umiejętności
+        var query="&{template:BasicDiceRoll} "                      //Szablon rzutu
+
+        getAttrs([attribute,attribute_name,attribute_mod], function(values){
+            let name=values[attribute_name]             //Nazwa umiejętności
+            let atr=values[attribute]                   //Wartość umiejętności
+            let mod=values[attribute_mod]               //Modyfikator umiejętności
+            query=query.concat("{{name=@{name} wykonuje test "+name+"}} ")                        //Nazwa rzutu
+            //Sprawdzenie czy umiejętność jest wykupiona
+            if(atr!="-"){             
+                query=query.concat("{{wynik=[["+atr+"! +"+mod+" +?{Modyfikator|0}]]}}")          //Rzut kością główną
+                query=query.concat("{{pomoc=[[d6! +"+mod+" +?{Modyfikator|0}]]}}")               //Rzut kością figury
+            }else{
+                query=query.concat("{{wynik=[[d4!-2 +"+mod+" +?{Modyfikator|0}]]}}")             //Rzut kością główną
+                query=query.concat("{{pomoc=[[d6!-2 +"+mod+" +?{Modyfikator|0}]]}}")             //Rzut kością figury
+            }
+    
+            startRoll(query, (results) => {
+                var basicDice = results.results.wynik.result    //Kość główna
+                var figDice = results.results.pomoc.result      //Kość figury
+                var resDice                                     //Kość wyniku
+    
+                //Jeśli kość główna nie jest równa jeden i figury jest większa, to zamień
+                if(basicDice>1 && figDice>basicDice){
+                    resDice=figDice
+                }else{
+                    resDice=basicDice
+                }
+                finishRoll(
+                    results.rollId,
+                    {
+                        wynik: resDice
+                    }
+                )
+    
             })
         })
     }
@@ -566,6 +620,10 @@
 
     on('clicked:roll_intimidate', (info) => {
         bind_roll("zastraszania","intimidate")
+    })
+
+    on('clicked:repeating_newskill:rollns', (info) => {
+        bind_roll_new("nsname","nsvalue")
     })
      
 </script>

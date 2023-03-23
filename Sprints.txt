@@ -20,4 +20,4 @@ Sprint 2:
     - Stworzenie segmentu "Umiejętności" (19.03.2023 - 21.03.2023)
     - Implementacja relacji pomiędzy istniejącymi atrybutami (15.03.2023 - 21.03.2023)
     - Napisanie makra dotyczącego rzutów (16.03.2023 - 21.03.2023)
-    - Umożliwienie dodawania kolejnych umiejętności
+    - Umożliwienie dodawania kolejnych umiejętności (23.03.2023 - 23.03.2023)
