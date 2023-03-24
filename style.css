@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Audiowide');
+
+/* Wygląd szablonu rzutu*/
 .sheet-rolltemplate-BasicDiceRoll div.sheet-template-container {
 	border: 2px solid #000 !important;
 	border-radius: 3px 3px 3px 3px;
@@ -32,4 +35,56 @@
 }
 .sheet-rolltemplate-BasicDiceRoll div.sheet-template-row-won {
 	color: rgb(22, 149, 11);
+}
+
+/*Wygląd karty postaci*/
+.sheet-3colrow{
+	font-family: "Audiowide";
+}
+.sheet-3colrow div.sheet-col{
+	border: 5px solid rgb(0, 0, 0);
+}
+
+.sheet-3colrow div.sheet-col div{
+	border: 2px solid rgb(0, 0, 0);
+}
+
+.sheet-3colrow input.input_long{
+	width: 50%;
+	text-align: center;
+}
+
+.sheet-3colrow input.input_short{
+	width: 15%;
+	text-align: center;
+}
+
+.sheet-3colrow select.text_select{
+	width: 50%;
+	text-align: center;
+}
+
+.sheet-3colrow select.short_select{
+	width: 20%;
+	text-align: center;
+}
+
+.sheet-3colrow div.sheet-col #Skills select{
+	width: 20%;
+	text-align: center;
+	font-size: smaller;
+}
+
+.sheet-3colrow div.sheet-col #Skills{
+	font-size: smaller;
+}
+
+
+.sheet-3colrow div.sheet-col #Atributes select{
+	width: 20%;
+	text-align: center;
+}
+
+.sheet-3colrow div.sheet-col #Skills button{
+	/*width: 5%;*/
 }
