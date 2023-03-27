@@ -8,16 +8,23 @@ Schemat:
 "
 
 Sprint 1:
-    - Stworzenie listy elementów, które należy umieścić na karcie (27.02.2023 - 27.02.2023)
-    - Podzielenie elementów w grupy (27.02.2023 - 28.02.2023)
-    - Określenie akceptowalnych wartości dla danych elementów (28.02.2023 - 06.03.2023)
-    - Zapisanie powiązań między elementami (28.02.2023 - 06.03.2023)
-    - Zaproponowanie struktury elementów z uwględnieniem powyższych kroków (08.03.2023 - 08.03.2023)
+    	- Stworzenie listy elementów, które należy umieścić na karcie (27.02.2023 - 27.02.2023)
+    	- Podzielenie elementów w grupy (27.02.2023 - 28.02.2023)
+    	- Określenie akceptowalnych wartości dla danych elementów (28.02.2023 - 06.03.2023)
+    	- Zapisanie powiązań między elementami (28.02.2023 - 06.03.2023)
+    	- Zaproponowanie struktury elementów z uwględnieniem powyższych kroków (08.03.2023 - 08.03.2023)
 
 Sprint 2:
-    - Stworzenie segmentu "Postać po krótce" (15.03.2023 - 15.03.2023)
-    - Stworzenie segmentu "Cechy" (16.03.2023 - 19.03.2023)
-    - Stworzenie segmentu "Umiejętności" (19.03.2023 - 21.03.2023)
-    - Implementacja relacji pomiędzy istniejącymi atrybutami (15.03.2023 - 21.03.2023)
-    - Napisanie makra dotyczącego rzutów (16.03.2023 - 21.03.2023)
-    - Umożliwienie dodawania kolejnych umiejętności (23.03.2023 - 23.03.2023)
+    	- Stworzenie segmentu "Postać po krótce" (15.03.2023 - 15.03.2023)
+    	- Stworzenie segmentu "Cechy" (16.03.2023 - 19.03.2023)
+    	- Stworzenie segmentu "Umiejętności" (19.03.2023 - 21.03.2023)
+    	- Implementacja relacji pomiędzy istniejącymi atrybutami (15.03.2023 - 21.03.2023)
+    	- Napisanie makra dotyczącego rzutów (16.03.2023 - 21.03.2023)
+    	- Umożliwienie dodawania kolejnych umiejętności (23.03.2023 - 23.03.2023)
+
+Sprint 3:
+	- Stworzenie segmentu zasoby
+	- Stworzenie segmentu przewagi
+	- Stworzenie segmentu zawady
+	- Dodanie przełączania się między stronami
+	- Poprawienie wyglądu karty 
