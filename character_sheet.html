@@ -1,8 +1,8 @@
-<div class='sheet-3colrow'>
+<div class='flex-container'>
     <!--Pierwsza kolumna-->
-    <div class='sheet-col'>
+    <div class="sheet-col">
         <!--Postać po krótce-->
-        <div id="General_description">
+        <div id="General_description" class="sector">
             Imię: <input class="input_long" type="text" name="attr_name"><br>
 
             Płeć:<select class="short_select" name="attr_gender">
@@ -45,8 +45,7 @@
             PD:<input class="input_short" type="text" name="attr_EXP_To_Next_Level" value="0" readonly><br>
         </div>
 
-
-        <div id="Skills">
+        <div id="Skills" class="sector">
             <h3>Umiejętności</h3>
 
             <h6>Spryt</h6>
@@ -256,9 +255,9 @@
     </div>
 
     <!--Druga kolumna-->
-    <div class='sheet-col'>
+    <div class="sheet-col">
         <!--Cechy postaci-->
-        <div id="Atributes">
+        <div id="Atributes" class="sector">
             <h3>Cechy</h3>
 
             Siła<select name="attr_strength" value="d4">
@@ -327,12 +326,51 @@
 
             Rozmiar:<input class="input_short" type="text" name="attr_size" value="0" readonly><br>
         </div>
+
+        <!--Przewagi-->
+        <div id="Advances" class="sector">
+            <h3>Przewagi</h3>
+            <fieldset class="repeating_advantage">
+                <details>
+                    <summary>
+                        Nazwa<input type="text" name="attr_advname"><br>
+                        Wymagania<input type="text" name="attr_advreq"><br>
+                    </summary>
+
+                    Opis<br><textarea name="attr_advdiscDetails"></textarea>
+                </details>
+            </fieldset>
+        </div>
+
+        <!--Zawady-->
+        <div id="Edges" class="sector">
+            <h3>Zawady</h3>
+            <fieldset class="repeating_edges">
+                <details>
+                    <summary>
+                        Nazwa<input type="text" name="attr_edgname"><br>
+                        Stopień<input type="text" name="attr_edgstr"><br>
+                    </summary>
+
+                    Opis<br><textarea name="attr_edgDetails"></textarea>
+                </details>
+            </fieldset>
+        </div>
     </div>
 
     <!--Trzecia kolumna-->
     <div class='sheet-col'>
-
+        <div id="resource" class="sector">
+            <h3>Zasoby:</h3>
+            Punkty światła<input type="number" name="attr_light_point" min="0" max="10" value="0" /><br>
+            <h4>Amunicja</h4>
+            Kinetyczna<input type="number" name="attr_kinetic_amno" min="0" max="10" value="0" /><br>
+            Specjalna<input type="number" name="attr_special_amno" min="0" max="10" value="0" /><br>
+            Ciężka<input type="number" name="attr_heavy_amno" min="0" max="10" value="0" /><br>
+        </div>
     </div>
+
+
 </div>
 
 <input type="number" name="attr_EXP">

@@ -23,8 +23,8 @@ Sprint 2:
     	- Umożliwienie dodawania kolejnych umiejętności (23.03.2023 - 23.03.2023)
 
 Sprint 3:
-	- Stworzenie segmentu zasoby
-	- Stworzenie segmentu przewagi
-	- Stworzenie segmentu zawady
+	- Stworzenie segmentu "zasoby" (28.03.2023)
+	- Stworzenie segmentu "przewagi" (28.03.2023)
+	- Stworzenie segmentu "zawady" (28.03.2023)
 	- Dodanie przełączania się między stronami
 	- Poprawienie wyglądu karty 

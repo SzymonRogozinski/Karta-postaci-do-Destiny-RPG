@@ -38,53 +38,58 @@
 }
 
 /*Wygląd karty postaci*/
-.sheet-3colrow{
+.flex-container{
 	font-family: "Audiowide";
-}
-.sheet-3colrow div.sheet-col{
-	border: 5px solid rgb(0, 0, 0);
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
 }
 
-.sheet-3colrow div.sheet-col div{
+.flex-container div.sheet-col{
+	border: 3px solid rgb(0, 0, 0);
+}
+
+.flex-container div.sheet-col div.sector{
 	border: 2px solid rgb(0, 0, 0);
 }
 
-.sheet-3colrow input.input_long{
+.flex-container input.input_long{
 	width: 50%;
 	text-align: center;
 }
 
-.sheet-3colrow input.input_short{
+.flex-container input.input_short{
 	width: 15%;
 	text-align: center;
 }
 
-.sheet-3colrow select.text_select{
+.flex-container select.text_select{
 	width: 50%;
 	text-align: center;
 }
 
-.sheet-3colrow select.short_select{
+.flex-container select.short_select{
 	width: 20%;
 	text-align: center;
 }
 
-.sheet-3colrow div.sheet-col #Skills select{
+.flex-container div.sheet-col #Skills select{
 	width: 20%;
 	text-align: center;
 	font-size: smaller;
 }
 
-.sheet-3colrow div.sheet-col #Skills{
+.flex-container div.sheet-col #Skills{
 	font-size: smaller;
 }
 
 
-.sheet-3colrow div.sheet-col #Atributes select{
+.flex-container div.sheet-col #Atributes select{
 	width: 20%;
 	text-align: center;
 }
 
-.sheet-3colrow div.sheet-col #Skills button{
-	/*width: 5%;*/
-}
+/*
+.flex-container div.sheet-col #Skills button{
+	width: 5%;
+}*/
