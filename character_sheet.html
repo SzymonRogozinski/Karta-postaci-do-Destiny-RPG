@@ -3,253 +3,285 @@
     <div class="sheet-col">
         <!--Postać po krótce-->
         <div id="General_description" class="sector">
-            Imię: <input class="input_long" type="text" name="attr_name"><br>
+            <div class="sub_sector">
+                Imię: <input class="input_long" type="text" name="attr_name">
 
-            Płeć:<select class="short_select" name="attr_gender">
-                <option value="-">-</option>
-                <option value="K">K</option>
-                <option value="M">M</option>
-            </select><br>
+                Płeć:<select class="short_select" name="attr_gender">
+                    <option value="-">-</option>
+                    <option value="K">K</option>
+                    <option value="M">M</option>
+                </select>
+            </div>
 
-            Rasa:<select class="text_select" name="attr_race">
-                <option value="-">-</option>
-                <option value="Człowiek">Człowiek</option>
-                <option value="Exo">Exo</option>
-                <option value="Przebudzony">Przebudzony</option>
-            </select><br>
+            <div class="sub_sector">
+                Rasa:<select class="text_select" name="attr_race">
+                    <option value="-">-</option>
+                    <option value="Człowiek">Człowiek</option>
+                    <option value="Exo">Exo</option>
+                    <option value="Przebudzony">Przebudzony</option>
+                </select><br>
+            </div>
 
-            Klasa:<select class="text_select" name="attr_class">
-                <option value="-">-</option>
-                <option value="Tytan">Tytan</option>
-                <option value="Łowca">Łowca</option>
-                <option value="Czarownik">Czarownik</option>
-            </select><br>
+            <div class="sub_sector">
+                Klasa:<select class="text_select" name="attr_class">
+                    <option value="-">-</option>
+                    <option value="Tytan">Tytan</option>
+                    <option value="Łowca">Łowca</option>
+                    <option value="Czarownik">Czarownik</option>
+                </select><br>
+            </div>
 
-            Podklasa:<select class="text_select" id="subclass_list" name="attr_subclass">
-                <option value="-">-</option>
-                <option value="Słoneczny pogromca">Słoneczny pogromca</option>
-                <option value="Szturmowiec">Szturmowiec</option>
-                <option value="Wartownik">Wartownik</option>
-                <option value="Strzelec">Strzelec</option>
-                <option value="Gromodzierżca">Gromodzierżca</option>
-                <option value="Tropiciel">Tropiciel</option>
-                <option value="Ostrze świtu">Ostrze świtu</option>
-                <option value="Kroczący przez próżnię">Kroczący przez próżnię</option>
-                <option value="Siewca burz">Siewca burz</option>
-            </select><br>
+            <div class="sub_sector">
+                Podklasa:<select class="text_select" id="subclass_list" name="attr_subclass">
+                    <option value="-">-</option>
+                    <option value="Słoneczny pogromca">Słoneczny pogromca</option>
+                    <option value="Szturmowiec">Szturmowiec</option>
+                    <option value="Wartownik">Wartownik</option>
+                    <option value="Strzelec">Strzelec</option>
+                    <option value="Gromodzierżca">Gromodzierżca</option>
+                    <option value="Tropiciel">Tropiciel</option>
+                    <option value="Ostrze świtu">Ostrze świtu</option>
+                    <option value="Kroczący przez próżnię">Kroczący przez próżnię</option>
+                    <option value="Siewca burz">Siewca burz</option>
+                </select><br>
+            </div>
 
-            Ranga:<input class="input_long" type="text" name="attr_rank" value="-" readonly><br>
+            <div class="sub_sector">
+                Ranga:<input class="input_long" type="text" name="attr_rank" value="-" readonly><br>
+            </div>
 
-            Poziom:<input class="input_short" type="text" name="attr_level" value="0" readonly><br>
+            <div class="sub_sector">
+                Poziom:<input class="input_short" type="text" name="attr_level" value="0" readonly><br>
 
-            PD:<input class="input_short" type="text" name="attr_EXP_To_Next_Level" value="0" readonly><br>
+                PD:<input class="input_short" type="text" name="attr_EXP_To_Next_Level" value="0" readonly><br>
+            </div>
         </div>
 
         <div id="Skills" class="sector">
             <h3>Umiejętności</h3>
 
             <h6>Spryt</h6>
-            Hazard [Spryt]<select name="attr_gamble" value="-">
-                <option value="-">-</option>
-                <option value="d4">k4</option>
-                <option value="d6">k6</option>
-                <option value="d8">k8</option>
-                <option value="d10">k10</option>
-                <option value="d12">k12</option>
-            </select>
-            <input type="hidden" name="attr_gamble_mod" value="0">
-            <button type="action" name="act_roll_gamble"></button><br>
-
-            Przetrwanie [Spryt]<select name="attr_survival" value="-">
-                <option value="-">-</option>
-                <option value="d4">k4</option>
-                <option value="d6">k6</option>
-                <option value="d8">k8</option>
-                <option value="d10">k10</option>
-                <option value="d12">k12</option>
-            </select>
-            <input type="hidden" name="attr_survival_mod" value="0">
-            <button type="action" name="act_roll_survival"></button><br>
-
-            Reperowanie [Spryt]<select name="attr_repair" value="-">
-                <option value="-">-</option>
-                <option value="d4">k4</option>
-                <option value="d6">k6</option>
-                <option value="d8">k8</option>
-                <option value="d10">k10</option>
-                <option value="d12">k12</option>
-            </select>
-            <input type="hidden" name="attr_repair_mod" value="0">
-            <button type="action" name="act_roll_repair"></button><br>
-
-            Spostrzegawczość [Spryt]<select name="attr_spot" value="-">
-                <option value="-">-</option>
-                <option value="d4">k4</option>
-                <option value="d6">k6</option>
-                <option value="d8">k8</option>
-                <option value="d10">k10</option>
-                <option value="d12">k12</option>
-            </select>
-            <input type="hidden" name="attr_spot_mod" value="0">
-            <button type="action" name="act_roll_spot"></button><br>
-
-            Tropienie [Spryt]<select name="attr_tracking" value="-">
-                <option value="-">-</option>
-                <option value="d4">k4</option>
-                <option value="d6">k6</option>
-                <option value="d8">k8</option>
-                <option value="d10">k10</option>
-                <option value="d12">k12</option>
-            </select>
-            <input type="hidden" name="attr_tracking_mod" value="0">
-            <button type="action" name="act_roll_tracking"></button><br>
-
-            Wyszukiwanie [Spryt]<select name="attr_search" value="-">
-                <option value="-">-</option>
-                <option value="d4">k4</option>
-                <option value="d6">k6</option>
-                <option value="d8">k8</option>
-                <option value="d10">k10</option>
-                <option value="d12">k12</option>
-            </select>
-            <input type="hidden" name="attr_search_mod" value="0">
-            <button type="action" name="act_roll_search"></button><br>
-
-            Wyśmiewanie [Spryt]<select name="attr_ridicule" value="-">
-                <option value="-">-</option>
-                <option value="d4">k4</option>
-                <option value="d6">k6</option>
-                <option value="d8">k8</option>
-                <option value="d10">k10</option>
-                <option value="d12">k12</option>
-            </select>
-            <input type="hidden" name="attr_ridicule_mod" value="0">
-            <button type="action" name="act_roll_ridicule"></button><br>
-
+            <div class="sub_sector">
+                Hazard [Spryt]<select name="attr_gamble" value="-">
+                    <option value="-">-</option>
+                    <option value="d4">k4</option>
+                    <option value="d6">k6</option>
+                    <option value="d8">k8</option>
+                    <option value="d10">k10</option>
+                    <option value="d12">k12</option>
+                </select>
+                <input type="hidden" name="attr_gamble_mod" value="0">
+                <button type="action" class="roll_button" name="act_roll_gamble"></button><br>
+            </div>
+            <div class="sub_sector">
+                Przetrwanie [Spryt]<select name="attr_survival" value="-">
+                    <option value="-">-</option>
+                    <option value="d4">k4</option>
+                    <option value="d6">k6</option>
+                    <option value="d8">k8</option>
+                    <option value="d10">k10</option>
+                    <option value="d12">k12</option>
+                </select>
+                <input type="hidden" name="attr_survival_mod" value="0">
+                <button type="action" class="roll_button" name="act_roll_survival"></button><br>
+            </div>
+            <div class="sub_sector">
+                Reperowanie [Spryt]<select name="attr_repair" value="-">
+                    <option value="-">-</option>
+                    <option value="d4">k4</option>
+                    <option value="d6">k6</option>
+                    <option value="d8">k8</option>
+                    <option value="d10">k10</option>
+                    <option value="d12">k12</option>
+                </select>
+                <input type="hidden" name="attr_repair_mod" value="0">
+                <button type="action" class="roll_button" name="act_roll_repair"></button><br>
+            </div>
+            <div class="sub_sector">
+                Spostrzegawczość [Spryt]<select name="attr_spot" value="-">
+                    <option value="-">-</option>
+                    <option value="d4">k4</option>
+                    <option value="d6">k6</option>
+                    <option value="d8">k8</option>
+                    <option value="d10">k10</option>
+                    <option value="d12">k12</option>
+                </select>
+                <input type="hidden" name="attr_spot_mod" value="0">
+                <button type="action" class="roll_button" name="act_roll_spot"></button><br>
+            </div>
+            <div class="sub_sector">
+                Tropienie [Spryt]<select name="attr_tracking" value="-">
+                    <option value="-">-</option>
+                    <option value="d4">k4</option>
+                    <option value="d6">k6</option>
+                    <option value="d8">k8</option>
+                    <option value="d10">k10</option>
+                    <option value="d12">k12</option>
+                </select>
+                <input type="hidden" name="attr_tracking_mod" value="0">
+                <button type="action" class="roll_button" name="act_roll_tracking"></button><br>
+            </div>
+            <div class="sub_sector">
+                Wyszukiwanie [Spryt]<select name="attr_search" value="-">
+                    <option value="-">-</option>
+                    <option value="d4">k4</option>
+                    <option value="d6">k6</option>
+                    <option value="d8">k8</option>
+                    <option value="d10">k10</option>
+                    <option value="d12">k12</option>
+                </select>
+                <input type="hidden" name="attr_search_mod" value="0">
+                <button type="action" class="roll_button" name="act_roll_search"></button><br>
+            </div>
+            <div class="sub_sector">
+                Wyśmiewanie [Spryt]<select name="attr_ridicule" value="-">
+                    <option value="-">-</option>
+                    <option value="d4">k4</option>
+                    <option value="d6">k6</option>
+                    <option value="d8">k8</option>
+                    <option value="d10">k10</option>
+                    <option value="d12">k12</option>
+                </select>
+                <input type="hidden" name="attr_ridicule_mod" value="0">
+                <button type="action" class="roll_button" name="act_roll_ridicule"></button><br>
+            </div>
             <h6>Zręczność</h6>
-            Pilotowanie [Zręczność]<select name="attr_pilotage" value="-">
-                <option value="-">-</option>
-                <option value="d4">k4</option>
-                <option value="d6">k6</option>
-                <option value="d8">k8</option>
-                <option value="d10">k10</option>
-                <option value="d12">k12</option>
-            </select>
-            <input type="hidden" name="attr_pilotage_mod" value="0">
-            <button type="action" name="act_roll_pilotage"></button><br>
-
-            Prowadzenie [Zręczność]<select name="attr_drive" value="-">
-                <option value="-">-</option>
-                <option value="d4">k4</option>
-                <option value="d6">k6</option>
-                <option value="d8">k8</option>
-                <option value="d10">k10</option>
-                <option value="d12">k12</option>
-            </select>
-            <input type="hidden" name="attr_drive_mod" value="0">
-            <button type="action" name="act_roll_drive"></button><br>
-
-            Ruch [Zręczność]<select name="attr_move" value="d4">
-                <option value="d4">k4</option>
-                <option value="d6">k6</option>
-                <option value="d8">k8</option>
-                <option value="d10">k10</option>
-                <option value="d12">k12</option>
-            </select>
-            <input type="hidden" name="attr_move_mod" value="0">
-            <button type="action" name="act_roll_move"></button><br>
-
-            Rzucanie [Zręczność]<select name="attr_throw" value="-">
-                <option value="-">-</option>
-                <option value="d4">k4</option>
-                <option value="d6">k6</option>
-                <option value="d8">k8</option>
-                <option value="d10">k10</option>
-                <option value="d12">k12</option>
-            </select>
-            <input type="hidden" name="attr_throw_mod" value="0">
-            <button type="action" name="act_roll_throw"></button><br>
-
-            Skradanie się [Zręczność]<select name="attr_stealth" value="-">
-                <option value="-">-</option>
-                <option value="d4">k4</option>
-                <option value="d6">k6</option>
-                <option value="d8">k8</option>
-                <option value="d10">k10</option>
-                <option value="d12">k12</option>
-            </select>
-            <input type="hidden" name="attr_stealth_mod" value="0">
-            <button type="action" name="act_roll_stealth"></button><br>
-
-            Strzelanie [Zręczność]<select name="attr_shoot" value="d4">
-                <option value="d4">k4</option>
-                <option value="d6">k6</option>
-                <option value="d8">k8</option>
-                <option value="d10">k10</option>
-                <option value="d12">k12</option>
-            </select>
-            <input type="hidden" name="attr_shoot_mod" value="0">
-            <button type="action" name="act_roll_shoot"></button><br>
-
-            Walka wręcz [Zręczność]<select name="attr_brawl" value="d4">
-                <option value="d4">k4</option>
-                <option value="d6">k6</option>
-                <option value="d8">k8</option>
-                <option value="d10">k10</option>
-                <option value="d12">k12</option>
-            </select>
-            <input type="hidden" name="attr_brawl_mod" value="0">
-            <button type="action" name="act_roll_brawl"></button><br>
-
-            Włamywanie się [Zręczność]<select name="attr_breaking" value="-">
-                <option value="-">-</option>
-                <option value="d4">k4</option>
-                <option value="d6">k6</option>
-                <option value="d8">k8</option>
-                <option value="d10">k10</option>
-                <option value="d12">k12</option>
-            </select>
-            <input type="hidden" name="attr_breaking_mod" value="0">
-            <button type="action" name="act_roll_breaking"></button><br>
-
+            <div class="sub_sector">
+                Pilotowanie [Zręczność]<select name="attr_pilotage" value="-">
+                    <option value="-">-</option>
+                    <option value="d4">k4</option>
+                    <option value="d6">k6</option>
+                    <option value="d8">k8</option>
+                    <option value="d10">k10</option>
+                    <option value="d12">k12</option>
+                </select>
+                <input type="hidden" name="attr_pilotage_mod" value="0">
+                <button type="action" class="roll_button" name="act_roll_pilotage"></button><br>
+            </div>
+            <div class="sub_sector">
+                Prowadzenie [Zręczność]<select name="attr_drive" value="-">
+                    <option value="-">-</option>
+                    <option value="d4">k4</option>
+                    <option value="d6">k6</option>
+                    <option value="d8">k8</option>
+                    <option value="d10">k10</option>
+                    <option value="d12">k12</option>
+                </select>
+                <input type="hidden" name="attr_drive_mod" value="0">
+                <button type="action" class="roll_button" name="act_roll_drive"></button><br>
+            </div>
+            <div class="sub_sector">
+                Ruch [Zręczność]<select name="attr_move" value="d4">
+                    <option value="d4">k4</option>
+                    <option value="d6">k6</option>
+                    <option value="d8">k8</option>
+                    <option value="d10">k10</option>
+                    <option value="d12">k12</option>
+                </select>
+                <input type="hidden" name="attr_move_mod" value="0">
+                <button type="action" class="roll_button" name="act_roll_move"></button><br>
+            </div>
+            <div class="sub_sector">
+                Rzucanie [Zręczność]<select name="attr_throw" value="-">
+                    <option value="-">-</option>
+                    <option value="d4">k4</option>
+                    <option value="d6">k6</option>
+                    <option value="d8">k8</option>
+                    <option value="d10">k10</option>
+                    <option value="d12">k12</option>
+                </select>
+                <input type="hidden" name="attr_throw_mod" value="0">
+                <button type="action" class="roll_button" name="act_roll_throw"></button><br>
+            </div>
+            <div class="sub_sector">
+                Skradanie się [Zręczność]<select name="attr_stealth" value="-">
+                    <option value="-">-</option>
+                    <option value="d4">k4</option>
+                    <option value="d6">k6</option>
+                    <option value="d8">k8</option>
+                    <option value="d10">k10</option>
+                    <option value="d12">k12</option>
+                </select>
+                <input type="hidden" name="attr_stealth_mod" value="0">
+                <button type="action" class="roll_button" name="act_roll_stealth"></button><br>
+            </div>
+            <div class="sub_sector">
+                Strzelanie [Zręczność]<select name="attr_shoot" value="d4">
+                    <option value="d4">k4</option>
+                    <option value="d6">k6</option>
+                    <option value="d8">k8</option>
+                    <option value="d10">k10</option>
+                    <option value="d12">k12</option>
+                </select>
+                <input type="hidden" name="attr_shoot_mod" value="0">
+                <button type="action" class="roll_button" name="act_roll_shoot"></button><br>
+            </div>
+            <div class="sub_sector">
+                Walka wręcz [Zręczność]<select name="attr_brawl" value="d4">
+                    <option value="d4">k4</option>
+                    <option value="d6">k6</option>
+                    <option value="d8">k8</option>
+                    <option value="d10">k10</option>
+                    <option value="d12">k12</option>
+                </select>
+                <input type="hidden" name="attr_brawl_mod" value="0">
+                <button type="action" class="roll_button" name="act_roll_brawl"></button><br>
+            </div>
+            <div class="sub_sector">
+                Włamywanie się [Zręczność]<select name="attr_breaking" value="-">
+                    <option value="-">-</option>
+                    <option value="d4">k4</option>
+                    <option value="d6">k6</option>
+                    <option value="d8">k8</option>
+                    <option value="d10">k10</option>
+                    <option value="d12">k12</option>
+                </select>
+                <input type="hidden" name="attr_breaking_mod" value="0">
+                <button type="action" class="roll_button" name="act_roll_breaking"></button><br>
+            </div>
             <h6>Duch</h6>
-            Przekonywanie [Duch]<select name="attr_persuade" value="-">
-                <option value="-">-</option>
-                <option value="d4">k4</option>
-                <option value="d6">k6</option>
-                <option value="d8">k8</option>
-                <option value="d10">k10</option>
-                <option value="d12">k12</option>
-            </select>
-            <input type="hidden" name="attr_persuade_mod" value="0">
-            <button type="action" name="act_roll_persuade"></button><br>
-
-            Zastraszanie [Duch]<select name="attr_intimidate" value="-">
-                <option value="-">-</option>
-                <option value="d4">k4</option>
-                <option value="d6">k6</option>
-                <option value="d8">k8</option>
-                <option value="d10">k10</option>
-                <option value="d12">k12</option>
-            </select>
-            <input type="hidden" name="attr_intimidate_mod" value="0">
-            <button type="action" name="act_roll_intimidate"></button><br>
+            <div class="sub_sector">
+                Przekonywanie [Duch]<select name="attr_persuade" value="-">
+                    <option value="-">-</option>
+                    <option value="d4">k4</option>
+                    <option value="d6">k6</option>
+                    <option value="d8">k8</option>
+                    <option value="d10">k10</option>
+                    <option value="d12">k12</option>
+                </select>
+                <input type="hidden" name="attr_persuade_mod" value="0">
+                <button type="action" class="roll_button" name="act_roll_persuade"></button><br>
+            </div>
+            <div class="sub_sector">
+                Zastraszanie [Duch]<select name="attr_intimidate" value="-">
+                    <option value="-">-</option>
+                    <option value="d4">k4</option>
+                    <option value="d6">k6</option>
+                    <option value="d8">k8</option>
+                    <option value="d10">k10</option>
+                    <option value="d12">k12</option>
+                </select>
+                <input type="hidden" name="attr_intimidate_mod" value="0">
+                <button type="action" class="roll_button" name="act_roll_intimidate"></button><br>
+            </div>
 
             <h6>Dodatkowe</h6>
-            <div>
-                <fieldset class="repeating_newskill">
-                    <input class="input_long" type="text" name="attr_nsname">
-                    <select name="attr_nsvalue" value="-">
-                        <option value="-">-</option>
-                        <option value="d4">k4</option>
-                        <option value="d6">k6</option>
-                        <option value="d8">k8</option>
-                        <option value="d10">k10</option>
-                        <option value="d12">k12</option>
-                    </select>
-                    <input type="hidden" name="attr_nsvaluemod" value="0">
-                    <button type="action" name="act_rollns"></button><br>
-                </fieldset>
+            <div class="sub_sector">
+                <div>
+                    <fieldset class="repeating_newskill">
+                        <input class="input_long" type="text" name="attr_nsname">
+                        <select name="attr_nsvalue" value="-">
+                            <option value="-">-</option>
+                            <option value="d4">k4</option>
+                            <option value="d6">k6</option>
+                            <option value="d8">k8</option>
+                            <option value="d10">k10</option>
+                            <option value="d12">k12</option>
+                        </select>
+                        <input type="hidden" name="attr_nsvaluemod" value="0">
+                        <button type="action" class="roll_button" name="act_rollns"></button><br>
+                    </fieldset>
+                </div>
             </div>
         </div>
     </div>
@@ -259,102 +291,116 @@
         <!--Cechy postaci-->
         <div id="Atributes" class="sector">
             <h3>Cechy</h3>
+            <div class="sub_sector">
+                Siła<select name="attr_strength" value="d4">
+                    <option value="d4">k4</option>
+                    <option value="d6">k6</option>
+                    <option value="d8">k8</option>
+                    <option value="d10">k10</option>
+                    <option value="d12">k12</option>
+                </select>
+                <input type="hidden" name="attr_strength_mod" value="0">
+                <button type="action" class="roll_button" name="act_roll_strength"></button><br>
 
-            Siła<select name="attr_strength" value="d4">
-                <option value="d4">k4</option>
-                <option value="d6">k6</option>
-                <option value="d8">k8</option>
-                <option value="d10">k10</option>
-                <option value="d12">k12</option>
-            </select>
-            <input type="hidden" name="attr_strength_mod" value="0">
-            <button type="action" name="act_roll_strength"></button><br>
+                Zręczność<select name="attr_agility" value="d4">
+                    <option value="d4">k4</option>
+                    <option value="d6">k6</option>
+                    <option value="d8">k8</option>
+                    <option value="d10">k10</option>
+                    <option value="d12">k12</option>
+                </select>
+                <input type="hidden" name="attr_agility_mod" value="0">
+                <button type="action" class="roll_button" name="act_roll_agility"></button><br>
+            </div>
+            <div class="sub_sector">
+                Spryt<select name="attr_smart" value="d4">
+                    <option value="d4">k4</option>
+                    <option value="d6">k6</option>
+                    <option value="d8">k8</option>
+                    <option value="d10">k10</option>
+                    <option value="d12">k12</option>
+                </select>
+                <input type="hidden" name="attr_smart_mod" value="0">
+                <button type="action" class="roll_button" name="act_roll_smart"></button><br>
 
-            Zręczność<select name="attr_agility" value="d4">
-                <option value="d4">k4</option>
-                <option value="d6">k6</option>
-                <option value="d8">k8</option>
-                <option value="d10">k10</option>
-                <option value="d12">k12</option>
-            </select>
-            <input type="hidden" name="attr_agility_mod" value="0">
-            <button type="action" name="act_roll_agility"></button><br>
+                Duch<select name="attr_spirit" value="d4">
+                    <option value="d4">k4</option>
+                    <option value="d6">k6</option>
+                    <option value="d8">k8</option>
+                    <option value="d10">k10</option>
+                    <option value="d12">k12</option>
+                </select>
+                <input type="hidden" name="attr_spirit_mod" value="0">
+                <button type="action" class="roll_button" name="act_roll_spirit"></button><br>
+            </div>
+            <div class="sub_sector" id="spec_sub_sector">
+                Wigor<select name="attr_vigor" value="d4">
+                    <option value="d4">k4</option>
+                    <option value="d6">k6</option>
+                    <option value="d8">k8</option>
+                    <option value="d10">k10</option>
+                    <option value="d12">k12</option>
+                </select>
+                <input type="hidden" class="roll_button" name="attr_vigor_mod" value="0">
+                <button type="action" class="roll_button" name="act_roll_vigor"></button><br>
+            </div>
+            <!--Cechy pochodne-->
+            <div class="sub_sector">
+                Obrona:<input class="input_short" type="text" name="attr_parry" value="2" readonly><br>
+                <input type="hidden" name="attr_parry_mod" value="0">
 
-            Spryt<select name="attr_smart" value="d4">
-                <option value="d4">k4</option>
-                <option value="d6">k6</option>
-                <option value="d8">k8</option>
-                <option value="d10">k10</option>
-                <option value="d12">k12</option>
-            </select>
-            <input type="hidden" name="attr_smart_mod" value="0">
-            <button type="action" name="act_roll_smart"></button><br>
+                Wytrzymałość:<input class="input_short" type="text" name="attr_tough" value="2" readonly><br>
+                <input type="hidden" name="attr_tough_mod" value="0">
+            </div>
+            <div class="sub_sector">
+                Charyzma:<input class="input_short" type="text" name="attr_charisma" value="0" readonly><br>
 
-            Duch<select name="attr_spirit" value="d4">
-                <option value="d4">k4</option>
-                <option value="d6">k6</option>
-                <option value="d8">k8</option>
-                <option value="d10">k10</option>
-                <option value="d12">k12</option>
-            </select>
-            <input type="hidden" name="attr_spirit_mod" value="0">
-            <button type="action" name="act_roll_spirit"></button><br>
+                Tempo:<input class="input_short" type="text" name="attr_speed" value="6" readonly><br>
+            </div>
+            <div class="sub_sector">
+                Fuksy:<input type="number" name="attr_luck" value="3"><br>
+                <input type="hidden" name="attr_luck_max" value="3">
 
-            Wigor<select name="attr_vigor" value="d4">
-                <option value="d4">k4</option>
-                <option value="d6">k6</option>
-                <option value="d8">k8</option>
-                <option value="d10">k10</option>
-                <option value="d12">k12</option>
-            </select>
-            <input type="hidden" name="attr_vigor_mod" value="0">
-            <button type="action" name="act_roll_vigor"></button><br>
-
-            Obrona:<input class="input_short" type="text" name="attr_parry" value="2" readonly><br>
-            <input type="hidden" name="attr_parry_mod" value="0">
-
-            Wytrzymałość:<input class="input_short" type="text" name="attr_tough" value="2" readonly><br>
-            <input type="hidden" name="attr_tough_mod" value="0">
-
-            Charyzma:<input class="input_short" type="text" name="attr_charisma" value="0" readonly><br>
-
-            Tempo:<input class="input_short" type="text" name="attr_speed" value="6" readonly><br>
-
-            Fuksy:<input type="number" name="attr_luck" value="3"><br>
-            <input type="hidden" name="attr_luck_max" value="3">
-
-
-            Rozmiar:<input class="input_short" type="text" name="attr_size" value="0" readonly><br>
+                Rozmiar:<input class="input_short" type="text" name="attr_size" value="0" readonly><br>
+            </div>
         </div>
 
         <!--Przewagi-->
         <div id="Advances" class="sector">
             <h3>Przewagi</h3>
-            <fieldset class="repeating_advantage">
-                <details>
-                    <summary>
-                        Nazwa<input type="text" name="attr_advname"><br>
-                        Wymagania<input type="text" name="attr_advreq"><br>
-                    </summary>
+            <div class="sub_sector">
+                <div>
+                    <fieldset class="repeating_advantage">
+                        <details>
+                            <summary>
+                                Nazwa<input type="text" name="attr_advname"><br>
+                                Wymagania<input type="text" name="attr_advreq"><br>
+                            </summary>
 
-                    Opis<br><textarea name="attr_advdiscDetails"></textarea>
-                </details>
-            </fieldset>
+                            Opis<br><textarea class="extending_desc" name="attr_advdiscDetails"></textarea>
+                        </details>
+                    </fieldset>
+                </div>
+            </div>
         </div>
 
         <!--Zawady-->
         <div id="Edges" class="sector">
             <h3>Zawady</h3>
-            <fieldset class="repeating_edges">
-                <details>
-                    <summary>
-                        Nazwa<input type="text" name="attr_edgname"><br>
-                        Stopień<input type="text" name="attr_edgstr"><br>
-                    </summary>
+            <div class="sub_sector">
+                <div>
+                    <fieldset class="repeating_edges">
+                        <details>
+                            <summary>
+                                Nazwa<input type="text" name="attr_edgname"><br>
+                                Stopień<input type="text" name="attr_edgstr"><br>
+                            </summary>
 
-                    Opis<br><textarea name="attr_edgDetails"></textarea>
-                </details>
-            </fieldset>
+                            Opis<br><textarea name="attr_edgDetails"></textarea>
+                        </details>
+                    </fieldset>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -362,11 +408,22 @@
     <div class='sheet-col'>
         <div id="resource" class="sector">
             <h3>Zasoby:</h3>
-            Punkty światła<input type="number" name="attr_light_point" min="0" max="10" value="0" /><br>
+            <div class="sub_sector">
+                Punkty światła<input type="number" name="attr_light_point" min="0" max="10" value="0" /><br>
+            </div>
             <h4>Amunicja</h4>
-            Kinetyczna<input type="number" name="attr_kinetic_amno" min="0" max="10" value="0" /><br>
-            Specjalna<input type="number" name="attr_special_amno" min="0" max="10" value="0" /><br>
-            Ciężka<input type="number" name="attr_heavy_amno" min="0" max="10" value="0" /><br>
+            <div class="sub_sector">
+                <p style="color:#aeaeae;" id="amno_k"><b>Kinetyczna</b></p><input type="number" name="attr_kinetic_amno"
+                    min="0" max="10" value="0" /><br>
+            </div>
+            <div class="sub_sector">
+                <p style="color:#3bff4f;" id="amno_s"><b>Specjalna</b></p><input type="number" name="attr_special_amno"
+                    min="0" max="10" value="0" /><br>
+            </div>
+            <div class="sub_sector">
+                <p style="color:#b300ff;" id="amno_h"><b>Ciężka</b></p><input type="number" name="attr_heavy_amno"
+                    min="0" max="5" value="0" /><br>
+            </div>
         </div>
     </div>
 
