@@ -113,6 +113,7 @@ div.sheet-main div.sheet-col div.vig_sub_sector{
 .sheet-main div.sheet-col #Atributes select.vig_select{
 	width: 40%;
 	text-align: center;
+	margin:0;
 }
 
 .sheet-main input.input_long{
@@ -128,20 +129,11 @@ div.sheet-main div.sheet-col div.vig_sub_sector{
 .sheet-main select.text_select{
 	width: 75%;
 	text-align: center;
+	margin:0;
 }
 
 .sheet-main select.short_select{
 	width: 20%;
 	text-align: center;
-}
-
-.sheet-main div.sheet-col #Skills select{
-	width: 20%;
-	text-align: center;
-}
-
-
-.sheet-main div.sheet-col #Atributes select{
-	width: 20%;
-	text-align: center;
+	margin:0;
 }
