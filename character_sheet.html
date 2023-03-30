@@ -1,6 +1,12 @@
-<div class='flex-container'>
-    <!--Pierwsza kolumna-->
-    <div class="sheet-col">
+<input type="hidden" class="sheet-tabstoggle" name="attr_sheetTab"  value="main"  />
+<div class="sheet_selector">
+    <button type="action" name="act_main" >Główna strona</button>
+    <button type="action" name="act_equipment" >Ekwipunek</button>
+    <button type="action" name="act_details" >Szczegóły</button>
+</div>
+
+<div class='sheet-main'>
+    <!--Pierwsza kolumna--><div class="sheet-col">
         <!--Postać po krótce-->
         <div id="General_description" class="sector">
             <div class="sub_sector">
@@ -279,15 +285,12 @@
                             <option value="d12">k12</option>
                         </select>
                         <input type="hidden" name="attr_nsvaluemod" value="0">
-                        <button type="action" class="roll_button" name="act_rollns"></button><br>
+                        <button type="action" class="roll_button" name="act_rollns"></button>
                     </fieldset>
                 </div>
             </div>
         </div>
-    </div>
-
-    <!--Druga kolumna-->
-    <div class="sheet-col">
+    </div><!--Druga kolumna--><div class="sheet-col">
         <!--Cechy postaci-->
         <div id="Atributes" class="sector">
             <h3>Cechy</h3>
@@ -333,8 +336,8 @@
                 <input type="hidden" name="attr_spirit_mod" value="0">
                 <button type="action" class="roll_button" name="act_roll_spirit"></button><br>
             </div>
-            <div class="sub_sector" id="spec_sub_sector">
-                Wigor<select name="attr_vigor" value="d4">
+            <div class="vig_sub_sector">
+                Wigor<select class="vig_select" name="attr_vigor" value="d4">
                     <option value="d4">k4</option>
                     <option value="d6">k6</option>
                     <option value="d8">k8</option>
@@ -402,10 +405,7 @@
                 </div>
             </div>
         </div>
-    </div>
-
-    <!--Trzecia kolumna-->
-    <div class='sheet-col'>
+    </div><!--Trzecia kolumna--><div class='sheet-col'>
         <div id="resource" class="sector">
             <h3>Zasoby:</h3>
             <div class="sub_sector">
@@ -426,14 +426,19 @@
             </div>
         </div>
     </div>
-
-
 </div>
 
-<input type="number" name="attr_EXP">
-<input type="text" name="attr_DEBUG">
-<input type="text" name="attr_DEBUG2">
-<input type="text" name="attr_DEBUG3">
+<div class="sheet-equipment">
+    <h2>Ekwipunek</h2>
+</div>
+
+<div class="sheet-details">
+    <h2>Szczegóły</h2>
+    <input type="number" name="attr_EXP">
+    <input type="text" name="attr_DEBUG">
+    <input type="text" name="attr_DEBUG2">
+    <input type="text" name="attr_DEBUG3">
+</div>
 
 <rolltemplate class="sheet-rolltemplate-BasicDiceRoll">
     <div class="sheet-template-container">
@@ -461,6 +466,16 @@
 
 
 <script type="text/worker">
+    //Przełączanie się między stronami
+    const buttonlist = ["main","equipment","details"];
+    buttonlist.forEach(button => {
+        on(`clicked:${button}`, function() {
+            setAttrs({
+                sheetTab: button
+            });
+        });
+    });
+
     //Walidacja podklasy
     on("change:subclass", function(){
         getAttrs(["class","subclass"], function(values){

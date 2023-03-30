@@ -1,6 +1,28 @@
 @import url('https://fonts.googleapis.com/css?family=Audiowide');
 
-/* Wygląd szablonu rzutu*/
+/*
+#####################
+##Przełączanie kart##
+#####################
+*/
+
+.charsheet .sheet-main,
+.charsheet .sheet-equipment,
+.charsheet .sheet-details{
+    display: none;
+}
+
+.charsheet .sheet-tabstoggle[value="main"] ~ div.sheet-main,
+.charsheet .sheet-tabstoggle[value="equipment"] ~ div.sheet-equipment,
+.charsheet .sheet-tabstoggle[value="details"] ~ div.sheet-details{
+    display: block;
+}
+
+/*
+#########################
+##Wygląd szablonu rzutu##
+#########################
+*/
 .sheet-rolltemplate-BasicDiceRoll div.sheet-template-container {
 	border: 2px solid #000 !important;
 	border-radius: 3px 3px 3px 3px;
@@ -37,8 +59,12 @@
 	color: rgb(22, 149, 11);
 }
 
-/*Wygląd karty postaci*/
-.flex-container{
+/*
+########################
+##Wygląd karty postaci##
+########################
+*/
+.sheet-main{
 	font-family: "Audiowide";
 	display: flex;
 	flex-direction: row;
@@ -46,7 +72,7 @@
 }
 
 .sheet-col{
-	border: 3px solid rgb(0, 0, 0);
+	border: 5px solid rgb(0, 0, 0);
 	max-width: 300px;
 }
 
@@ -55,19 +81,19 @@ button.roll_button{
 	width: 5px;
 }
 
-.flex-container div.sheet-col textarea.extending_desc{
+.sheet-main div.sheet-col textarea.extending_desc{
 	max-width: 270px;
 	justify-self: center;
 }
 
 
-.flex-container div.sheet-col div.sector{
+.sheet-main div.sheet-col div.sector{
 	border: 2px solid rgb(0, 0, 0);
 	display: flex;
 	flex-direction:column;
 }
 
-.flex-container div.sheet-col div.sector div.sub_sector{
+.sheet-main div.sheet-col div.sector div.sub_sector{
 	display: flex;
 	flex-direction: row;
 	align-items:center;
@@ -75,33 +101,47 @@ button.roll_button{
 	margin: 5px;
 }
 
-.flex-container input.input_long{
-	width: 50%;
+div.sheet-main div.sheet-col div.vig_sub_sector{
+	display: flex;
+	flex-direction: row;
+	align-items:center;
+	justify-content: space-between;
+	margin: 5px;
+	width:50%;
+}
+
+.sheet-main div.sheet-col #Atributes select.vig_select{
+	width: 40%;
 	text-align: center;
 }
 
-.flex-container input.input_short{
+.sheet-main input.input_long{
+	width: 65%;
+	text-align: center;
+}
+
+.sheet-main input.input_short{
 	width: 15%;
 	text-align: center;
 }
 
-.flex-container select.text_select{
+.sheet-main select.text_select{
 	width: 75%;
 	text-align: center;
 }
 
-.flex-container select.short_select{
+.sheet-main select.short_select{
 	width: 20%;
 	text-align: center;
 }
 
-.flex-container div.sheet-col #Skills select{
+.sheet-main div.sheet-col #Skills select{
 	width: 20%;
 	text-align: center;
 }
 
 
-.flex-container div.sheet-col #Atributes select{
+.sheet-main div.sheet-col #Atributes select{
 	width: 20%;
 	text-align: center;
 }
