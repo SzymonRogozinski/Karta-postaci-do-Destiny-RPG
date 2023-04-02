@@ -24,7 +24,7 @@ Sprint 2:
 
 Sprint 3:
 	- Stworzenie segmentu "zasoby" (28.03.2023 - 29.03.2023)
-	- Stworzenie segmentu "przewagi" (28.03.2023)
-	- Stworzenie segmentu "zawady" (28.03.2023)
+	- Stworzenie segmentu "przewagi" (28.03.2023 - 02.04.2023)
+	- Stworzenie segmentu "zawady" (28.03.2023 - 02.04.2023)
 	- Dodanie przełączania się między stronami (30.03.2023 - 30.03.2023)
-	- Poprawienie wyglądu karty 
+	- Poprawienie wyglądu karty (28.03.2023)
