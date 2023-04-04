@@ -423,7 +423,41 @@
 </div>
 
 <div class="sheet-equipment">
-    <h2>Ekwipunek</h2>
+    <div class="sector">
+        <h3>Ekwipunek</h3>
+        <textarea class="big_textfield" name="attr_general_eq"></textarea>
+    </div>
+
+    <div class="sector">
+        <h3>Waluty</h3>
+        <div class="sub_sector">
+            Migot <input class="long_number" type="number" name="attr_glimmer" min="0" max="100000000"><br>
+        </div>
+        <div class="sub_sector">
+            Legendarne odłamki <input class="short_number" type="number" name="attr_legendary_shards" min="0" max="100"><br>
+        </div>
+        <div class="sub_sector">
+            Dziwne monety <input class="short_number" type="number" name="attr_strange_coins" min="0" max="100">
+        </div>
+    </div>
+
+    <div class="sector">
+        <div class="card">
+            <select class="text_select" name="attr_type" value="-">
+                <option value="">-</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select><br>
+            <input class="hidden_input" type="text" name="attr_param1"><br>
+            <input class="hidden_input" type="text" name="attr_param2"><br>
+            <input class="hidden_input" type="text" name="attr_param3"><br>
+            <input class="hidden_input" type="text" name="attr_param4"><br>
+            <input class="hidden_input" type="text" name="attr_param5"><br>
+            <input class="hidden_input" type="text" name="attr_param6"><br>
+            <input class="hidden_input" type="text" name="attr_param7"><br>
+        </div>
+    </div>
 </div>
 
 <div class="sheet-details">
@@ -742,6 +776,22 @@
 
     on('clicked:repeating_newskill:rollns', (info) => {
         bind_roll_new("nsname","nsvalue")
+    })
+
+    //Test
+    on("change:type", function(){
+        getAttrs(["type"], function(values){
+            var t=values.type
+            setAttrs({
+                param1: t,
+                param2: t,
+                param3: t,
+                param4: t,
+                param5: t,
+                param6: t,
+                param7: t
+            })
+        })
     })
      
 </script>

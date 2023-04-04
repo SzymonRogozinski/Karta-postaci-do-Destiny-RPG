@@ -64,11 +64,14 @@
 ##Wygląd karty postaci##
 ########################
 */
+
+/*Strona główna*/
 .sheet-main{
 	font-family: "Audiowide";
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
+	min-width: 900px;
 }
 
 .sheet-col{
@@ -136,4 +139,44 @@ div.sheet-main div.sheet-col div.vig_sub_sector{
 	width: 20%;
 	text-align: center;
 	margin:0;
+}
+
+/*Strona ekwipunku*/
+.sheet-equipment{
+	font-family: "Audiowide";
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	max-width: 920px;
+	min-width: 920px;
+}
+
+.sheet-equipment div.sector{
+	border: 5px solid rgb(0, 0, 0);
+	display: flex;
+	flex-direction: column;
+}
+
+.sheet-equipment div.sub_sector{
+	display: flex;
+	flex-direction:row;
+}
+
+.sheet-equipment div.sector div.sub_sector input.long_number{
+	width: 20%;
+	text-align: center;
+}
+
+.sheet-equipment div.sector div.sub_sector input.short_number{
+	width: 7%;
+	text-align: center;
+}
+
+.sheet-equipment textarea.big_textfield{
+	max-width: 900px;
+}
+
+.sheet-equipment div.sector div.card input.hidden_input{
+	border-style: none;
+	background: none;
 }
