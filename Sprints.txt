@@ -28,3 +28,12 @@ Sprint 3:
 	- Stworzenie segmentu "zawady" (28.03.2023 - 02.04.2023)
 	- Dodanie przełączania się między stronami (30.03.2023 - 30.03.2023)
 	- Poprawienie wyglądu karty (28.03.2023 - 04.04.2023)
+
+Sprint 4:
+	- Stworzenie segmentu "Opis postaci"
+	- Stworzenie segmentu "Duch"
+	- Stworzenie segmentu "Notatki"
+	- Stworzenie szablonu wyglądu segmentu "broń"
+	- Dodanie makra obsługującego "broń"
+	- Stworzenie szablonu wyglądu segmentu "pancerz"
+	- Uzupełnienie specyfikacji segmentu "broń"
