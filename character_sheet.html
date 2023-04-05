@@ -461,7 +461,45 @@
 </div>
 
 <div class="sheet-details">
-    <h2>Szczegóły</h2>
+    <div class="sector">
+        <h3>Opis postaci</h3>
+        <div class="sub_sector">
+            Opis<textarea id="tx_desc" name="attr_description"></textarea>
+        </div>
+        <div class="sub_sector">
+            Historia<textarea id="tx_hist" name="attr_history"></textarea>
+        </div>
+        <div class="sub_sector">
+            Dlaczego zostałeś wskrzeszony?<textarea id="tx_res" name="attr_resurection"></textarea>
+        </div>
+    </div>
+
+    <div class="sector" id="sec_two_part">
+        <div class="sector" id="sec_notes">
+            <div class="sub_sector">
+                <h3>Notatki</h3>
+                <textarea id="tx_nt" name="attr_notes"></textarea>
+            </div>
+        </div>
+        <div class="sector" id="sec_ghost">
+            <h3>Duch</h3>
+            <div class="sub_sector">
+                Imię<input type="text" name="attr_ghost_name">
+            </div>
+            <div class="sub_sector">
+                Opis<textarea id="tx_gd" name="attr_ghost_desc"></textarea>
+            </div>
+            <div class="sub_sector">
+                Charakter<input type="text" name="attr_ghost_nature1"><input name="attr_ghost_nature2">
+            </div>
+            <div class="sub_sector">
+                Rany<input type="text" name="attr_ghost_wounds">
+            </div>
+            <div class="sub_sector">
+                Wytrzymałość<input type="text" name="attr_ghost_tough">
+            </div>
+        </div>
+    </div>
     <input type="number" name="attr_EXP">
     <input type="text" name="attr_DEBUG">
     <input type="text" name="attr_DEBUG2">

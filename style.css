@@ -180,3 +180,57 @@ div.sheet-main div.sheet-col div.vig_sub_sector{
 	border-style: none;
 	background: none;
 }
+
+/*Strona szczegółów*/
+.sheet-details{
+	font-family: "Audiowide";
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	max-width: 920px;
+	min-width: 920px;
+}
+
+.sheet-details div.sector{
+	border: 5px solid rgb(0, 0, 0);
+	display: flex;
+	flex-direction: column;
+}
+
+.sheet-details div.sub_sector{
+	display: flex;
+	flex-direction:column;
+}
+
+.sheet-details div.sub_sector textarea{
+	max-width: 900px;
+}
+
+.sheet-details div.sub_sector #tx_desc,
+.sheet-details div.sub_sector #tx_hist{
+	height: 200px;
+	max-height: 300px;
+}
+
+.sheet-details div.sub_sector #tx_res{
+	height: 20px;
+	max-height: 100px;
+}
+
+.sheet-details #sec_two_part{
+	flex-direction: row;
+}
+
+.sheet-details div.sector #sec_notes{
+	border: none;
+	border-right: 5px solid rgb(0, 0, 0);
+	width: 600px;
+}
+
+.sheet-details div.sector #sec_notes textarea{
+	max-width: 590px;
+}
+.sheet-details div.sector #sec_ghost{
+	border: none;
+	width: 300px;
+}
