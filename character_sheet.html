@@ -490,14 +490,51 @@
                 Opis<textarea id="tx_gd" name="attr_ghost_desc"></textarea>
             </div>
             <div class="sub_sector">
-                Charakter<input type="text" name="attr_ghost_nature1"><input name="attr_ghost_nature2">
+                Charakter<input type="text" name="attr_ghost_nature1">
+            </div>
+            <div class="center_sub_sector">
+                <input type="text" name="attr_ghost_nature2">
             </div>
             <div class="sub_sector">
-                Rany<input type="text" name="attr_ghost_wounds">
+                Rany<input class="short_input" type="text" name="attr_ghost_wounds">
             </div>
             <div class="sub_sector">
-                Wytrzymałość<input type="text" name="attr_ghost_tough">
+                Wytrzymałość<input class="short_input" type="text" name="attr_ghost_tough">
             </div>
+            <div class="sub_sector">
+                Baza danych<select class="short_select" name="attr_data_base" value="d4">
+                    <option value="d4">k4</option>
+                    <option value="d6">k6</option>
+                    <option value="d8">k8</option>
+                    <option value="d10">k10</option>
+                    <option value="d12">k12</option>
+                </select>
+                <input type="hidden" name="attr_data_base_mod" value="0">
+                <button type="action" class="roll_button" name="act_roll_data_base"></button><br>
+            </div>
+            <div class="sub_sector">
+                Łączność<select class="short_select" name="attr_connection" value="d4">
+                    <option value="d4">k4</option>
+                    <option value="d6">k6</option>
+                    <option value="d8">k8</option>
+                    <option value="d10">k10</option>
+                    <option value="d12">k12</option>
+                </select>
+                <input type="hidden" name="attr_connection_mod" value="0">
+                <button type="action" class="roll_button" name="act_roll_connection"></button><br>
+            </div>
+            <div class="sub_sector">
+                Skanowanie<select class="short_select" name="attr_scan" value="d4">
+                    <option value="d4">k4</option>
+                    <option value="d6">k6</option>
+                    <option value="d8">k8</option>
+                    <option value="d10">k10</option>
+                    <option value="d12">k12</option>
+                </select>
+                <input type="hidden" name="attr_scan_mod" value="0">
+                <button type="action" class="roll_button" name="act_roll_scan"></button><br>
+            </div>
+            <input type="hidden" name="attr_ghost_figure" value="0">
         </div>
     </div>
     <input type="number" name="attr_EXP">
@@ -515,6 +552,27 @@
             </div>
             <div class="sheet-template-row">
                 <span>Kość figury = {{pomoc}}</span>
+            </div>
+            {{#rollGreater() computed::wynik 3}}
+            <div class="sheet-template-row-won">
+                <span>Test zdany</span>
+            </div>
+            {{/rollGreater() computed::wynik 3}}
+            {{#rollLess() computed::wynik 4}}
+            <div class="sheet-template-row-lost">
+                <span>Test niezdany</span>
+            </div>
+            {{/rollLess() computed::wynik 4}}
+        </div>
+    </div>
+</rolltemplate>
+
+<rolltemplate class="sheet-rolltemplate-NoFigureDiceRoll">
+    <div class="sheet-template-container">
+        <div class="sheet-template-header">{{name}}</div>
+        <div class="sheet-results">
+            <div class="sheet-template-row">
+                <span>Kość główna = {{wynik}}</span>
             </div>
             {{#rollGreater() computed::wynik 3}}
             <div class="sheet-template-row-won">
@@ -722,6 +780,35 @@
         })
     }
 
+        //Funkcja służąca do podpinania rzutu dla umiejętności ducha
+        function bind_roll_ghost(attribute_name,attribute){
+            getAttrs([attribute,"ghost_figure"], function(values){
+                if(!values.ghost_figure){
+                    bind_roll(attribute_name,attribute)                         //Jeśli figura, to potraktuj jak umiejętnośc gracza
+                    return
+                }
+                var query="&{template:NoFigureDiceRoll} "                                                      //Szablon rzutu
+                query=query.concat("{{name=@{name} wykonuje test "+attribute_name+"}} ")                        //Nazwa rzutu
+    
+                var atr=values[attribute]
+
+                query=query.concat("{{wynik=[[@{"+attribute+"}! +@{"+attribute+"_mod} +?{Modyfikator|0}]]}} ")    //Rzut kością główną
+
+                startRoll(query, (results) => {
+                    var basicDice = results.results.wynik.result    //Kość główna
+                    
+                    finishRoll(
+                        results.rollId,
+                        {
+                            wynik: basicDice
+                        }
+                    )
+    
+                })
+
+            })
+        }
+
     //Przypisanie rzutów do cech
     on('clicked:roll_strength', (info) => {
         bind_roll("siły","strength")
@@ -814,6 +901,19 @@
 
     on('clicked:repeating_newskill:rollns', (info) => {
         bind_roll_new("nsname","nsvalue")
+    })
+
+    //Umiejętności ducha
+    on('clicked:roll_data_base', (info) => {
+        bind_roll_ghost("bazy danych","data_base")
+    })
+
+    on('clicked:roll_connection', (info) => {
+        bind_roll_ghost("łączności","connection")
+    })
+
+    on('clicked:roll_scan', (info) => {
+        bind_roll_ghost("skanowania","scan")
     })
 
     //Test

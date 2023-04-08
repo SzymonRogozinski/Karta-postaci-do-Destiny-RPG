@@ -23,6 +23,7 @@
 ##Wygląd szablonu rzutu##
 #########################
 */
+
 .sheet-rolltemplate-BasicDiceRoll div.sheet-template-container {
 	border: 2px solid #000 !important;
 	border-radius: 3px 3px 3px 3px;
@@ -58,6 +59,45 @@
 .sheet-rolltemplate-BasicDiceRoll div.sheet-template-row-won {
 	color: rgb(22, 149, 11);
 }
+
+
+
+.sheet-rolltemplate-NoFigureDiceRoll div.sheet-template-container {
+	border: 2px solid #000 !important;
+	border-radius: 3px 3px 3px 3px;
+}
+.sheet-rolltemplate-NoFigureDiceRoll .sheet-template-header {
+	background-color: rgba(112, 32, 130,1);
+	color: #000;
+	padding: 2px;
+	border-bottom: 1px solid black;
+    text-align: center;
+	line-height: 1.6em;
+	font-size: 1.2em;
+}
+.sheet-rolltemplate-NoFigureDiceRoll div {
+	padding: 5px;
+	border-bottom: 1px solid black;
+}
+.sheet-rolltemplate-NoFigureDiceRoll div:nth-child(odd) {
+	background-color: rgba(217, 217, 214,1);
+}
+.sheet-rolltemplate-NoFigureDiceRoll div:nth-child(even) {
+	background-color: rgba(233, 233, 233,1);
+}
+.sheet-rolltemplate-NoFigureDiceRoll .inlinerollresult  {
+	display: inline-block;
+	min-width: 1.5em;
+	text-align: center;
+	border: 2px solid rgba(167, 168, 170,1);
+}
+.sheet-rolltemplate-NoFigureDiceRoll div.sheet-template-row-lost {
+	color: rgb(202, 11, 11);
+}
+.sheet-rolltemplate-NoFigureDiceRoll div.sheet-template-row-won {
+	color: rgb(22, 149, 11);
+}
+
 
 /*
 ########################
@@ -155,11 +195,13 @@ div.sheet-main div.sheet-col div.vig_sub_sector{
 	border: 5px solid rgb(0, 0, 0);
 	display: flex;
 	flex-direction: column;
+	margin: 5px;
 }
 
 .sheet-equipment div.sub_sector{
 	display: flex;
 	flex-direction:row;
+	margin: 5px;
 }
 
 .sheet-equipment div.sector div.sub_sector input.long_number{
@@ -200,10 +242,11 @@ div.sheet-main div.sheet-col div.vig_sub_sector{
 .sheet-details div.sub_sector{
 	display: flex;
 	flex-direction:column;
+	margin: 5px;
 }
 
 .sheet-details div.sub_sector textarea{
-	max-width: 900px;
+	max-width: 890px;
 }
 
 .sheet-details div.sub_sector #tx_desc,
@@ -228,9 +271,38 @@ div.sheet-main div.sheet-col div.vig_sub_sector{
 }
 
 .sheet-details div.sector #sec_notes textarea{
-	max-width: 590px;
+	max-width: 580px;
 }
+
 .sheet-details div.sector #sec_ghost{
 	border: none;
-	width: 300px;
+	width: 290px;
+}
+
+.sheet-details div.sector #sec_ghost div.sub_sector{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.sheet-details div.sector #sec_ghost div.center_sub_sector{
+	display: flex;
+	flex-direction: row;
+	justify-content: right;
+	align-items: center;
+}
+
+.sheet-details div.sector #sec_ghost input.short_input{
+	width: 25%;
+}
+
+.sheet-details div.sector #sec_ghost select.short_select{
+	width: 20%;
+	text-align: center;
+	margin:0;
+}
+
+.sheet-details div.sector #sec_ghost textarea{
+	max-width: 280px;
 }
