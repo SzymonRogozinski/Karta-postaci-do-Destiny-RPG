@@ -4,7 +4,7 @@
     <button type="action" name="act_equipment" >Ekwipunek</button>
     <button type="action" name="act_details" >Szczegóły</button>
 </div>
-
+<!--Strona główna-->
 <div class='sheet-main'>
     <!--Pierwsza kolumna--><div class="sheet-col">
         <!--Postać po krótce-->
@@ -421,13 +421,14 @@
         </div>
     </div>
 </div>
-
+<!--Strona ekwipunku-->
 <div class="sheet-equipment">
+    <!--Ekwipunek ogólny-->
     <div class="sector">
         <h3>Ekwipunek</h3>
         <textarea class="big_textfield" name="attr_general_eq"></textarea>
     </div>
-
+    <!--Waluty-->
     <div class="sector">
         <h3>Waluty</h3>
         <div class="sub_sector">
@@ -440,7 +441,7 @@
             Dziwne monety <input class="short_number" type="number" name="attr_strange_coins" min="0" max="100">
         </div>
     </div>
-
+    <!--Test-->
     <div class="sector">
         <div class="card">
             <select class="text_select" name="attr_type" value="-">
@@ -461,6 +462,7 @@
 </div>
 
 <div class="sheet-details">
+    <!--Opis postaci-->
     <div class="sector">
         <h3>Opis postaci</h3>
         <div class="sub_sector">
@@ -475,12 +477,14 @@
     </div>
 
     <div class="sector" id="sec_two_part">
+        <!--Notatki-->
         <div class="sector" id="sec_notes">
             <div class="sub_sector">
                 <h3>Notatki</h3>
                 <textarea id="tx_nt" name="attr_notes"></textarea>
             </div>
         </div>
+        <!--Opis ducha-->
         <div class="sector" id="sec_ghost">
             <h3>Duch</h3>
             <div class="sub_sector">
@@ -535,8 +539,32 @@
                 <button type="action" class="roll_button" name="act_roll_scan"></button><br>
             </div>
             <input type="hidden" name="attr_ghost_figure" value="0">
+
+            <!--Przewagi Ducha-->
+            <div id="ghost_Advances" class="inner_sector">
+                <h3>Przewagi</h3>
+                <div class="sub_sector">
+                    <div>
+                        <fieldset class="repeating_gadvantage">
+                            <div class="sub_sector">
+                                Nazwa<input type="text" name="attr_gadvname"><br>
+                            </div>
+                            <div class="sub_sector">
+                                Wymagania
+                            </div>
+                            <div class="sub_sector">
+                                <input type="text" name="attr_gadvreq"><br>
+                            </div>
+                            <details>
+                                Opis<br><textarea class="extending_desc" name="attr_gadvdiscDetails"></textarea>
+                            </details>
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+    <!--Atrybuty Debug-->
     <input type="number" name="attr_EXP">
     <input type="text" name="attr_DEBUG">
     <input type="text" name="attr_DEBUG2">

@@ -31,8 +31,8 @@ Sprint 3:
 
 Sprint 4:
 	- Stworzenie segmentu "Opis postaci" (05.04.2023 - 05.04.2023)
-	- Stworzenie segmentu "Duch" (05.04.2023)
-	- Stworzenie segmentu "Notatki" (05.04.2023)
+	- Stworzenie segmentu "Duch" (05.04.2023 - 09.04.2023)
+	- Stworzenie segmentu "Notatki" (05.04.2023 - 09.04.2023)
 	- Stworzenie szablonu wyglądu segmentu "broń"
 	- Dodanie makra obsługującego "broń"
 	- Stworzenie szablonu wyglądu segmentu "pancerz"

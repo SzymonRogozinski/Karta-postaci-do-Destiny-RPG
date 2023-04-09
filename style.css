@@ -272,6 +272,7 @@ div.sheet-main div.sheet-col div.vig_sub_sector{
 
 .sheet-details div.sector #sec_notes textarea{
 	max-width: 580px;
+	min-height: 500px;
 }
 
 .sheet-details div.sector #sec_ghost{
