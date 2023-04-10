@@ -36,4 +36,4 @@ Sprint 4:
 	- Stworzenie szablonu wyglądu segmentu "broń"
 	- Dodanie makra obsługującego "broń"
 	- Stworzenie szablonu wyglądu segmentu "pancerz"
-	- Uzupełnienie specyfikacji segmentu "broń"
+	- Uzupełnienie specyfikacji segmentu "broń" (10.04.2023 - 10.04.2023)
