@@ -195,7 +195,6 @@ div.sheet-main div.sheet-col div.vig_sub_sector{
 	border: 5px solid rgb(0, 0, 0);
 	display: flex;
 	flex-direction: column;
-	margin: 5px;
 }
 
 .sheet-equipment div.sub_sector{
@@ -217,10 +216,15 @@ div.sheet-main div.sheet-col div.vig_sub_sector{
 .sheet-equipment textarea.big_textfield{
 	max-width: 900px;
 }
+/*Ustawienie wyglądu karty*/
+div.weapon_card input.param{
+	text-align: center;
+}
 
-.sheet-equipment div.sector div.card input.hidden_input{
+div.weapon_card input.hidden_input{
 	border-style: none;
 	background: none;
+	text-align: center;
 }
 
 /*Strona szczegółów*/

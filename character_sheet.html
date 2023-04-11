@@ -443,20 +443,57 @@
     </div>
     <!--Test-->
     <div class="sector">
-        <div class="card">
-            <select class="text_select" name="attr_type" value="-">
+        <div class="weapon_card">
+            <select name="attr_type" value="-">
                 <option value="">-</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-            </select><br>
-            <input class="hidden_input" type="text" name="attr_param1"><br>
-            <input class="hidden_input" type="text" name="attr_param2"><br>
-            <input class="hidden_input" type="text" name="attr_param3"><br>
-            <input class="hidden_input" type="text" name="attr_param4"><br>
-            <input class="hidden_input" type="text" name="attr_param5"><br>
-            <input class="hidden_input" type="text" name="attr_param6"><br>
-            <input class="hidden_input" type="text" name="attr_param7"><br>
+                <!--"Broń zwykła"-->
+                <option value="Hand_cannon">Rewolwer</option>
+                <option value="Auto_rifle">Karabin automatyczny</option>
+                <option value="Scout_rifle">Karabin zwiadowczy</option>
+                <option value="Pulse_rifle">Karabin pulsacyjny</option>
+                <option value="Sidearm">Broń boczna</option>
+                <option value="Smg">Pistolet maszynowy</option>
+                <option value="Bow">Łuk</option>
+                <!--"Broń specjalna"-->
+                <option value="Shotgun">Strzelba</option>
+                <option value="Sniper_rifle">Karabin snajperski</option>
+                <option value="Fusion_rifle">Karabin fuzyjny</option>
+                <option value="Light_grnd">Lekki Granatnik</option>
+                <!--"Broń ciężka"-->
+                <option value="Machine_rifle">Karabin maszynowy</option>
+                <option value="Line_rifle">Karabin liniowy</option>
+                <option value="Rocket_launcher">Wyrzutnia rakiet</option>
+                <option value="Granade_launcher">Granatnik</option>
+                <option value="Sword">Miecz</option>
+            </select>
+            <div class="param">
+                <input class="hidden_input" type="text" name="attr_param_name_1">
+                <input class="param" type="text" name="attr_param1">
+            </div>
+            <div class="param">
+                <input class="hidden_input" type="text" name="attr_param_name_2">
+                <input class="param" type="text" name="attr_param2">
+            </div>
+            <div class="param">
+                <input class="hidden_input" type="text" name="attr_param_name_3">
+                <input class="param" type="text" name="attr_param3">
+            </div>
+            <div class="param">
+                <input class="hidden_input" type="text" name="attr_param_name_4">
+                <input class="param" type="text" name="attr_param4">
+            </div>
+            <div class="param">
+                <input class="hidden_input" type="text" name="attr_param_name_5">
+                <input class="param" type="text" name="attr_param5">
+            </div>
+            <div class="param">
+                <input class="hidden_input" type="text" name="attr_param_name_6">
+                <input class="param" type="text" name="attr_param6">
+            </div>
+            <div class="param">
+                <input class="hidden_input" type="text" name="attr_param_name_7">
+                <input class="param" type="text" name="attr_param7">
+            </div>
         </div>
     </div>
 </div>
@@ -944,19 +981,90 @@
         bind_roll_ghost("skanowania","scan")
     })
 
-    //Test
+    //Typowe bronie
+    var gun_atr=["Obrażenia","Zasięg","Stabilność","Szybkostrzelność","Magazynek","Dobycie","Przeładowanie"]
+    var guns=["Hand_cannon","Auto_rifle","Scout_rifle","Pulse_rifle","Sidearm","Smg","Shotgun","Sniper_rifle","Fusion_rifle","Machine_rifle","Line_rifle"]
+    
+    var bows=["Obrażenia","Zasięg", "Stabilność", "Szybkostrzelność", "Pełny naciąg", "Bonus za celowanie", "Dobycie"]
+    var light_g=["Obrażenia","Zasięg", "Stabilność", "Promień wybuchu", "Szybkostrzelność", "Elastyczność", "Dobycie"]
+    var rocket_l=["Obrażenia","Zasięg", "Naprowadzanie", "Promień wybuchu", "Magazynek", "Dobycie", "Przeładowanie"]
+    var granade_l=["Obrażenia","Zasięg", "Stabilność", "Promień wybuchu", "Magazynek","Dobycie", "Przeładowanie"]
+    var swords=["Obrażenia","Siła osłony", "Wydajność", "Zasięg tąpnięcia", "Magazynek", "Dobycie", "Szybkość"]
+    
     on("change:type", function(){
         getAttrs(["type"], function(values){
             var t=values.type
-            setAttrs({
-                param1: t,
-                param2: t,
-                param3: t,
-                param4: t,
-                param5: t,
-                param6: t,
-                param7: t
-            })
+            if(guns.includes(t)){
+                setAttrs({
+                    param_name_1: gun_atr[0],
+                    param_name_2: gun_atr[1],
+                    param_name_3: gun_atr[2],
+                    param_name_4: gun_atr[3],
+                    param_name_5: gun_atr[4],
+                    param_name_6: gun_atr[5],
+                    param_name_7: gun_atr[6]
+                })
+            }else if(t=="Bow"){
+                setAttrs({
+                    param_name_1: bows[0],
+                    param_name_2: bows[1],
+                    param_name_3: bows[2],
+                    param_name_4: bows[3],
+                    param_name_5: bows[4],
+                    param_name_6: bows[5],
+                    param_name_7: bows[6]
+                })
+            }else if(t=="Light_grnd"){
+                setAttrs({
+                    param_name_1: light_g[0],
+                    param_name_2: light_g[1],
+                    param_name_3: light_g[2],
+                    param_name_4: light_g[3],
+                    param_name_5: light_g[4],
+                    param_name_6: light_g[5],
+                    param_name_7: light_g[6]
+                })
+            }else if(t=="Sword"){
+                setAttrs({
+                    param_name_1: swords[0],
+                    param_name_2: swords[1],
+                    param_name_3: swords[2],
+                    param_name_4: swords[3],
+                    param_name_5: swords[4],
+                    param_name_6: swords[5],
+                    param_name_7: swords[6]
+                })
+            }else if(t=="Granade_launcher"){
+                setAttrs({
+                    param_name_1: granade_l[0],
+                    param_name_2: granade_l[1],
+                    param_name_3: granade_l[2],
+                    param_name_4: granade_l[3],
+                    param_name_5: granade_l[4],
+                    param_name_6: granade_l[5],
+                    param_name_7: granade_l[6]
+                })
+            }else if(t=="Rocket_launcher"){
+                setAttrs({
+                    param_name_1: rocket_l[0],
+                    param_name_2: rocket_l[1],
+                    param_name_3: rocket_l[2],
+                    param_name_4: rocket_l[3],
+                    param_name_5: rocket_l[4],
+                    param_name_6: rocket_l[5],
+                    param_name_7: rocket_l[6]
+                })
+            }else{
+                setAttrs({
+                    param_name_1: " ",
+                    param_name_2: " ",
+                    param_name_3: " ",
+                    param_name_4: " ",
+                    param_name_5: " ",
+                    param_name_6: " ",
+                    param_name_7: " "
+                })
+            }
         })
     })
      
