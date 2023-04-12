@@ -446,8 +446,8 @@
         <input name="attr_weapon_quality" type="hidden" class="sheet-quality-switch">
         <div class="sheet-weapon-card">
             <div class="param">
-                <input type="text" name="attr_weapon_name" value="">
-                <select name="attr_type" value="-">
+                <input class="param" type="text" name="attr_weapon_name" value="">
+                <select class="select_type" name="attr_type" value="-">
                     <option value="">-</option>
                     <!--"Broń zwykła"-->
                     <option value="Hand_cannon">Rewolwer</option>
@@ -498,22 +498,27 @@
                 <input class="hidden_input" type="text" name="attr_param_name_7" readonly>
                 <input class="param" type="text" name="attr_param7">
             </div>
-            <input name="attr_weapon_amno" type="hidden" class="sheet-amno-switch">
-            Amunicja<select class="sheet-amno-select" name="attr_weapon_amno" value="-">
-                <option value="-">-</option>
-                <option style="color:#aeaeae;" value="kinetic">Kinetyczna</option>
-                <option style="color:#3bff4f;" value="special">Specjalna</option>
-                <option style="color:#b300ff;" value="heavy">Ciężka</option>
-            </select>
-            
-            Rzadkość<select class="sheet-quality-select" name="attr_weapon_quality" value="-">
-                <option value="-">-</option>
-                <option value="common">Zwykła</option>
-                <option value="uncommon">Niezwykła</option>
-                <option value="rare">Rzadka</option>
-                <option value="legend">Legendarna</option>
-                <option value="exotic">Egzotyczna</option>
-            </select>
+            <div class="param">
+                <input name="attr_weapon_amno" type="hidden" class="sheet-amno-switch">
+                <input class="hidden_input" type="text" value="Amunicja" readonly>
+                <select class="sheet-amno-select" name="attr_weapon_amno" value="-">
+                    <option value="-">-</option>
+                    <option style="color:#aeaeae;" value="kinetic">Kinetyczna</option>
+                    <option style="color:#3bff4f;" value="special">Specjalna</option>
+                    <option style="color:#b300ff;" value="heavy">Ciężka</option>
+                </select>
+            </div>
+            <div class="param">
+                <input class="hidden_input" type="text" value="Rzadkość" readonly>
+                <select class="sheet-quality-select" name="attr_weapon_quality" value="-">
+                    <option value="-">-</option>
+                    <option value="common">Zwykła</option>
+                    <option value="uncommon">Niezwykła</option>
+                    <option value="rare">Rzadka</option>
+                    <option value="legend">Legendarna</option>
+                    <option value="exotic">Egzotyczna</option>
+                </select>
+            </div>
         </div>
     </div>
 </div>

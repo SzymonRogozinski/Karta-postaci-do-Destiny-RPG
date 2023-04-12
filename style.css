@@ -217,6 +217,21 @@ div.sheet-main div.sheet-col div.vig_sub_sector{
 	max-width: 900px;
 }
 /*Ustawienie wyglądu karty*/
+div.sheet-weapon-card{
+	width: 570px;
+	height: 390px;
+	display: flex;
+	flex-direction: column;
+}
+
+div.sheet-weapon-card div.param{
+	flex-direction: row;
+	display: flex;
+	width: 350px;
+	justify-content: space-between;
+	margin-left: 5px;
+}
+
 div.sheet-weapon-card input.param{
 	text-align: center;
 	width: 150px;
@@ -227,10 +242,19 @@ div.sheet-weapon-card input.hidden_input{
 	background: none;
 	text-align: center;
 	width: 150px;
+	background-color: #ffffff;
 }
 
-div.sheet-weapon-card div.param{
-	width: 50%;
+div.sheet-weapon-card span.span_text{
+	background-color: #ffffff;
+	width: 150px;
+}
+
+div.sheet-weapon-card select.sheet-amno-select,
+div.sheet-weapon-card select.sheet-quality-select,
+div.sheet-weapon-card select.select_type{
+	width: 150px;
+	text-align: center;
 }
 
 /*Kolor amunicji*/
@@ -257,22 +281,27 @@ div.sheet-weapon-card div.param{
 
 .sheet-quality-switch[value="common"] ~ div.sheet-weapon-card{
 	background-color:#aeaeae;
+	background-image: url(https://github.com/SzymonRogozinski/Karta-postaci-do-Destiny-RPG/blob/master/obrazy/common.png?raw=true);
 }
 
 .sheet-quality-switch[value="uncommon"] ~ div.sheet-weapon-card{
 	background-color:#20b22e;
+	background-image: url(https://github.com/SzymonRogozinski/Karta-postaci-do-Destiny-RPG/blob/master/obrazy/uncommon.png?raw=true);
 }
 
 .sheet-quality-switch[value="rare"] ~ div.sheet-weapon-card{
 	background-color:#0026ff;
+	background-image: url(https://github.com/SzymonRogozinski/Karta-postaci-do-Destiny-RPG/blob/master/obrazy/rare.png?raw=true);
 }
 
 .sheet-quality-switch[value="legend"] ~ div.sheet-weapon-card{
 	background-color:#d000f9;
+	background-image: url(https://github.com/SzymonRogozinski/Karta-postaci-do-Destiny-RPG/blob/master/obrazy/legendary.png?raw=true);
 }
 
 .sheet-quality-switch[value="exotic"] ~ div.sheet-weapon-card{
 	background-color:#bbd400;
+	background-image: url(https://github.com/SzymonRogozinski/Karta-postaci-do-Destiny-RPG/blob/master/obrazy/exotic.png?raw=true);
 }
 
 /*Strona szczegółów*/
