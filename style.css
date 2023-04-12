@@ -217,14 +217,62 @@ div.sheet-main div.sheet-col div.vig_sub_sector{
 	max-width: 900px;
 }
 /*Ustawienie wyglądu karty*/
-div.weapon_card input.param{
+div.sheet-weapon-card input.param{
 	text-align: center;
+	width: 150px;
 }
 
-div.weapon_card input.hidden_input{
+div.sheet-weapon-card input.hidden_input{
 	border-style: none;
 	background: none;
 	text-align: center;
+	width: 150px;
+}
+
+div.sheet-weapon-card div.param{
+	width: 50%;
+}
+
+/*Kolor amunicji*/
+.charsheet div.sheet-weapon-card .sheet-amno-switch[value="-"] + select.sheet-amno-select{
+	color:#000000;
+}
+
+.charsheet div.sheet-weapon-card .sheet-amno-switch[value="kinetic"] + select.sheet-amno-select{
+	color:#aeaeae;
+}
+
+.charsheet div.sheet-weapon-card .sheet-amno-switch[value="special"] + select.sheet-amno-select{
+	color:#3bff4f;
+}
+
+.charsheet div.sheet-weapon-card .sheet-amno-switch[value="heavy"] + select.sheet-amno-select{
+	color:#b300ff;
+}
+
+/*Kolor jakości*/
+.sheet-quality-switch[value="-"] ~ div.sheet-weapon-card{
+	background-color:#ffffff;
+}
+
+.sheet-quality-switch[value="common"] ~ div.sheet-weapon-card{
+	background-color:#aeaeae;
+}
+
+.sheet-quality-switch[value="uncommon"] ~ div.sheet-weapon-card{
+	background-color:#20b22e;
+}
+
+.sheet-quality-switch[value="rare"] ~ div.sheet-weapon-card{
+	background-color:#0026ff;
+}
+
+.sheet-quality-switch[value="legend"] ~ div.sheet-weapon-card{
+	background-color:#d000f9;
+}
+
+.sheet-quality-switch[value="exotic"] ~ div.sheet-weapon-card{
+	background-color:#bbd400;
 }
 
 /*Strona szczegółów*/

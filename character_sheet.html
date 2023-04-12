@@ -443,57 +443,77 @@
     </div>
     <!--Test-->
     <div class="sector">
-        <div class="weapon_card">
-            <select name="attr_type" value="-">
-                <option value="">-</option>
-                <!--"Broń zwykła"-->
-                <option value="Hand_cannon">Rewolwer</option>
-                <option value="Auto_rifle">Karabin automatyczny</option>
-                <option value="Scout_rifle">Karabin zwiadowczy</option>
-                <option value="Pulse_rifle">Karabin pulsacyjny</option>
-                <option value="Sidearm">Broń boczna</option>
-                <option value="Smg">Pistolet maszynowy</option>
-                <option value="Bow">Łuk</option>
-                <!--"Broń specjalna"-->
-                <option value="Shotgun">Strzelba</option>
-                <option value="Sniper_rifle">Karabin snajperski</option>
-                <option value="Fusion_rifle">Karabin fuzyjny</option>
-                <option value="Light_grnd">Lekki Granatnik</option>
-                <!--"Broń ciężka"-->
-                <option value="Machine_rifle">Karabin maszynowy</option>
-                <option value="Line_rifle">Karabin liniowy</option>
-                <option value="Rocket_launcher">Wyrzutnia rakiet</option>
-                <option value="Granade_launcher">Granatnik</option>
-                <option value="Sword">Miecz</option>
-            </select>
+        <input name="attr_weapon_quality" type="hidden" class="sheet-quality-switch">
+        <div class="sheet-weapon-card">
             <div class="param">
-                <input class="hidden_input" type="text" name="attr_param_name_1">
+                <input type="text" name="attr_weapon_name" value="">
+                <select name="attr_type" value="-">
+                    <option value="">-</option>
+                    <!--"Broń zwykła"-->
+                    <option value="Hand_cannon">Rewolwer</option>
+                    <option value="Auto_rifle">Karabin automatyczny</option>
+                    <option value="Scout_rifle">Karabin zwiadowczy</option>
+                    <option value="Pulse_rifle">Karabin pulsacyjny</option>
+                    <option value="Sidearm">Broń boczna</option>
+                    <option value="Smg">Pistolet maszynowy</option>
+                    <option value="Bow">Łuk</option>
+                    <!--"Broń specjalna"-->
+                    <option value="Shotgun">Strzelba</option>
+                    <option value="Sniper_rifle">Karabin snajperski</option>
+                    <option value="Fusion_rifle">Karabin fuzyjny</option>
+                    <option value="Light_grnd">Lekki Granatnik</option>
+                    <!--"Broń ciężka"-->
+                    <option value="Machine_rifle">Karabin maszynowy</option>
+                    <option value="Line_rifle">Karabin liniowy</option>
+                    <option value="Rocket_launcher">Wyrzutnia rakiet</option>
+                    <option value="Granade_launcher">Granatnik</option>
+                    <option value="Sword">Miecz</option>
+                </select>
+            </div>
+            <div class="param">
+                <input class="hidden_input" type="text" name="attr_param_name_1" readonly>
                 <input class="param" type="text" name="attr_param1">
             </div>
             <div class="param">
-                <input class="hidden_input" type="text" name="attr_param_name_2">
+                <input class="hidden_input" type="text" name="attr_param_name_2" readonly>
                 <input class="param" type="text" name="attr_param2">
             </div>
             <div class="param">
-                <input class="hidden_input" type="text" name="attr_param_name_3">
+                <input class="hidden_input" type="text" name="attr_param_name_3" readonly>
                 <input class="param" type="text" name="attr_param3">
             </div>
             <div class="param">
-                <input class="hidden_input" type="text" name="attr_param_name_4">
+                <input class="hidden_input" type="text" name="attr_param_name_4" readonly>
                 <input class="param" type="text" name="attr_param4">
             </div>
             <div class="param">
-                <input class="hidden_input" type="text" name="attr_param_name_5">
+                <input class="hidden_input" type="text" name="attr_param_name_5" readonly>
                 <input class="param" type="text" name="attr_param5">
             </div>
             <div class="param">
-                <input class="hidden_input" type="text" name="attr_param_name_6">
+                <input class="hidden_input" type="text" name="attr_param_name_6" readonly>
                 <input class="param" type="text" name="attr_param6">
             </div>
             <div class="param">
-                <input class="hidden_input" type="text" name="attr_param_name_7">
+                <input class="hidden_input" type="text" name="attr_param_name_7" readonly>
                 <input class="param" type="text" name="attr_param7">
             </div>
+            <input name="attr_weapon_amno" type="hidden" class="sheet-amno-switch">
+            Amunicja<select class="sheet-amno-select" name="attr_weapon_amno" value="-">
+                <option value="-">-</option>
+                <option style="color:#aeaeae;" value="kinetic">Kinetyczna</option>
+                <option style="color:#3bff4f;" value="special">Specjalna</option>
+                <option style="color:#b300ff;" value="heavy">Ciężka</option>
+            </select>
+            
+            Rzadkość<select class="sheet-quality-select" name="attr_weapon_quality" value="-">
+                <option value="-">-</option>
+                <option value="common">Zwykła</option>
+                <option value="uncommon">Niezwykła</option>
+                <option value="rare">Rzadka</option>
+                <option value="legend">Legendarna</option>
+                <option value="exotic">Egzotyczna</option>
+            </select>
         </div>
     </div>
 </div>
