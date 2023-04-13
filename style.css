@@ -217,9 +217,17 @@ div.sheet-main div.sheet-col div.vig_sub_sector{
 	max-width: 900px;
 }
 /*Ustawienie wyglądu karty*/
+/*Proporcje wymiarów obrazu 19x13*/
 div.sheet-weapon-card{
-	width: 570px;
-	height: 390px;
+	width: 665px;
+	height: 455px;
+	display: flex;
+	flex-direction:row;
+}
+
+div.sheet-weapon-card div.left_part,
+div.sheet-weapon-card div.right_part{
+	width: 50%;
 	display: flex;
 	flex-direction: column;
 }
@@ -227,54 +235,69 @@ div.sheet-weapon-card{
 div.sheet-weapon-card div.param{
 	flex-direction: row;
 	display: flex;
-	width: 350px;
 	justify-content: space-between;
 	margin-left: 5px;
 }
 
 div.sheet-weapon-card input.param{
 	text-align: center;
-	width: 150px;
+	width: 50%;
 }
 
 div.sheet-weapon-card input.hidden_input{
 	border-style: none;
 	background: none;
 	text-align: center;
-	width: 150px;
+	width: 45%;
 	background-color: #ffffff;
-}
-
-div.sheet-weapon-card span.span_text{
-	background-color: #ffffff;
-	width: 150px;
 }
 
 div.sheet-weapon-card select.sheet-amno-select,
 div.sheet-weapon-card select.sheet-quality-select,
 div.sheet-weapon-card select.select_type{
-	width: 150px;
+	width: 45%;
 	text-align: center;
 }
 
+div.sheet-weapon-card div.block_mod{
+	background-color: #ffffff;
+	width:50%;
+	height:30%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin: 5px;
+}
+
+div.sheet-weapon-card div.block_mod input.block_name{
+	width:100%;
+}
+
+div.sheet-weapon-card div.block_mod textarea.small_ta{
+	min-width:100%;
+	min-height:80%;
+	max-width:100%;
+	max-height:80%;
+}
+
 /*Kolor amunicji*/
-.charsheet div.sheet-weapon-card .sheet-amno-switch[value="-"] + select.sheet-amno-select{
+.charsheet div.sheet-weapon-card .sheet-amno-switch[value="-"] ~ select.sheet-amno-select{
 	color:#000000;
 }
 
-.charsheet div.sheet-weapon-card .sheet-amno-switch[value="kinetic"] + select.sheet-amno-select{
+.charsheet div.sheet-weapon-card .sheet-amno-switch[value="kinetic"] ~ select.sheet-amno-select{
 	color:#aeaeae;
 }
 
-.charsheet div.sheet-weapon-card .sheet-amno-switch[value="special"] + select.sheet-amno-select{
+.charsheet div.sheet-weapon-card .sheet-amno-switch[value="special"] ~ select.sheet-amno-select{
 	color:#3bff4f;
 }
 
-.charsheet div.sheet-weapon-card .sheet-amno-switch[value="heavy"] + select.sheet-amno-select{
+.charsheet div.sheet-weapon-card .sheet-amno-switch[value="heavy"] ~ select.sheet-amno-select{
 	color:#b300ff;
 }
 
-/*Kolor jakości*/
+/*Tło zależne do jakości*/
 .sheet-quality-switch[value="-"] ~ div.sheet-weapon-card{
 	background-color:#ffffff;
 }
@@ -282,26 +305,31 @@ div.sheet-weapon-card select.select_type{
 .sheet-quality-switch[value="common"] ~ div.sheet-weapon-card{
 	background-color:#aeaeae;
 	background-image: url(https://github.com/SzymonRogozinski/Karta-postaci-do-Destiny-RPG/blob/master/obrazy/common.png?raw=true);
+	background-size: cover;
 }
 
 .sheet-quality-switch[value="uncommon"] ~ div.sheet-weapon-card{
 	background-color:#20b22e;
 	background-image: url(https://github.com/SzymonRogozinski/Karta-postaci-do-Destiny-RPG/blob/master/obrazy/uncommon.png?raw=true);
+	background-size: cover;
 }
 
 .sheet-quality-switch[value="rare"] ~ div.sheet-weapon-card{
 	background-color:#0026ff;
 	background-image: url(https://github.com/SzymonRogozinski/Karta-postaci-do-Destiny-RPG/blob/master/obrazy/rare.png?raw=true);
+	background-size: cover;
 }
 
 .sheet-quality-switch[value="legend"] ~ div.sheet-weapon-card{
 	background-color:#d000f9;
 	background-image: url(https://github.com/SzymonRogozinski/Karta-postaci-do-Destiny-RPG/blob/master/obrazy/legendary.png?raw=true);
+	background-size: cover;
 }
 
 .sheet-quality-switch[value="exotic"] ~ div.sheet-weapon-card{
 	background-color:#bbd400;
 	background-image: url(https://github.com/SzymonRogozinski/Karta-postaci-do-Destiny-RPG/blob/master/obrazy/exotic.png?raw=true);
+	background-size: cover;
 }
 
 /*Strona szczegółów*/
