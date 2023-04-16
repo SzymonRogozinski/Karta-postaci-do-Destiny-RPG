@@ -259,7 +259,8 @@ div.sheet-weapon-card select.select_type{
 	text-align: center;
 }
 
-div.sheet-weapon-card div.block_mod{
+div.sheet-weapon-card div.block_mod_1,
+div.sheet-weapon-card div.block_mod_2{
 	background-color: #ffffff;
 	width:50%;
 	height:30%;
@@ -269,11 +270,13 @@ div.sheet-weapon-card div.block_mod{
 	margin: 5px;
 }
 
-div.sheet-weapon-card div.block_mod input.block_name{
+div.sheet-weapon-card div.block_mod_1 input.block_name,
+div.sheet-weapon-card div.block_mod_2 input.block_name{
 	width:100%;
 }
 
-div.sheet-weapon-card div.block_mod textarea.small_ta{
+div.sheet-weapon-card div.block_mod_1 textarea.small_ta,
+div.sheet-weapon-card div.block_mod_2 textarea.small_ta{
 	min-width:100%;
 	min-height:80%;
 	max-width:100%;
@@ -330,6 +333,23 @@ div.sheet-weapon-card div.block_mod textarea.small_ta{
 	background-color:#bbd400;
 	background-image: url(https://github.com/SzymonRogozinski/Karta-postaci-do-Destiny-RPG/blob/master/obrazy/exotic.png?raw=true);
 	background-size: cover;
+}
+
+/*Liczba modyfikacji*/
+div.sheet-weapon-card div.block_mod_1,
+div.sheet-weapon-card div.block_mod_2{
+	display:none;
+}
+
+.sheet-block-mod-switch[value="rare"] ~ div.block_mod_1,
+.sheet-block-mod-switch[value="legend"] ~ div.block_mod_1,
+.sheet-block-mod-switch[value="exotic"] ~ div.block_mod_1{
+	display:block;
+}
+
+.sheet-block-mod-switch[value="legend"] ~ div.block_mod_2,
+.sheet-block-mod-switch[value="exotic"] ~ div.block_mod_2{
+	display:block;
 }
 
 /*Strona szczegółów*/
