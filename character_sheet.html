@@ -447,7 +447,7 @@
     </div>
     <!--Test-->
     <div class="sector">
-        <input name="attr_weapon_quality" type="hidden" class="sheet-quality-switch">
+        <input name="attr_weapon_quality" type="hidden" class="sheet-weapon-quality-switch">
         <div class="sheet-weapon-card">
             <div class="left_part">
                 <div class="param">
@@ -548,8 +548,91 @@
                     <textarea class="small_ta" name="attr_weapons_mod_desc_2"></textarea>
                 </div>
             </div>
+            
+        </div>
+        <div class="sub_sector">
             <button type="action" name="act_reload">Przeładuj</button>
             <button type="action" name="act_shoot">Strzelaj</button>
+        </div>
+    </div>
+    <div class="sector">
+        <input name="attr_armor_quality" type="hidden" class="sheet-armor-quality-switch">
+        <div class="sheet-armor-card">
+            <div class="left_part">
+                <div class="param">
+                    <input class="param_long" type="text" name="attr_armor_name" value="">
+                </div>
+                <div class="param">
+                    <input class="hidden_input" type="text" value="Mobilność" readonly>
+                    <input class="param" type="text" name="attr_armor_mobility">
+                </div>
+                <div class="param">
+                    <input class="hidden_input" type="text" value="Defensywa" readonly>
+                    <input class="param" type="text" name="attr_armor_defence">
+                </div>
+                <div class="param">
+                    <input class="hidden_input" type="text" value="Regeneracja" readonly>
+                    <input class="param" type="text" name="attr_armor_regeneration">
+                </div>
+                <div class="param">
+                    <input class="hidden_input" type="text" value="Dyscyplina" readonly>
+                    <input class="param" type="text" name="attr_armor_discipline">
+                </div>
+                <div class="param">
+                    <input class="hidden_input" type="text" value="Inteligencja" readonly>
+                    <input class="param" type="text" name="attr_armor_inteligence">
+                </div>
+                <div class="param">
+                    <input class="hidden_input" type="text" value="Krzepa" readonly>
+                    <input class="param" type="text" name="attr_armor_strong">
+                </div>
+                <div class="param">
+                    <input class="hidden_input" type="text" value="Pancerz" readonly>
+                    <input class="param" type="text" name="attr_armor_value">
+                </div>
+                <div class="param">
+                    <input class="hidden_input" type="text" value="Klasa" readonly>
+                    <select class="sheet-amno-select" name="attr_armor_class" value="-">
+                        <option value="-">-</option>
+                        <option value="titan">Tytan</option>
+                        <option value="hunter">Łowca</option>
+                        <option value="warlock">Czarownik</option>
+                    </select>
+                </div>
+                <div class="param">
+                    <input class="hidden_input" type="text" value="Rzadkość" readonly>
+                    <select class="sheet-quality-select" name="attr_armor_quality" value="-">
+                        <option value="-">-</option>
+                        <option value="common">Zwykła</option>
+                        <option value="uncommon">Niezwykła</option>
+                        <option value="rare">Rzadka</option>
+                        <option value="legend">Legendarna</option>
+                        <option value="exotic">Egzotyczna</option>
+                    </select>
+                </div>
+            </div>
+            <div class="right_part">
+                <div class="param">
+                    <input class="hidden_input" type="text" value="Osłona" readonly>
+                    <select name="attr_armor_location">
+                        <option value="">-</option>
+                        <option value="head">Głowy</option>
+                        <option value="body">Korpusu</option>
+                        <option value="hands">Rąk</option>
+                        <option value="legs">Nóg</option>
+                    </select>
+                </div>
+                <input name="attr_armor_quality" type="hidden" class="sheet-block-mod-switch">
+                <div class="block_mod_1">
+                    <input class="block_name" type="text" name="attr_armor_mod_name_1">
+                    <textarea class="small_ta" name="attr_armor_mod_desc_1"></textarea>
+                </div>
+                <div class="block_mod_2">
+                    <input class="block_name" type="text" name="attr_armor_mod_name_2">
+                    <textarea class="small_ta" name="attr_armor_mod_desc_2"></textarea>
+                </div>
+            </div>
+            
         </div>
     </div>
 </div>
@@ -1122,6 +1205,54 @@
                 })
             }
         })
+    })
+
+    //Obsługa pancerza
+    function check_armor(atribute,quality){
+        getAttrs([atribute,quality],function(values){
+            var a=values.atribute
+            var q=values.quality
+            //Czy jest puste?
+            if(a==""){
+                return
+            }
+            //Sprawdź jakość
+            if(q=="-"){
+                //Zmień
+                setAttrs({
+                    atribute: ""
+                })
+               
+            }else if(q=="common"){
+                //Zmień
+                if(a!="0" && a!="1" && a!="2"){
+                    setAttrs({
+                        atribute: ""
+                    })
+                }
+            }//TODO
+            if(q=="-"){
+                //Zmień
+                if(a!=""){
+                    setAttrs({
+                        atribute: ""
+                    })
+                }
+            }
+            if(q=="-"){
+                //Zmień
+                if(a!=""){
+                    setAttrs({
+                        atribute: ""
+                    })
+                }
+            }
+        })
+
+    }
+
+    on("change:armor_mobility,change:armor_defence,change:armor_regeneration,change:armor_discipline,change:armor_inteligence,change:armor_strong,change:armor_value,change:armor_quality", function(){
+
     })
      
 </script>
