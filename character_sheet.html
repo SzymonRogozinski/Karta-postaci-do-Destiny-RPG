@@ -548,7 +548,7 @@
                     <textarea class="small_ta" name="attr_weapons_mod_desc_2"></textarea>
                 </div>
             </div>
-            
+
         </div>
         <div class="sub_sector">
             <button type="action" name="act_reload">Przeładuj</button>
@@ -632,7 +632,7 @@
                     <textarea class="small_ta" name="attr_armor_mod_desc_2"></textarea>
                 </div>
             </div>
-            
+
         </div>
     </div>
 </div>
@@ -1210,8 +1210,8 @@
     //Obsługa pancerza
     function check_armor(atribute,quality){
         getAttrs([atribute,quality],function(values){
-            var a=values.atribute
-            var q=values.quality
+            var a=values[atribute]
+            var q=values[quality]
             //Czy jest puste?
             if(a==""){
                 return
@@ -1220,30 +1220,34 @@
             if(q=="-"){
                 //Zmień
                 setAttrs({
-                    atribute: ""
+                    [atribute]: ""
                 })
-               
             }else if(q=="common"){
                 //Zmień
                 if(a!="0" && a!="1" && a!="2"){
                     setAttrs({
-                        atribute: ""
+                        [atribute]: ""
                     })
                 }
-            }//TODO
-            if(q=="-"){
+            }else if(q=="uncommon"){
                 //Zmień
-                if(a!=""){
+                if(a!="" && a!="1" && a!="2" && a!="3"){
                     setAttrs({
-                        atribute: ""
+                        [atribute]: ""
                     })
                 }
-            }
-            if(q=="-"){
+            }else if(q=="rare" ){
                 //Zmień
-                if(a!=""){
+                if(a!="" && a!="1" && a!="2" && a!="3" && a!="4"){
                     setAttrs({
-                        atribute: ""
+                        [atribute]: ""
+                    })
+                }
+            }else{
+                //Zmień
+                if(a!="" && a!="1" && a!="2" && a!="3" && a!="4" && a!="5"){
+                    setAttrs({
+                        [atribute]: ""
                     })
                 }
             }
@@ -1251,8 +1255,51 @@
 
     }
 
-    on("change:armor_mobility,change:armor_defence,change:armor_regeneration,change:armor_discipline,change:armor_inteligence,change:armor_strong,change:armor_value,change:armor_quality", function(){
+    on("change:armor_mobility change:armor_defence change:armor_regeneration change:armor_discipline change:armor_inteligence change:armor_strong change:armor_value change:armor_quality", function(){
+        check_armor("armor_mobility","armor_quality")
+        check_armor("armor_defence","armor_quality")
+        check_armor("armor_regeneration","armor_quality")
+        check_armor("armor_discipline","armor_quality")
+        check_armor("armor_inteligence","armor_quality")
+        check_armor("armor_strong","armor_quality")
 
+        getAttrs(["armor_quality","armor_value"],function(values){
+            let q=values.armor_quality
+            let v=values.armor_value
+
+
+            //Sprawdź jakość
+            if(q=="-"){
+                //Zmień
+                setAttrs({
+                    armor_value: ""
+                })
+            }else if(q=="common"){
+                //Zmień
+                if(v!="0" && v!="1"){
+                    setAttrs({
+                        armor_value: "0"
+                    })
+                }
+            }else if(q=="uncommon"){
+                setAttrs({
+                    armor_value: "2"
+                })
+            }else if(q=="rare"){
+                setAttrs({
+                    armor_value: "3"
+                })
+            }else if(q=="legend"){
+                setAttrs({
+                    armor_value: "4"
+                })
+            }else{
+                setAttrs({
+                    armor_value: "5"
+                })
+            }
+
+        })
     })
      
 </script>

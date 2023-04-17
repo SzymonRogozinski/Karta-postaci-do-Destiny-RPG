@@ -35,5 +35,5 @@ Sprint 4:
 	- Stworzenie segmentu "Notatki" (05.04.2023 - 09.04.2023)
 	- Stworzenie szablonu wyglądu segmentu "broń" (10.04.2023 - 13.04.2023)
 	- Dodanie makra obsługującego "broń"
-	- Stworzenie szablonu wyglądu segmentu "pancerz" (16.04.2023)
+	- Stworzenie szablonu wyglądu segmentu "pancerz" (16.04.2023 - 17.04.2023)
 	- Uzupełnienie specyfikacji segmentu "broń" (10.04.2023 - 10.04.2023)
