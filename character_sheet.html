@@ -506,13 +506,17 @@
                     <input class="param" type="text" name="attr_param7">
                 </div>
                 <div class="param">
+                    <input class="hidden_input" type="text" value="Strzały" readonly>
+                    <input class="param" type="number" name="attr_weapon_current_ammo" min="0">
+                </div>
+                <div class="param">
                     <input name="attr_weapon_amno" type="hidden" class="sheet-amno-switch">
                     <input class="hidden_input" type="text" value="Amunicja" readonly>
                     <select class="sheet-amno-select" name="attr_weapon_amno" value="-">
                         <option value="-">-</option>
-                        <option style="color:#aeaeae;" value="kinetic">Kinetyczna</option>
-                        <option style="color:#3bff4f;" value="special">Specjalna</option>
-                        <option style="color:#b300ff;" value="heavy">Ciężka</option>
+                        <option style="color:#aeaeae;" value="kinetic_amno">Kinetyczna</option>
+                        <option style="color:#3bff4f;" value="special_amno">Specjalna</option>
+                        <option style="color:#b300ff;" value="heavy_amno">Ciężka</option>
                     </select>
                 </div>
                 <div class="param">
@@ -1121,14 +1125,14 @@
     })
 
     //Typowe bronie
-    var gun_atr=["Obrażenia","Zasięg","Stabilność","Szybkostrzelność","Magazynek","Dobycie","Przeładowanie"]
+    var gun_atr=["Obrażenia","Zasięg","Stabilność","Szybkostrzelność","Magazynek","Przeładowanie","Dobycie"]
     var guns=["Hand_cannon","Auto_rifle","Scout_rifle","Pulse_rifle","Sidearm","Smg","Shotgun","Sniper_rifle","Fusion_rifle","Machine_rifle","Line_rifle"]
     
     var bows=["Obrażenia","Zasięg", "Stabilność", "Szybkostrzelność", "Pełny naciąg", "Bonus za celowanie", "Dobycie"]
     var light_g=["Obrażenia","Zasięg", "Stabilność", "Promień wybuchu", "Szybkostrzelność", "Elastyczność", "Dobycie"]
-    var rocket_l=["Obrażenia","Zasięg", "Naprowadzanie", "Promień wybuchu", "Magazynek", "Dobycie", "Przeładowanie"]
-    var granade_l=["Obrażenia","Zasięg", "Stabilność", "Promień wybuchu", "Magazynek","Dobycie", "Przeładowanie"]
-    var swords=["Obrażenia","Siła osłony", "Wydajność", "Zasięg tąpnięcia", "Magazynek", "Dobycie", "Szybkość"]
+    var rocket_l=["Obrażenia","Zasięg", "Naprowadzanie", "Promień wybuchu", "Magazynek", "Przeładowanie","Dobycie"]
+    var granade_l=["Obrażenia","Zasięg", "Stabilność", "Promień wybuchu", "Magazynek", "Przeładowanie","Dobycie"]
+    var swords=["Obrażenia","Siła osłony", "Wydajność", "Zasięg tąpnięcia", "Magazynek", "Szybkość","Dobycie"]
     
     on("change:type", function(){
         getAttrs(["type"], function(values){
@@ -1207,6 +1211,48 @@
         })
     })
 
+    //Kontrola amunicji
+    on("change:weapon_current_ammo change:param5 change:type change:kinetic_amno change:special_amno change:heavy_amno",function(){
+        getAttrs(["type","weapon_current_ammo","param5","kinetic_amno","special_amno","heavy_amno","weapon_amno"], function(values){
+            var t=values.type
+            var a=parseInt(values.weapon_current_ammo)
+            var m=parseInt(values.param5)
+            var weap_amno=values.weapon_amno
+            if(t=="Sword"){
+                let amno_pack_size=m/5
+                let rest=a%amno_pack_size
+                let amno_type=parseInt(values.heavy_amno)
+                let curr_amno=amno_type*amno_pack_size+rest
+                curr_amno=curr_amno>m?m:curr_amno
+                setAttrs({
+                    weapon_current_ammo:curr_amno
+                })
+            }if(t=="Light_grnd"){
+                let rest=a%2
+                let amno_type=parseInt(values[weap_amno])
+                let curr_amno=amno_type*2+rest
+                curr_amno=curr_amno>20?20:curr_amno
+                setAttrs({
+                    weapon_current_ammo:curr_amno
+                })
+            }else if(t=="Bow"){
+                let rest=a%6
+                let amno_type=parseInt(values[weap_amno])
+                let curr_amno=amno_type*6+rest
+                curr_amno=curr_amno>60?60:curr_amno
+                setAttrs({
+                    weapon_current_ammo:curr_amno
+                })
+            }else{
+                if(a>m){
+                    setAttrs({
+                        weapon_current_ammo:m
+                    })
+                }
+            }
+        })
+    })
+
     //Obsługa pancerza
     function check_armor(atribute,quality){
         getAttrs([atribute,quality],function(values){
@@ -1252,7 +1298,6 @@
                 }
             }
         })
-
     }
 
     on("change:armor_mobility change:armor_defence change:armor_regeneration change:armor_discipline change:armor_inteligence change:armor_strong change:armor_value change:armor_quality", function(){
@@ -1266,7 +1311,6 @@
         getAttrs(["armor_quality","armor_value"],function(values){
             let q=values.armor_quality
             let v=values.armor_value
-
 
             //Sprawdź jakość
             if(q=="-"){
@@ -1298,8 +1342,18 @@
                     armor_value: "5"
                 })
             }
-
         })
     })
-     
+    //Przyciski na karcie broni
+    on('clicked:shoot', (info) => {
+        setAttrs({
+            DEBUG3: "1"
+        })
+    })
+
+    on('clicked:reload', (info) => {
+        setAttrs({
+            DEBUG3: "2"
+        })
+    })
 </script>
