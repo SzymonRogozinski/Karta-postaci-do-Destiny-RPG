@@ -556,7 +556,7 @@
         </div>
         <div class="sub_sector">
             <button type="action" name="act_reload">Przeładuj</button>
-            <button type="action" name="act_shoot">Strzelaj</button>
+            <button type="action" name="act_attack">Atakuj</button>
         </div>
     </div>
     <div class="sector">
@@ -796,6 +796,35 @@
     </div>
 </rolltemplate>
 
+<rolltemplate class="sheet-rolltemplate-Attack">
+    <div class="sheet-template-container">
+        <div class="sheet-template-header">{{name}}</div>
+        <div class="sheet-results">
+            <div class="sheet-template-row">
+                <span>Kość główna = {{wynik}}</span>
+            </div>
+            <div class="sheet-template-row">
+                <span>Kość figury = {{pomoc}}</span>
+            </div>
+            {{#rollGreater() computed::wynik 3}}
+            <div class="sheet-template-row-won">
+                <h3>Trafienie!</h3>
+                <div class="sheet-template-row">
+                    <span>Obrażenia = {{Obr}}</span>
+                </div>
+                <div class="sheet-template-row">
+                    <span>Kość figury = {{FObr}}</span>
+                </div>
+            </div>
+            {{/rollGreater() computed::wynik 3}}
+            {{#rollLess() computed::wynik 4}}
+            <div class="sheet-template-row-lost">
+                <h3>Pudło!</h3>
+            </div>
+            {{/rollLess() computed::wynik 4}}
+        </div>
+    </div>
+</rolltemplate>
 
 <script type="text/worker">
     //Przełączanie się między stronami
@@ -1129,10 +1158,10 @@
     var guns=["Hand_cannon","Auto_rifle","Scout_rifle","Pulse_rifle","Sidearm","Smg","Shotgun","Sniper_rifle","Fusion_rifle","Machine_rifle","Line_rifle"]
     
     var bows=["Obrażenia","Zasięg", "Stabilność", "Szybkostrzelność", "Pełny naciąg", "Bonus za celowanie", "Dobycie"]
-    var light_g=["Obrażenia","Zasięg", "Stabilność", "Promień wybuchu", "Szybkostrzelność", "Elastyczność", "Dobycie"]
+    var light_g=["Obrażenia","Zasięg", "Stabilność","Szybkostrzelność", "Promień wybuchu", "Elastyczność", "Dobycie"]
     var rocket_l=["Obrażenia","Zasięg", "Naprowadzanie", "Promień wybuchu", "Magazynek", "Przeładowanie","Dobycie"]
     var granade_l=["Obrażenia","Zasięg", "Stabilność", "Promień wybuchu", "Magazynek", "Przeładowanie","Dobycie"]
-    var swords=["Obrażenia","Siła osłony", "Wydajność", "Zasięg tąpnięcia", "Magazynek", "Szybkość","Dobycie"]
+    var swords=["Obrażenia","Siła osłony", "Wydajność","Szybkość", "Magazynek", "Zasięg tąpnięcia", "Dobycie"]
     
     on("change:type", function(){
         getAttrs(["type"], function(values){
@@ -1212,7 +1241,44 @@
     })
 
     //Kontrola amunicji
-    on("change:weapon_current_ammo change:param5 change:type change:kinetic_amno change:special_amno change:heavy_amno",function(){
+    //Zmiana w magazynku
+    on("change:weapon_current_ammo change:param5",function(){
+        getAttrs(["type","weapon_current_ammo","param5","kinetic_amno","special_amno","heavy_amno","weapon_amno"], function(values){
+            var t=values.type
+            var a=parseInt(values.weapon_current_ammo)
+            var m=parseInt(values.param5)
+            var weap_amno=values.weapon_amno
+            if(t=="Sword"){
+                let amno_pack_size=m/5                      //Wielkość paczki z amunicją
+                let rest_amno=Math.floor(a/amno_pack_size)  //Ile całych paczek zostało
+                setAttrs({
+                    heavy_amno:rest_amno
+                })
+            }if(t=="Light_grnd"){
+                let rest_amno=Math.floor(a/2)               //Ile całych paczek zostało
+                let amno_type=parseInt(values[weap_amno])   //Używany typ amunicji
+                
+                setAttrs({
+                    [weap_amno]:rest_amno
+                })
+            }else if(t=="Bow"){
+                let rest_amno=Math.floor(a/6)               //Ile całych paczek zostało
+                let amno_type=parseInt(values[weap_amno])
+                
+                setAttrs({
+                    [weap_amno]:rest_amno
+                })
+            }else{
+                if(a>m){
+                    setAttrs({
+                        weapon_current_ammo:m
+                    })
+                }
+            }
+        })
+    })
+    //Zmiana w żetonach
+    on("change:type change:kinetic_amno change:special_amno change:heavy_amno",function(){
         getAttrs(["type","weapon_current_ammo","param5","kinetic_amno","special_amno","heavy_amno","weapon_amno"], function(values){
             var t=values.type
             var a=parseInt(values.weapon_current_ammo)
@@ -1243,12 +1309,6 @@
                 setAttrs({
                     weapon_current_ammo:curr_amno
                 })
-            }else{
-                if(a>m){
-                    setAttrs({
-                        weapon_current_ammo:m
-                    })
-                }
             }
         })
     })
@@ -1344,10 +1404,80 @@
             }
         })
     })
+
+    //Funkcja służąca do podpinania ataku
+    function bind_atack(attribute_name,attribute,wp_name,damage,series=1){
+        var query="&{template:Attack} "                                                                         //Szablon rzutu
+        query=query.concat("{{name=@{name} wykonuje atak za pomocą @{"+wp_name+"}}} ")                        //Nazwa rzutu
+
+        getAttrs([attribute,damage,"weapon_current_ammo"], function(values){
+            var atr=values[attribute]
+            var camno=parseInt(values.weapon_current_ammo)      //Obecna amunicja
+            if(camno==0){
+                throw new Error("Brak amunicji!")
+            }else{
+                setAttrs({
+                    weapon_current_ammo: camno-series
+                })
+            }
+            //Sprawdzenie czy umiejętność jest wykupiona
+            if(atr!="-"){
+                query=query.concat("{{wynik=[[@{"+attribute+"}! +@{"+attribute+"_mod} +?{Modyfikator|0}]]}} ")    //Rzut kością główną
+                query=query.concat("{{pomoc=[[d6! +@{"+attribute+"_mod} +?{Modyfikator|0}]]}}")                   //Rzut kością figury
+            }else{
+                query=query.concat("{{wynik=[[d4!-2 +@{"+attribute+"_mod} +?{Modyfikator|0}]]}}")             //Rzut kością główną
+                query=query.concat("{{pomoc=[[d6!-2 +@{"+attribute+"_mod} +?{Modyfikator|0}]]}}")             //Rzut kością figury
+            }
+            if(series!=1){
+                //Skomplikowane
+                if(/*values[damage].search("+")!=-1*/false){
+                //TODO
+                }else{
+                    query=query.concat("{{Obr=[[[[d"+series+"]]@{"+damage+"}!]] }}")
+                }
+            }else{
+                query=query.concat("{{Obr=[[@{"+damage+"}! ]]}}")
+            }
+            query=query.concat("{{FObr=[[d6!]]}}")
+
+            startRoll(query, (results) => {
+                var basicDice = results.results.wynik.result    //Kość główna
+                var figDice = results.results.pomoc.result      //Kość figury
+                var resDice                                     //Kość wyniku
+
+                //Jeśli kość główna nie jest równa jeden i figury jest większa, to zamień
+                if(basicDice>1 && figDice>basicDice){
+                    resDice=figDice
+                }else{
+                    resDice=basicDice
+                }
+                finishRoll(
+                    results.rollId,
+                    {
+                        wynik: resDice
+                    }
+                )
+            })
+        })
+    }
+
     //Przyciski na karcie broni
-    on('clicked:shoot', (info) => {
-        setAttrs({
-            DEBUG3: "1"
+    on('clicked:attack', (info) => {
+        getAttrs(["type","param4"],function(values){
+            let t=values.type       //Typ broni
+            let s=values.param4     //Szybkostrzelność
+            if(t=="Sword"){
+                bind_atack("walki wręcz","brawl","weapon_name","param1")
+            }else if(t=="Rocket_launcher" || t=="Granade_launcher"){
+                bind_atack("strzelania","shoot","weapon_name","param1")
+            }else{
+                //Sprawdzenie czy broń strzela serią
+                if(s[0]=='s'){
+                    bind_atack("strzelania","shoot","weapon_name","param1",series=parseInt(s.slice(1)))
+                }else{
+                    bind_atack("strzelania","shoot","weapon_name","param1")
+                }
+            }
         })
     })
 
