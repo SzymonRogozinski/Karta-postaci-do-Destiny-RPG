@@ -1252,7 +1252,7 @@
                 let amno_pack_size=m/5                      //Wielkość paczki z amunicją
                 let rest_amno=Math.floor(a/amno_pack_size)  //Ile całych paczek zostało
                 setAttrs({
-                    heavy_amno:rest_amno
+                    heavy_amno:rest_amno                    //Zmiana żetonów z amunicją
                 })
             }if(t=="Light_grnd"){
                 let rest_amno=Math.floor(a/2)               //Ile całych paczek zostało
@@ -1266,12 +1266,12 @@
                 let amno_type=parseInt(values[weap_amno])
                 
                 setAttrs({
-                    [weap_amno]:rest_amno
+                    [weap_amno]:rest_amno                   //Zmiana żetonów z amunicją
                 })
             }else{
                 if(a>m){
                     setAttrs({
-                        weapon_current_ammo:m
+                        weapon_current_ammo:m               //Zmiana żetonów z amunicją
                     })
                 }
             }
@@ -1482,8 +1482,63 @@
     })
 
     on('clicked:reload', (info) => {
-        setAttrs({
-            DEBUG3: "2"
+        getAttrs(["type","weapon_current_ammo","weapon_amno","param5","kinetic_amno","special_amno","heavy_amno"],function(values){
+            var t=values.type       //Typ broni
+            //Broni któych się nie przeładowuje lub nie mają magazynka
+            if(t=="Sword" || t=="Light_grnd" || t=="Bow"){
+                return
+            }
+            
+            //1 żeton=1 magazynek
+            if(t=="Hand_cannon" || t=="Auto_rifle" || t=="Scout_rifle" || t=="Pulse_rifle" || t=="Sidearm" || t=="Smg"){
+                var at=values.weapon_amno                           //Typ amunicji
+                var amno=parseInt(values[at])                     //Ile żetonów pozostało
+                var max=parseInt(values.param5)                   //Wielkość magazynka
+                var camno=parseInt(values.weapon_current_ammo)    //Obecna amunicja
+                //Zmień wartość amunicji
+                if(amno!=0  && camno!=max){
+                    setAttrs({
+                        weapon_current_ammo: max,
+                        [at]: amno-1
+                    })
+                }
+            //2 żetony=1 magazynek
+            }else if(t=="Shotgun" || t=="Sniper_rifle" || t=="Fusion_rifle" || t=="Machine_rifle" || t=="Line_rifle" || t=="Granade_launcher"){
+                var at=values.weapon_amno                           //Typ amunicji
+                var amno=parseInt(values[at])                     //Ile żetonów pozostało
+                var max=parseInt(values.param5)                   //Wielkość magazynka
+                var camno=parseInt(values.weapon_current_ammo)    //Obecna amunicja
+                //Zmień wartość amunicji
+                if(amno>1 && camno!=max){
+                    setAttrs({
+                        weapon_current_ammo: max,
+                        [at]: amno-2
+                    })
+                }else if(amno==1 && camno!=max){
+                    setAttrs({
+                        weapon_current_ammo: Math.floor(max/2),
+                        [at]: amno-1
+                    })
+                }
+            //1 żeton=1 pocisk //Wyrzutnia rakiet
+            }else{
+                var at=values.weapon_amno                           //Typ amunicji
+                var amno=parseInt(values[at])                     //Ile żetonów pozostało
+                var max=parseInt(values.param5)                   //Wielkość magazynka
+                var camno=parseInt(values.weapon_current_ammo)    //Obecna amunicja
+                //Zmień wartość amunicji
+                if(amno>=max && camno!=max){
+                    setAttrs({
+                        weapon_current_ammo: max,
+                        [at]: amno-max
+                    })
+                }else if(amno>0 && camno!=max){
+                    setAttrs({
+                        weapon_current_ammo: amno,
+                        [at]: 0
+                    })
+                }
+            }
         })
     })
 </script>
