@@ -37,3 +37,10 @@ Sprint 4:
 	- Dodanie makra obsługującego "broń" (19.04.2023 - 20.04.2023)
 	- Stworzenie szablonu wyglądu segmentu "pancerz" (16.04.2023 - 17.04.2023)
 	- Uzupełnienie specyfikacji segmentu "broń" (10.04.2023 - 10.04.2023)
+
+Sprint 5:
+	- Poprawienie wyglądu kart [Zmniejszenie rozmiarów, dodanie zmieniających się symboli, poprawa układu elementów]
+	- Powielenie kart broni i pancerzy
+	- Dodanie sektora sumującego wartości cech z pancerzy
+	- Dodanie pola podsumowującego informacje o broniach na głównej stronie
+	- Poprawienie estetyki kodu
