@@ -1,3 +1,4 @@
+<!--Parametr obsługujący strony-->
 <input type="hidden" class="sheet-tabstoggle" name="attr_sheetTab" value="main" />
 <div class="sheet_selector">
     <button type="action" name="act_main">Główna strona</button>
@@ -41,12 +42,15 @@
             <div class="sub_sector">
                 Podklasa:<select class="text_select" id="subclass_list" name="attr_subclass">
                     <option value="-">-</option>
+                    <option disabled style="background-color: black; color: white; font-weight: bold;">---Tytan---</option>
                     <option value="Słoneczny pogromca">Słoneczny pogromca</option>
                     <option value="Szturmowiec">Szturmowiec</option>
                     <option value="Wartownik">Wartownik</option>
+                    <option disabled style="background-color: black; color: white; font-weight: bold;">---Łowca---</option>
                     <option value="Strzelec">Strzelec</option>
                     <option value="Gromodzierżca">Gromodzierżca</option>
                     <option value="Tropiciel">Tropiciel</option>
+                    <option disabled style="background-color: black; color: white; font-weight: bold;">---Czarownik---</option>
                     <option value="Ostrze świtu">Ostrze świtu</option>
                     <option value="Kroczący przez próżnię">Kroczący przez próżnię</option>
                     <option value="Siewca burz">Siewca burz</option>
@@ -445,18 +449,22 @@
             Dziwne monety <input class="short_number" type="number" name="attr_strange_coins" min="0" max="100">
         </div>
     </div>
-    <!--Test-->
+    <!--Karta broni-->
     <div class="sector">
+        <!--Wyciągnięcie zmiennej, aby mogła zmieniać tło-->
         <input name="attr_weapon_quality" type="hidden" class="sheet-weapon-quality-switch">
         <div class="sheet-weapon-card">
             <div class="left_part">
+                <!--Nazwa-->
                 <div class="param">
                     <input class="param_long" type="text" name="attr_weapon_name" value="">
                 </div>
                 <div class="param">
+                    <!--Typ broni-->
                     <select class="select_long" name="attr_type" value="-">
                         <option value="">-</option>
-                        <!--"Broń zwykła"-->
+
+                        <option disabled style="background-color: black; color: white; font-weight: bold;">---Broń zwykła---</option>
                         <option value="Hand_cannon">Rewolwer</option>
                         <option value="Auto_rifle">Karabin automatyczny</option>
                         <option value="Scout_rifle">Karabin zwiadowczy</option>
@@ -464,12 +472,14 @@
                         <option value="Sidearm">Broń boczna</option>
                         <option value="Smg">Pistolet maszynowy</option>
                         <option value="Bow">Łuk</option>
-                        <!--"Broń specjalna"-->
+
+                        <option disabled style="background-color: black; color: white; font-weight: bold;">---Broń specjalna---</option>
                         <option value="Shotgun">Strzelba</option>
                         <option value="Sniper_rifle">Karabin snajperski</option>
                         <option value="Fusion_rifle">Karabin fuzyjny</option>
                         <option value="Light_grnd">Lekki Granatnik</option>
-                        <!--"Broń ciężka"-->
+
+                        <option disabled style="background-color: black; color: white; font-weight: bold;">---Broń ciężka---</option>
                         <option value="Machine_rifle">Karabin maszynowy</option>
                         <option value="Line_rifle">Karabin liniowy</option>
                         <option value="Rocket_launcher">Wyrzutnia rakiet</option>
@@ -477,41 +487,44 @@
                         <option value="Sword">Miecz</option>
                     </select>
                 </div>
+                <!--Parametry broni-->
                 <div class="param">
-                    <input class="hidden_input" type="text" name="attr_param_name_1" readonly>
+                    <input class="readonly_input" type="text" name="attr_param_name_1" readonly>
                     <input class="param" type="text" name="attr_param1">
                 </div>
                 <div class="param">
-                    <input class="hidden_input" type="text" name="attr_param_name_2" readonly>
+                    <input class="readonly_input" type="text" name="attr_param_name_2" readonly>
                     <input class="param" type="text" name="attr_param2">
                 </div>
                 <div class="param">
-                    <input class="hidden_input" type="text" name="attr_param_name_3" readonly>
+                    <input class="readonly_input" type="text" name="attr_param_name_3" readonly>
                     <input class="param" type="text" name="attr_param3">
                 </div>
                 <div class="param">
-                    <input class="hidden_input" type="text" name="attr_param_name_4" readonly>
+                    <input class="readonly_input" type="text" name="attr_param_name_4" readonly>
                     <input class="param" type="text" name="attr_param4">
                 </div>
                 <div class="param">
-                    <input class="hidden_input" type="text" name="attr_param_name_5" readonly>
+                    <input class="readonly_input" type="text" name="attr_param_name_5" readonly>
                     <input class="param" type="text" name="attr_param5">
                 </div>
                 <div class="param">
-                    <input class="hidden_input" type="text" name="attr_param_name_6" readonly>
+                    <input class="readonly_input" type="text" name="attr_param_name_6" readonly>
                     <input class="param" type="text" name="attr_param6">
                 </div>
                 <div class="param">
-                    <input class="hidden_input" type="text" name="attr_param_name_7" readonly>
+                    <input class="readonly_input" type="text" name="attr_param_name_7" readonly>
                     <input class="param" type="text" name="attr_param7">
                 </div>
                 <div class="param">
-                    <input class="hidden_input" type="text" value="Strzały" readonly>
+                    <input class="readonly_input" type="text" value="Strzały" readonly>
                     <input class="param" type="number" name="attr_weapon_current_ammo" min="0">
                 </div>
+                <!--Wybór typu amunicji-->
                 <div class="param">
+                    <!--Wyciągnięcie zmiennej, aby mogła zmieniać kolor czcionki-->
                     <input name="attr_weapon_amno" type="hidden" class="sheet-amno-switch">
-                    <input class="hidden_input" type="text" value="Amunicja" readonly>
+                    <input class="readonly_input" type="text" value="Amunicja" readonly>
                     <select class="sheet-amno-select" name="attr_weapon_amno" value="-">
                         <option value="-">-</option>
                         <option style="color:#aeaeae;" value="kinetic_amno">Kinetyczna</option>
@@ -519,8 +532,9 @@
                         <option style="color:#b300ff;" value="heavy_amno">Ciężka</option>
                     </select>
                 </div>
+                <!--Wybór jakości-->
                 <div class="param">
-                    <input class="hidden_input" type="text" value="Rzadkość" readonly>
+                    <input class="readonly_input" type="text" value="Rzadkość" readonly>
                     <select class="sheet-quality-select" name="attr_weapon_quality" value="-">
                         <option value="-">-</option>
                         <option value="common">Zwykła</option>
@@ -531,9 +545,10 @@
                     </select>
                 </div>
             </div>
+            <!--Wybór typu obrażeń-->
             <div class="right_part">
                 <div class="param">
-                    <input class="hidden_input" type="text" value="Żywioł" readonly>
+                    <input class="readonly_input" type="text" value="Żywioł" readonly>
                     <select name="attr_weapon_energy">
                         <option value="">-</option>
                         <option value="kinetic">Kinetyczny</option>
@@ -542,60 +557,67 @@
                         <option value="solar">Solarny</option>
                     </select>
                 </div>
+                <!--Wyciągnięcie zmiennej, aby mogła wyświetlać odpowiednią liczbę modyfikacji-->
                 <input name="attr_weapon_quality" type="hidden" class="sheet-block-mod-switch">
+                <!--Modyfikacja broni jeden-->
                 <div class="block_mod_1">
                     <input class="block_name" type="text" name="attr_weapons_mod_name_1">
                     <textarea class="small_ta" name="attr_weapons_mod_desc_1"></textarea>
                 </div>
+                <!--Modyfikacja broni dwa-->
                 <div class="block_mod_2">
                     <input class="block_name" type="text" name="attr_weapons_mod_name_2">
                     <textarea class="small_ta" name="attr_weapons_mod_desc_2"></textarea>
                 </div>
             </div>
-
         </div>
+        <!--Przyciski funkcyjne-->
         <div class="sub_sector">
             <button type="action" name="act_reload">Przeładuj</button>
             <button type="action" name="act_attack">Atakuj</button>
         </div>
     </div>
+    <!--Karta pancerza-->
     <div class="sector">
+        <!--Wyciągnięcie zmiennej, aby mogła zmieniać kolor tła-->
         <input name="attr_armor_quality" type="hidden" class="sheet-armor-quality-switch">
         <div class="sheet-armor-card">
             <div class="left_part">
+                <!--Parametry pancerza-->
                 <div class="param">
                     <input class="param_long" type="text" name="attr_armor_name" value="">
                 </div>
                 <div class="param">
-                    <input class="hidden_input" type="text" value="Mobilność" readonly>
+                    <input class="readonly_input" type="text" value="Mobilność" readonly>
                     <input class="param" type="text" name="attr_armor_mobility">
                 </div>
                 <div class="param">
-                    <input class="hidden_input" type="text" value="Defensywa" readonly>
+                    <input class="readonly_input" type="text" value="Defensywa" readonly>
                     <input class="param" type="text" name="attr_armor_defence">
                 </div>
                 <div class="param">
-                    <input class="hidden_input" type="text" value="Regeneracja" readonly>
+                    <input class="readonly_input" type="text" value="Regeneracja" readonly>
                     <input class="param" type="text" name="attr_armor_regeneration">
                 </div>
                 <div class="param">
-                    <input class="hidden_input" type="text" value="Dyscyplina" readonly>
+                    <input class="readonly_input" type="text" value="Dyscyplina" readonly>
                     <input class="param" type="text" name="attr_armor_discipline">
                 </div>
                 <div class="param">
-                    <input class="hidden_input" type="text" value="Inteligencja" readonly>
+                    <input class="readonly_input" type="text" value="Inteligencja" readonly>
                     <input class="param" type="text" name="attr_armor_inteligence">
                 </div>
                 <div class="param">
-                    <input class="hidden_input" type="text" value="Krzepa" readonly>
+                    <input class="readonly_input" type="text" value="Krzepa" readonly>
                     <input class="param" type="text" name="attr_armor_strong">
                 </div>
                 <div class="param">
-                    <input class="hidden_input" type="text" value="Pancerz" readonly>
+                    <input class="readonly_input" type="text" value="Pancerz" readonly>
                     <input class="param" type="text" name="attr_armor_value">
                 </div>
+                <!--Klasa postaci, dla jakiej przeznaczony jest pancerz-->
                 <div class="param">
-                    <input class="hidden_input" type="text" value="Klasa" readonly>
+                    <input class="readonly_input" type="text" value="Klasa" readonly>
                     <select class="sheet-amno-select" name="attr_armor_class" value="-">
                         <option value="-">-</option>
                         <option value="titan">Tytan</option>
@@ -603,8 +625,9 @@
                         <option value="warlock">Czarownik</option>
                     </select>
                 </div>
+                <!--Rzadkość pancerza-->
                 <div class="param">
-                    <input class="hidden_input" type="text" value="Rzadkość" readonly>
+                    <input class="readonly_input" type="text" value="Rzadkość" readonly>
                     <select class="sheet-quality-select" name="attr_armor_quality" value="-">
                         <option value="-">-</option>
                         <option value="common">Zwykła</option>
@@ -616,8 +639,9 @@
                 </div>
             </div>
             <div class="right_part">
+                <!--Wybór części pancerza-->
                 <div class="param">
-                    <input class="hidden_input" type="text" value="Osłona" readonly>
+                    <input class="readonly_input" type="text" value="Osłona" readonly>
                     <select name="attr_armor_location">
                         <option value="">-</option>
                         <option value="head">Głowy</option>
@@ -626,21 +650,23 @@
                         <option value="legs">Nóg</option>
                     </select>
                 </div>
+                <!--Wyciągnięcie zmiennej, aby mogła wyświetlać odpowiednią liczbę modyfikacji-->
                 <input name="attr_armor_quality" type="hidden" class="sheet-block-mod-switch">
+                <!--Modyfikacja 1-->
                 <div class="block_mod_1">
                     <input class="block_name" type="text" name="attr_armor_mod_name_1">
                     <textarea class="small_ta" name="attr_armor_mod_desc_1"></textarea>
                 </div>
+                <!--Modyfikacja 2-->
                 <div class="block_mod_2">
                     <input class="block_name" type="text" name="attr_armor_mod_name_2">
                     <textarea class="small_ta" name="attr_armor_mod_desc_2"></textarea>
                 </div>
             </div>
-
         </div>
     </div>
 </div>
-
+<!--Strona na pozostałe szczegóły-->
 <div class="sheet-details">
     <!--Opis postaci-->
     <div class="sector">
@@ -655,7 +681,6 @@
             Dlaczego zostałeś wskrzeszony?<textarea id="tx_res" name="attr_resurection"></textarea>
         </div>
     </div>
-
     <div class="sector" id="sec_two_part">
         <!--Notatki-->
         <div class="sector" id="sec_notes">
@@ -719,7 +744,6 @@
                 <button type="action" class="roll_button" name="act_roll_scan"></button><br>
             </div>
             <input type="hidden" name="attr_ghost_figure" value="0">
-
             <!--Przewagi Ducha-->
             <div id="ghost_Advances" class="inner_sector">
                 <h3>Przewagi</h3>
@@ -840,18 +864,18 @@
     //Walidacja podklasy
     on("change:subclass", function(){
         getAttrs(["class","subclass"], function(values){
-            var cl=values.class;    
-            var sc=values.subclass;
-            if(cl == "Tytan"){
-                if(sc!="Słoneczny pogromca" && sc!="Szturmowiec" && sc!="Wartownik"){
+            var clas=values.class;    
+            var sub_clas=values.subclass;
+            if(clas == "Tytan"){
+                if(sub_clas!="Słoneczny pogromca" && sub_clas!="Szturmowiec" && sub_clas!="Wartownik"){
                     setAttrs({subclass: "-"});
                 }
-            }else if(cl =="Łowca"){
-                if(sc!="Strzelec" && sc!="Gromodzierżca" && sc!="Tropiciel"){
+            }else if(clas =="Łowca"){
+                if(sub_clas!="Strzelec" && sub_clas!="Gromodzierżca" && sub_clas!="Tropiciel"){
                     setAttrs({subclass: "-"});
                 }
-            }else if(cl == "Czarownik"){
-                if(sc!="Ostrze świtu" && sc!="Kroczący przez próżnię" && sc!="Siewca burz"){
+            }else if(clas == "Czarownik"){
+                if(sub_clas!="Ostrze świtu" && sub_clas!="Kroczący przez próżnię" && sub_clas!="Siewca burz"){
                     setAttrs({subclass: "-"});
                 }
             }
@@ -861,20 +885,20 @@
     //Zmiana liczby doświadczenia
     on("change:EXP", function(){
         getAttrs(["EXP","level"], function(values){
-            var e=values.EXP;
+            var exp=values.EXP;
             //Pierw ile expa brakuje, dalej jaki level
             setAttrs({
-                EXP_To_Next_Level:e%5,
-                level: parseInt(e/5)
+                EXP_To_Next_Level:exp%5,
+                level: parseInt(exp/5)
             });
-            var l=values.level;
-            if(l<9){
+            var lv=values.level;
+            if(lv<9){
                 setAttrs({rank: "Nowicjusz"});
-            }else if(l<17){
+            }else if(lv<17){
                 setAttrs({rank: "Doświadczony"});
-            }else if(l<25){
+            }else if(lv<25){
                 setAttrs({rank: "Weteran"});
-            }else if(l<33){
+            }else if(lv<33){
                 setAttrs({rank: "Heros"});
             }else{
                 setAttrs({rank: "Legenda"});
@@ -884,17 +908,16 @@
 
     //Usuwa przedrostek z nazwy kości
     function dice_max_value(dice){
-        var v=dice.slice(1)
-        return v!=""?v:0
+        var value=dice.slice(1)
+        return value!=""?value:0
     }
 
     //Sprawdzanie czy rasa Przebudzonych ma odpowiednią wartość ducha
     on("change:spirit change:race",function(){
         getAttrs(["spirit","race"],function(values){
-            var r=values.race
-            var s=values.spirit
-        
-            if(r=="Przebudzony" && s=="d4"){
+            var race=values.race
+            var spirit=values.spirit
+            if(race=="Przebudzony" && spirit=="d4"){
                 setAttrs({spirit: "d6"})
             }
         })
@@ -903,12 +926,12 @@
     //Sprawdzanie czy aktualna wartość fuksów nie jest za duża
     on("change:luck",function(){
         getAttrs(["luck_max","luck"],function(values){
-            var lm=values.luck_max
-            var l=values.luck
-            if(l<0){
+            var max_luck=values.luck_max
+            var luck=values.luck
+            if(luck<0){
                 setAttrs({luck: 0}) 
-            }else if(l>lm){
-                setAttrs({luck: lm}) 
+            }else if(luck>max_luck){
+                setAttrs({luck: max_luck}) 
             }
         })
     })
@@ -916,23 +939,23 @@
     //Obliczanie wytrzymałości
     on("change:vigor change:tough_mod", function(){
         getAttrs(["vigor","tough_mod","size"], function(values){
-            var v=parseInt(dice_max_value(values.vigor))    //Parsowanie
+            var vigor=parseInt(dice_max_value(values.vigor))    //Parsowanie
             var tm=parseInt(values.tough_mod)
-            var s=parseInt(values.size)
+            var size=parseInt(values.size)
 
-            v=v/2+tm+s+2                                    //Dodanie modyfikatorów
-            setAttrs({tough: v})                            //ustawienie wytrzymałości
+            vigor=vigor/2+tm+size+2                             //Dodanie modyfikatorów
+            setAttrs({tough: vigor})                            //ustawienie wytrzymałości
         })
     })
 
     //Obliczanie obrony
     on("change:brawl change:parry_mod", function(){
         getAttrs(["brawl","parry_mod"], function(values){
-            var p=parseInt(dice_max_value(values.brawl))    //Parsowanie
+            var parry=parseInt(dice_max_value(values.brawl))    //Parsowanie
             var pm=parseInt(values.parry_mod)
 
-            p=p/2+pm+2                                      //Dodanie modyfikatorów
-            setAttrs({parry: p})                            //ustawienie wytrzymałości
+            parry=parry/2+pm+2                                  //Dodanie modyfikatorów
+            setAttrs({parry: parry})                            //ustawienie wytrzymałości
         })
     })
 
@@ -956,7 +979,6 @@
                 var basicDice = results.results.wynik.result    //Kość główna
                 var figDice = results.results.pomoc.result      //Kość figury
                 var resDice                                     //Kość wyniku
-
                 //Jeśli kość główna nie jest równa jeden i figury jest większa, to zamień
                 if(basicDice>1 && figDice>basicDice){
                     resDice=figDice
@@ -969,7 +991,6 @@
                         wynik: resDice
                     }
                 )
-
             })
         })
     }
@@ -1017,34 +1038,29 @@
         })
     }
 
-        //Funkcja służąca do podpinania rzutu dla umiejętności ducha
-        function bind_roll_ghost(attribute_name,attribute){
-            getAttrs([attribute,"ghost_figure"], function(values){
-                if(!values.ghost_figure){
-                    bind_roll(attribute_name,attribute)                         //Jeśli figura, to potraktuj jak umiejętnośc gracza
-                    return
-                }
-                var query="&{template:NoFigureDiceRoll} "                                                      //Szablon rzutu
-                query=query.concat("{{name=@{name} wykonuje test "+attribute_name+"}} ")                        //Nazwa rzutu
-    
-                var atr=values[attribute]
+    //Funkcja służąca do podpinania rzutu dla umiejętności ducha
+    function bind_roll_ghost(attribute_name,attribute){
+        getAttrs([attribute,"ghost_figure"], function(values){
+            if(!values.ghost_figure){
+                bind_roll(attribute_name,attribute)                         //Jeśli figura, to potraktuj jak umiejętnośc gracza
+                return
+            }
+            var query="&{template:NoFigureDiceRoll} "                                                      //Szablon rzutu
+            query=query.concat("{{name=@{name} wykonuje test "+attribute_name+"}} ")                        //Nazwa rzutu
+            var atr=values[attribute]
+            query=query.concat("{{wynik=[[@{"+attribute+"}! +@{"+attribute+"_mod} +?{Modyfikator|0}]]}} ")    //Rzut kością główną
 
-                query=query.concat("{{wynik=[[@{"+attribute+"}! +@{"+attribute+"_mod} +?{Modyfikator|0}]]}} ")    //Rzut kością główną
-
-                startRoll(query, (results) => {
-                    var basicDice = results.results.wynik.result    //Kość główna
-                    
-                    finishRoll(
-                        results.rollId,
-                        {
-                            wynik: basicDice
-                        }
-                    )
-    
-                })
-
+            startRoll(query, (results) => {
+                var basicDice = results.results.wynik.result    //Kość główna
+                finishRoll(
+                results.rollId,
+                    {
+                        wynik: basicDice
+                    }
+                )
             })
-        }
+        })
+    }
 
     //Przypisanie rzutów do cech
     on('clicked:roll_strength', (info) => {
@@ -1136,6 +1152,7 @@
         bind_roll("zastraszania","intimidate")
     })
 
+    //Umiejętności dodatkowe
     on('clicked:repeating_newskill:rollns', (info) => {
         bind_roll_new("nsname","nsvalue")
     })
@@ -1154,89 +1171,48 @@
     })
 
     //Typowe bronie
-    var gun_atr=["Obrażenia","Zasięg","Stabilność","Szybkostrzelność","Magazynek","Przeładowanie","Dobycie"]
-    var guns=["Hand_cannon","Auto_rifle","Scout_rifle","Pulse_rifle","Sidearm","Smg","Shotgun","Sniper_rifle","Fusion_rifle","Machine_rifle","Line_rifle"]
+    const gun_atr=["Obrażenia","Zasięg","Stabilność","Szybkostrzelność","Magazynek","Przeładowanie","Dobycie"]
+    const guns=["Hand_cannon","Auto_rifle","Scout_rifle","Pulse_rifle","Sidearm","Smg","Shotgun","Sniper_rifle","Fusion_rifle","Machine_rifle","Line_rifle"]
     
-    var bows=["Obrażenia","Zasięg", "Stabilność", "Szybkostrzelność", "Pełny naciąg", "Bonus za celowanie", "Dobycie"]
-    var light_g=["Obrażenia","Zasięg", "Stabilność","Szybkostrzelność", "Promień wybuchu", "Elastyczność", "Dobycie"]
-    var rocket_l=["Obrażenia","Zasięg", "Naprowadzanie", "Promień wybuchu", "Magazynek", "Przeładowanie","Dobycie"]
-    var granade_l=["Obrażenia","Zasięg", "Stabilność", "Promień wybuchu", "Magazynek", "Przeładowanie","Dobycie"]
-    var swords=["Obrażenia","Siła osłony", "Wydajność","Szybkość", "Magazynek", "Zasięg tąpnięcia", "Dobycie"]
+    const bows=["Obrażenia","Zasięg", "Stabilność", "Szybkostrzelność", "Pełny naciąg", "Bonus za celowanie", "Dobycie"]
+    const light_g=["Obrażenia","Zasięg", "Stabilność","Szybkostrzelność", "Promień wybuchu", "Elastyczność", "Dobycie"]
+    const rocket_l=["Obrażenia","Zasięg", "Naprowadzanie", "Promień wybuchu", "Magazynek", "Przeładowanie","Dobycie"]
+    const granade_l=["Obrażenia","Zasięg", "Stabilność", "Promień wybuchu", "Magazynek", "Przeładowanie","Dobycie"]
+    const swords=["Obrażenia","Siła osłony", "Wydajność","Szybkość", "Magazynek", "Zasięg tąpnięcia", "Dobycie"]
+
+    const gun_dict={
+        Hand_cannon: gun_atr,
+        Auto_rifle: gun_atr,
+        Scout_rifle: gun_atr,
+        Pulse_rifle: gun_atr,
+        Sidearm: gun_atr,
+        Smg: gun_atr,
+        Shotgun: gun_atr,
+        Sniper_rifle: gun_atr,
+        Fusion_rifle: gun_atr,
+        Machine_rifle: gun_atr,
+        Line_rifle: gun_atr,
+        //Bronie o nietypowej charakterystyce
+        Bow: bows,
+        Light_grnd: light_g,
+        Sword: swords,
+        Granade_launcher: granade_l,
+        Rocket_launcher: rocket_l
+    }
     
     on("change:type", function(){
         getAttrs(["type"], function(values){
-            var t=values.type
-            if(guns.includes(t)){
-                setAttrs({
-                    param_name_1: gun_atr[0],
-                    param_name_2: gun_atr[1],
-                    param_name_3: gun_atr[2],
-                    param_name_4: gun_atr[3],
-                    param_name_5: gun_atr[4],
-                    param_name_6: gun_atr[5],
-                    param_name_7: gun_atr[6]
-                })
-            }else if(t=="Bow"){
-                setAttrs({
-                    param_name_1: bows[0],
-                    param_name_2: bows[1],
-                    param_name_3: bows[2],
-                    param_name_4: bows[3],
-                    param_name_5: bows[4],
-                    param_name_6: bows[5],
-                    param_name_7: bows[6]
-                })
-            }else if(t=="Light_grnd"){
-                setAttrs({
-                    param_name_1: light_g[0],
-                    param_name_2: light_g[1],
-                    param_name_3: light_g[2],
-                    param_name_4: light_g[3],
-                    param_name_5: light_g[4],
-                    param_name_6: light_g[5],
-                    param_name_7: light_g[6]
-                })
-            }else if(t=="Sword"){
-                setAttrs({
-                    param_name_1: swords[0],
-                    param_name_2: swords[1],
-                    param_name_3: swords[2],
-                    param_name_4: swords[3],
-                    param_name_5: swords[4],
-                    param_name_6: swords[5],
-                    param_name_7: swords[6]
-                })
-            }else if(t=="Granade_launcher"){
-                setAttrs({
-                    param_name_1: granade_l[0],
-                    param_name_2: granade_l[1],
-                    param_name_3: granade_l[2],
-                    param_name_4: granade_l[3],
-                    param_name_5: granade_l[4],
-                    param_name_6: granade_l[5],
-                    param_name_7: granade_l[6]
-                })
-            }else if(t=="Rocket_launcher"){
-                setAttrs({
-                    param_name_1: rocket_l[0],
-                    param_name_2: rocket_l[1],
-                    param_name_3: rocket_l[2],
-                    param_name_4: rocket_l[3],
-                    param_name_5: rocket_l[4],
-                    param_name_6: rocket_l[5],
-                    param_name_7: rocket_l[6]
-                })
-            }else{
-                setAttrs({
-                    param_name_1: " ",
-                    param_name_2: " ",
-                    param_name_3: " ",
-                    param_name_4: " ",
-                    param_name_5: " ",
-                    param_name_6: " ",
-                    param_name_7: " "
-                })
-            }
+            var type=values.type
+            var parameters=gun_dict[type]
+            setAttrs({
+                param_name_1: parameters[0],
+                param_name_2: parameters[1],
+                param_name_3: parameters[2],
+                param_name_4: parameters[3],
+                param_name_5: parameters[4],
+                param_name_6: parameters[5],
+                param_name_7: parameters[6]
+            })
         })
     })
 
@@ -1244,24 +1220,24 @@
     //Zmiana w magazynku
     on("change:weapon_current_ammo change:param5",function(){
         getAttrs(["type","weapon_current_ammo","param5","kinetic_amno","special_amno","heavy_amno","weapon_amno"], function(values){
-            var t=values.type
+            var type=values.type
             var a=parseInt(values.weapon_current_ammo)
             var m=parseInt(values.param5)
             var weap_amno=values.weapon_amno
-            if(t=="Sword"){
+            if(type=="Sword"){
                 let amno_pack_size=m/5                      //Wielkość paczki z amunicją
                 let rest_amno=Math.floor(a/amno_pack_size)  //Ile całych paczek zostało
                 setAttrs({
                     heavy_amno:rest_amno                    //Zmiana żetonów z amunicją
                 })
-            }if(t=="Light_grnd"){
+            }if(type=="Light_grnd"){
                 let rest_amno=Math.floor(a/2)               //Ile całych paczek zostało
                 let amno_type=parseInt(values[weap_amno])   //Używany typ amunicji
                 
                 setAttrs({
                     [weap_amno]:rest_amno
                 })
-            }else if(t=="Bow"){
+            }else if(type=="Bow"){
                 let rest_amno=Math.floor(a/6)               //Ile całych paczek zostało
                 let amno_type=parseInt(values[weap_amno])
                 
@@ -1277,14 +1253,15 @@
             }
         })
     })
+    
     //Zmiana w żetonach
     on("change:type change:kinetic_amno change:special_amno change:heavy_amno",function(){
         getAttrs(["type","weapon_current_ammo","param5","kinetic_amno","special_amno","heavy_amno","weapon_amno"], function(values){
-            var t=values.type
+            var type=values.type
             var a=parseInt(values.weapon_current_ammo)
             var m=parseInt(values.param5)
             var weap_amno=values.weapon_amno
-            if(t=="Sword"){
+            if(type=="Sword"){
                 let amno_pack_size=m/5
                 let rest=a%amno_pack_size
                 let amno_type=parseInt(values.heavy_amno)
@@ -1293,7 +1270,7 @@
                 setAttrs({
                     weapon_current_ammo:curr_amno
                 })
-            }if(t=="Light_grnd"){
+            }if(type=="Light_grnd"){
                 let rest=a%2
                 let amno_type=parseInt(values[weap_amno])
                 let curr_amno=amno_type*2+rest
@@ -1301,7 +1278,7 @@
                 setAttrs({
                     weapon_current_ammo:curr_amno
                 })
-            }else if(t=="Bow"){
+            }else if(type=="Bow"){
                 let rest=a%6
                 let amno_type=parseInt(values[weap_amno])
                 let curr_amno=amno_type*6+rest
@@ -1464,11 +1441,11 @@
     //Przyciski na karcie broni
     on('clicked:attack', (info) => {
         getAttrs(["type","param4"],function(values){
-            let t=values.type       //Typ broni
+            let type=values.type       //Typ broni
             let s=values.param4     //Szybkostrzelność
-            if(t=="Sword"){
+            if(type=="Sword"){
                 bind_atack("walki wręcz","brawl","weapon_name","param1")
-            }else if(t=="Rocket_launcher" || t=="Granade_launcher"){
+            }else if(type=="Rocket_launcher" || type=="Granade_launcher"){
                 bind_atack("strzelania","shoot","weapon_name","param1")
             }else{
                 //Sprawdzenie czy broń strzela serią
@@ -1483,14 +1460,14 @@
 
     on('clicked:reload', (info) => {
         getAttrs(["type","weapon_current_ammo","weapon_amno","param5","kinetic_amno","special_amno","heavy_amno"],function(values){
-            var t=values.type       //Typ broni
+            var type=values.type       //Typ broni
             //Broni któych się nie przeładowuje lub nie mają magazynka
-            if(t=="Sword" || t=="Light_grnd" || t=="Bow"){
+            if(type=="Sword" || type=="Light_grnd" || type=="Bow"){
                 return
             }
             
             //1 żeton=1 magazynek
-            if(t=="Hand_cannon" || t=="Auto_rifle" || t=="Scout_rifle" || t=="Pulse_rifle" || t=="Sidearm" || t=="Smg"){
+            if(type=="Hand_cannon" || type=="Auto_rifle" || type=="Scout_rifle" || type=="Pulse_rifle" || type=="Sidearm" || type=="Smg"){
                 var at=values.weapon_amno                           //Typ amunicji
                 var amno=parseInt(values[at])                     //Ile żetonów pozostało
                 var max=parseInt(values.param5)                   //Wielkość magazynka
@@ -1503,7 +1480,7 @@
                     })
                 }
             //2 żetony=1 magazynek
-            }else if(t=="Shotgun" || t=="Sniper_rifle" || t=="Fusion_rifle" || t=="Machine_rifle" || t=="Line_rifle" || t=="Granade_launcher"){
+            }else if(type=="Shotgun" || type=="Sniper_rifle" || type=="Fusion_rifle" || type=="Machine_rifle" || type=="Line_rifle" || type=="Granade_launcher"){
                 var at=values.weapon_amno                           //Typ amunicji
                 var amno=parseInt(values[at])                     //Ile żetonów pozostało
                 var max=parseInt(values.param5)                   //Wielkość magazynka

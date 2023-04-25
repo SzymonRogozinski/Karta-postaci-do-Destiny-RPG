@@ -286,8 +286,8 @@ div.sheet-armor-card input.param{
 	width: 50%;
 }
 
-div.sheet-weapon-card input.hidden_input,
-div.sheet-armor-card input.hidden_input{
+div.sheet-weapon-card input.readonly_input,
+div.sheet-armor-card input.readonly_input{
 	border-style: none;
 	background: none;
 	text-align: center;
@@ -338,19 +338,19 @@ div.sheet-armor-card div.block_mod_2 textarea.small_ta{
 }
 
 /*Kolor amunicji*/
-.charsheet div.sheet-weapon-card .sheet-amno-switch[value="-"] ~ select.sheet-amno-select{
+.sheet-weapon-card .sheet-amno-switch[value="-"] ~ select.sheet-amno-select{
 	color:#000000;
 }
 
-.charsheet div.sheet-weapon-card .sheet-amno-switch[value="kinetic"] ~ select.sheet-amno-select{
+.sheet-weapon-card .sheet-amno-switch[value="kinetic_amno"] ~ select.sheet-amno-select{
 	color:#aeaeae;
 }
 
-.charsheet div.sheet-weapon-card .sheet-amno-switch[value="special"] ~ select.sheet-amno-select{
+.sheet-weapon-card .sheet-amno-switch[value="special_amno"] ~ select.sheet-amno-select{
 	color:#3bff4f;
 }
 
-.charsheet div.sheet-weapon-card .sheet-amno-switch[value="heavy"] ~ select.sheet-amno-select{
+.sheet-weapon-card .sheet-amno-switch[value="heavy_amno"] ~ select.sheet-amno-select{
 	color:#b300ff;
 }
 
