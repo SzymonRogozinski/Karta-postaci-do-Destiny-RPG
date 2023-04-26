@@ -589,31 +589,31 @@
                 </div>
                 <div class="param">
                     <input class="readonly_input" type="text" value="Mobilność" readonly>
-                    <input class="param" type="text" name="attr_armor_mobility">
+                    <input class="param" type="text" value="0" name="attr_armor_mobility">
                 </div>
                 <div class="param">
                     <input class="readonly_input" type="text" value="Defensywa" readonly>
-                    <input class="param" type="text" name="attr_armor_defence">
+                    <input class="param" type="text" value="0" name="attr_armor_defence">
                 </div>
                 <div class="param">
                     <input class="readonly_input" type="text" value="Regeneracja" readonly>
-                    <input class="param" type="text" name="attr_armor_regeneration">
+                    <input class="param" type="text" value="0" name="attr_armor_regeneration">
                 </div>
                 <div class="param">
                     <input class="readonly_input" type="text" value="Dyscyplina" readonly>
-                    <input class="param" type="text" name="attr_armor_discipline">
+                    <input class="param" type="text" value="0" name="attr_armor_discipline">
                 </div>
                 <div class="param">
                     <input class="readonly_input" type="text" value="Inteligencja" readonly>
-                    <input class="param" type="text" name="attr_armor_inteligence">
+                    <input class="param" type="text" value="0" name="attr_armor_inteligence">
                 </div>
                 <div class="param">
                     <input class="readonly_input" type="text" value="Krzepa" readonly>
-                    <input class="param" type="text" name="attr_armor_strong">
+                    <input class="param" type="text" value="0" name="attr_armor_strong">
                 </div>
                 <div class="param">
                     <input class="readonly_input" type="text" value="Pancerz" readonly>
-                    <input class="param" type="text" name="attr_armor_value">
+                    <input class="param" type="text" value="0" name="attr_armor_value">
                 </div>
                 <!--Klasa postaci, dla jakiej przeznaczony jest pancerz-->
                 <div class="param">
@@ -1003,9 +1003,9 @@
         var query="&{template:BasicDiceRoll} "                      //Szablon rzutu
 
         getAttrs([attribute,attribute_name,attribute_mod], function(values){
-            let name=values[attribute_name]             //Nazwa umiejętności
-            let atr=values[attribute]                   //Wartość umiejętności
-            let mod=values[attribute_mod]               //Modyfikator umiejętności
+            var name=values[attribute_name]             //Nazwa umiejętności
+            var atr=values[attribute]                   //Wartość umiejętności
+            var mod=values[attribute_mod]               //Modyfikator umiejętności
             query=query.concat("{{name=@{name} wykonuje test "+name+"}} ")                        //Nazwa rzutu
             //Sprawdzenie czy umiejętność jest wykupiona
             if(atr!="-"){             
@@ -1033,7 +1033,6 @@
                         wynik: resDice
                     }
                 )
-    
             })
         })
     }
@@ -1221,178 +1220,160 @@
     on("change:weapon_current_ammo change:param5",function(){
         getAttrs(["type","weapon_current_ammo","param5","kinetic_amno","special_amno","heavy_amno","weapon_amno"], function(values){
             var type=values.type
-            var a=parseInt(values.weapon_current_ammo)
-            var m=parseInt(values.param5)
+            var amno=parseInt(values.weapon_current_ammo)
+            var mag=parseInt(values.param5)
             var weap_amno=values.weapon_amno
             if(type=="Sword"){
-                let amno_pack_size=m/5                      //Wielkość paczki z amunicją
-                let rest_amno=Math.floor(a/amno_pack_size)  //Ile całych paczek zostało
+                let amno_pack_size=mag/5                      //Wielkość paczki z amunicją
+                let rest_amno=Math.floor(amno/amno_pack_size)  //Ile całych paczek zostało
                 setAttrs({
                     heavy_amno:rest_amno                    //Zmiana żetonów z amunicją
                 })
             }if(type=="Light_grnd"){
-                let rest_amno=Math.floor(a/2)               //Ile całych paczek zostało
+                let rest_amno=Math.floor(amno/2)               //Ile całych paczek zostało
                 let amno_type=parseInt(values[weap_amno])   //Używany typ amunicji
                 
                 setAttrs({
                     [weap_amno]:rest_amno
                 })
             }else if(type=="Bow"){
-                let rest_amno=Math.floor(a/6)               //Ile całych paczek zostało
+                let rest_amno=Math.floor(amno/6)               //Ile całych paczek zostało
                 let amno_type=parseInt(values[weap_amno])
                 
                 setAttrs({
                     [weap_amno]:rest_amno                   //Zmiana żetonów z amunicją
                 })
             }else{
-                if(a>m){
+                if(amno>mag){
                     setAttrs({
-                        weapon_current_ammo:m               //Zmiana żetonów z amunicją
+                        weapon_current_ammo:mag               //Zmiana żetonów z amunicją
                     })
                 }
             }
         })
     })
-    
+
     //Zmiana w żetonach
     on("change:type change:kinetic_amno change:special_amno change:heavy_amno",function(){
         getAttrs(["type","weapon_current_ammo","param5","kinetic_amno","special_amno","heavy_amno","weapon_amno"], function(values){
             var type=values.type
-            var a=parseInt(values.weapon_current_ammo)
-            var m=parseInt(values.param5)
+            var amno=parseInt(values.weapon_current_ammo)
+            var mag=parseInt(values.param5)
             var weap_amno=values.weapon_amno
             if(type=="Sword"){
-                let amno_pack_size=m/5
-                let rest=a%amno_pack_size
+                let amno_pack_size=mag/5                        //wielkość paczki z amunicją
+                let rest=amno%amno_pack_size                    //Ile nabojów zostało poza paczkami
                 let amno_type=parseInt(values.heavy_amno)
-                let curr_amno=amno_type*amno_pack_size+rest
-                curr_amno=curr_amno>m?m:curr_amno
+                let curr_amno=amno_type*amno_pack_size+rest     //Ile nabojów jest obecnie dostępnych
+                curr_amno=curr_amno>mag?mag:curr_amno
                 setAttrs({
                     weapon_current_ammo:curr_amno
                 })
             }if(type=="Light_grnd"){
-                let rest=a%2
+                let rest=amno%2                                  //Ile nabojów zostało poza paczkami
                 let amno_type=parseInt(values[weap_amno])
                 let curr_amno=amno_type*2+rest
-                curr_amno=curr_amno>20?20:curr_amno
+                curr_amno=curr_amno>20?20:curr_amno             //Ile nabojów jest obecnie dostępnych
                 setAttrs({
                     weapon_current_ammo:curr_amno
                 })
             }else if(type=="Bow"){
-                let rest=a%6
+                let rest=amno%6                                  //Ile nabojów zostało poza paczkami
                 let amno_type=parseInt(values[weap_amno])
                 let curr_amno=amno_type*6+rest
-                curr_amno=curr_amno>60?60:curr_amno
+                curr_amno=curr_amno>60?60:curr_amno             //Ile nabojów jest obecnie dostępnych
                 setAttrs({
                     weapon_current_ammo:curr_amno
                 })
             }
         })
     })
+    //Maksymalna wartość cechy dla pancerza danej jakości
+    const armor_max={
+        none: "0",
+        common: "2",
+        uncommon: "3",
+        rare: "4",
+        legend: "5",
+        exotic: "5"
+    }
 
     //Obsługa pancerza
     function check_armor(atribute,quality){
         getAttrs([atribute,quality],function(values){
-            var a=values[atribute]
-            var q=values[quality]
+            var atr=values[atribute]
+            var qual=values[quality]
+            //Zamień na wartość ze słownika
+            qual=qual=="-"?"none":qual
             //Czy jest puste?
-            if(a==""){
+            if(isNaN(atr)){
+                setAttrs({
+                    [atribute]: "0"
+                })
                 return
             }
             //Sprawdź jakość
-            if(q=="-"){
+            if(atr>armor_max[qual]){
                 //Zmień
                 setAttrs({
-                    [atribute]: ""
+                    [atribute]: "0"
                 })
-            }else if(q=="common"){
-                //Zmień
-                if(a!="0" && a!="1" && a!="2"){
-                    setAttrs({
-                        [atribute]: ""
-                    })
-                }
-            }else if(q=="uncommon"){
-                //Zmień
-                if(a!="" && a!="1" && a!="2" && a!="3"){
-                    setAttrs({
-                        [atribute]: ""
-                    })
-                }
-            }else if(q=="rare" ){
-                //Zmień
-                if(a!="" && a!="1" && a!="2" && a!="3" && a!="4"){
-                    setAttrs({
-                        [atribute]: ""
-                    })
-                }
-            }else{
-                //Zmień
-                if(a!="" && a!="1" && a!="2" && a!="3" && a!="4" && a!="5"){
-                    setAttrs({
-                        [atribute]: ""
-                    })
-                }
             }
         })
     }
 
+    //Maksymalna wartość opancerzenie dla danej jakości
+    const armor={
+        none: "0",
+        common: "1",
+        uncommon: "2",
+        rare: "3",
+        legend: "4",
+        exotic: "5"
+    }
+    //Parametry pancerza
+    const armor_param=["armor_mobility","armor_defence","armor_regeneration","armor_discipline","armor_inteligence","armor_strong"]
+    //Sprawdź wartości pancerza
     on("change:armor_mobility change:armor_defence change:armor_regeneration change:armor_discipline change:armor_inteligence change:armor_strong change:armor_value change:armor_quality", function(){
-        check_armor("armor_mobility","armor_quality")
-        check_armor("armor_defence","armor_quality")
-        check_armor("armor_regeneration","armor_quality")
-        check_armor("armor_discipline","armor_quality")
-        check_armor("armor_inteligence","armor_quality")
-        check_armor("armor_strong","armor_quality")
-
+        //Wywołaj spawdzenie dla każdej cechy
+        armor_param.forEach(arm =>{
+            check_armor(arm,"armor_quality")
+        })
+        //Sprawdź wartości opancerzenia
         getAttrs(["armor_quality","armor_value"],function(values){
-            let q=values.armor_quality
-            let v=values.armor_value
-
-            //Sprawdź jakość
-            if(q=="-"){
-                //Zmień
-                setAttrs({
-                    armor_value: ""
-                })
-            }else if(q=="common"){
-                //Zmień
-                if(v!="0" && v!="1"){
+            var qual=values.armor_quality
+            qual=qual=="-"?"none":qual
+            var val=values.armor_value
+            //Sprawdź wartość opancerzenia
+            if(qual=="common"){
+                if(val!="0" && val!="1"){
                     setAttrs({
                         armor_value: "0"
                     })
                 }
-            }else if(q=="uncommon"){
-                setAttrs({
-                    armor_value: "2"
-                })
-            }else if(q=="rare"){
-                setAttrs({
-                    armor_value: "3"
-                })
-            }else if(q=="legend"){
-                setAttrs({
-                    armor_value: "4"
-                })
             }else{
-                setAttrs({
-                    armor_value: "5"
-                })
+                if(val!=armor[qual]){
+                    setAttrs({
+                        armor_value: armor[qual]
+                    })
+                }
             }
         })
     })
 
     //Funkcja służąca do podpinania ataku
     function bind_atack(attribute_name,attribute,wp_name,damage,series=1){
-        var query="&{template:Attack} "                                                                         //Szablon rzutu
+        var query="&{template:Attack} "                                                                       //Szablon rzutu
         query=query.concat("{{name=@{name} wykonuje atak za pomocą @{"+wp_name+"}}} ")                        //Nazwa rzutu
 
         getAttrs([attribute,damage,"weapon_current_ammo"], function(values){
             var atr=values[attribute]
             var camno=parseInt(values.weapon_current_ammo)      //Obecna amunicja
+            //Czy broń jest naładowana?
             if(camno==0){
                 throw new Error("Brak amunicji!")
             }else{
+                //Odejmij amunicje
                 setAttrs({
                     weapon_current_ammo: camno-series
                 })
@@ -1405,6 +1386,7 @@
                 query=query.concat("{{wynik=[[d4!-2 +@{"+attribute+"_mod} +?{Modyfikator|0}]]}}")             //Rzut kością główną
                 query=query.concat("{{pomoc=[[d6!-2 +@{"+attribute+"_mod} +?{Modyfikator|0}]]}}")             //Rzut kością figury
             }
+            //Czy broń atakuję serią
             if(series!=1){
                 //Skomplikowane
                 if(/*values[damage].search("+")!=-1*/false){
@@ -1412,6 +1394,7 @@
                 }else{
                     query=query.concat("{{Obr=[[[[d"+series+"]]@{"+damage+"}!]] }}")
                 }
+            //Jeśli nie
             }else{
                 query=query.concat("{{Obr=[[@{"+damage+"}! ]]}}")
             }
@@ -1441,16 +1424,17 @@
     //Przyciski na karcie broni
     on('clicked:attack', (info) => {
         getAttrs(["type","param4"],function(values){
-            let type=values.type       //Typ broni
-            let s=values.param4     //Szybkostrzelność
-            if(type=="Sword"){
+            var type=values.type       //Typ broni
+            var rate=values.param4     //Szybkostrzelność
+            //Sprawdź typ broni
+            if(type=="Sword"){          //Miecz wykorzystuję inny rzut
                 bind_atack("walki wręcz","brawl","weapon_name","param1")
-            }else if(type=="Rocket_launcher" || type=="Granade_launcher"){
+            }else if(type=="Rocket_launcher" || type=="Granade_launcher"){  //Bronie bez cechy szybkostrzelność
                 bind_atack("strzelania","shoot","weapon_name","param1")
             }else{
                 //Sprawdzenie czy broń strzela serią
-                if(s[0]=='s'){
-                    bind_atack("strzelania","shoot","weapon_name","param1",series=parseInt(s.slice(1)))
+                if(rate[0]=='s'){
+                    bind_atack("strzelania","shoot","weapon_name","param1",series=parseInt(rate.slice(1)))
                 }else{
                     bind_atack("strzelania","shoot","weapon_name","param1")
                 }
@@ -1458,6 +1442,7 @@
         })
     })
 
+    //Obsługa przycisku przeładuj
     on('clicked:reload', (info) => {
         getAttrs(["type","weapon_current_ammo","weapon_amno","param5","kinetic_amno","special_amno","heavy_amno"],function(values){
             var type=values.type       //Typ broni
@@ -1465,7 +1450,6 @@
             if(type=="Sword" || type=="Light_grnd" || type=="Bow"){
                 return
             }
-            
             //1 żeton=1 magazynek
             if(type=="Hand_cannon" || type=="Auto_rifle" || type=="Scout_rifle" || type=="Pulse_rifle" || type=="Sidearm" || type=="Smg"){
                 var at=values.weapon_amno                           //Typ amunicji
