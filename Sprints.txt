@@ -39,8 +39,8 @@ Sprint 4:
 	- Uzupełnienie specyfikacji segmentu "broń" (10.04.2023 - 10.04.2023)
 
 Sprint 5:
-	- Poprawienie wyglądu kart [Zmniejszenie rozmiarów, dodanie zmieniających się symboli, poprawa układu elementów]
+	- Poprawienie wyglądu kart [Zmniejszenie rozmiarów (+), dodanie zmieniających się symboli, poprawa układu elementów] (26.04.2023)
 	- Powielenie kart broni i pancerzy
 	- Dodanie sektora sumującego wartości cech z pancerzy
 	- Dodanie pola podsumowującego informacje o broniach na głównej stronie
-	- Poprawienie estetyki kodu (25.04.2023)
+	- Poprawienie estetyki kodu (25.04.2023 - 26.04.2023)
