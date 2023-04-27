@@ -447,6 +447,27 @@ div.sheet-armor-card div.block_mod_2 textarea.small_ta{
 	object-fit: cover;
 }
 
+/*Symbol części pancerza*/
+.sheet-armor-switch[value="legs"] ~ img.icon-armor-part{
+	content: url(https://github.com/SzymonRogozinski/Karta-postaci-do-Destiny-RPG/blob/master/obrazy/Buty.png?raw=true);
+	object-fit: cover;
+}
+
+.sheet-armor-switch[value="hands"] ~ img.icon-armor-part{
+	content: url(https://github.com/SzymonRogozinski/Karta-postaci-do-Destiny-RPG/blob/master/obrazy/Rekawice.png?raw=true);
+	object-fit: cover;
+}
+
+.sheet-armor-switch[value="body"] ~ img.icon-armor-part{
+	content: url(https://github.com/SzymonRogozinski/Karta-postaci-do-Destiny-RPG/blob/master/obrazy/Klata.png?raw=true);
+	object-fit: cover;
+}
+
+.sheet-armor-switch[value="head"] ~ img.icon-armor-part{
+	content: url(https://github.com/SzymonRogozinski/Karta-postaci-do-Destiny-RPG/blob/master/obrazy/Helm.png?raw=true);
+	object-fit: cover;
+}
+
 /*Liczba modyfikacji*/
 div.sheet-weapon-card div.block_mod_1,
 div.sheet-weapon-card div.block_mod_2,
