@@ -322,9 +322,10 @@ div.sheet-armor-card select.select_long{
 	font-size:x-small;
 }
 
-div.sheet-weapon-card div.icon-energy{
+div.sheet-weapon-card img.icon-energy,
+div.sheet-armor-card img.icon-armor-part{
 	height:20%;
-	width: 35%;
+	width: 28%;
 	margin-top: 10px;
 	display: flex;
 	justify-content: center;
@@ -423,6 +424,27 @@ div.sheet-armor-card div.block_mod_2 textarea.small_ta{
 	background-color:#bbd400;
 	background-image: url(https://github.com/SzymonRogozinski/Karta-postaci-do-Destiny-RPG/blob/master/obrazy/exotic.png?raw=true);
 	background-size: cover;
+}
+
+/*Symbol energi obrażeń*/
+.sheet-energy-switch[value="kinetic"] ~ img.icon-energy{
+	content: url(https://github.com/SzymonRogozinski/Karta-postaci-do-Destiny-RPG/blob/master/obrazy/kinetyczne.webp?raw=true);
+	object-fit: cover;
+}
+
+.sheet-energy-switch[value="arc"] ~ img.icon-energy{
+	content: url(https://github.com/SzymonRogozinski/Karta-postaci-do-Destiny-RPG/blob/master/obrazy/arc.png?raw=true);
+	object-fit: cover;
+}
+
+.sheet-energy-switch[value="void"] ~ img.icon-energy{
+	content: url(https://github.com/SzymonRogozinski/Karta-postaci-do-Destiny-RPG/blob/master/obrazy/pr%C3%B3%C5%BCnia.png?raw=true);
+	object-fit: cover;
+}
+
+.sheet-energy-switch[value="solar"] ~ img.icon-energy{
+	content: url(https://github.com/SzymonRogozinski/Karta-postaci-do-Destiny-RPG/blob/master/obrazy/solar.png?raw=true);
+	object-fit: cover;
 }
 
 /*Liczba modyfikacji*/

@@ -547,6 +547,7 @@
             </div>
             <!--Wybór typu obrażeń-->
             <div class="right_part">
+                <!--Wyciągnięcie zmiennej, aby mogła zmieniać grafikę żywiołu-->
                 <input name="attr_weapon_energy" type="hidden" class="sheet-energy-switch">
                 <div class="param">
                     <input class="readonly_input" type="text" value="Żywioł" readonly>
@@ -558,8 +559,8 @@
                         <option value="solar">Solarny</option>
                     </select>
                 </div>
-                <div class="icon-energy">
-                </div>
+                <!--Polę na grafikę żywiołu-->
+                <img class="icon-energy">
                 <!--Wyciągnięcie zmiennej, aby mogła wyświetlać odpowiednią liczbę modyfikacji-->
                 <input name="attr_weapon_quality" type="hidden" class="sheet-block-mod-switch">
                 <!--Modyfikacja broni jeden-->
@@ -642,6 +643,8 @@
                 </div>
             </div>
             <div class="right_part">
+                <!--Wyciągnięcie zmiennej, aby mogła zmieniać grafikę pancerza-->
+                <input name="attr_armor_location" type="hidden" class="sheet-armor-switch">
                 <!--Wybór części pancerza-->
                 <div class="param">
                     <input class="readonly_input" type="text" value="Osłona" readonly>
@@ -653,6 +656,8 @@
                         <option value="legs">Nóg</option>
                     </select>
                 </div>
+                <!--Polę na grafikę pancerza-->
+                <img class="icon-armor-part">
                 <!--Wyciągnięcie zmiennej, aby mogła wyświetlać odpowiednią liczbę modyfikacji-->
                 <input name="attr_armor_quality" type="hidden" class="sheet-block-mod-switch">
                 <!--Modyfikacja 1-->
