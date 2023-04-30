@@ -254,6 +254,19 @@ div.sheet-main div.sheet-col div.vig_sub_sector{
 .sheet-equipment textarea.big_textfield{
 	max-width: 900px;
 }
+
+.sheet-equipment #cards{
+	display: flex;
+	flex-direction:row;
+}
+
+
+.sheet-equipment #cards #In_hand,
+.sheet-equipment #cards #Out_hand{
+	width:50%;
+}
+
+
 /*Ustawienie wyglądu karty*/
 /*Proporcje wymiarów obrazu 19x13*/
 div.sheet-weapon-card,div.sheet-armor-card{
@@ -264,12 +277,22 @@ div.sheet-weapon-card,div.sheet-armor-card{
 }
 
 div.sheet-weapon-card div.left_part,
+div.sheet-armor-card div.left_part{
+	width: 50%;
+	display: flex;
+	flex-direction: column;
+	margin: 3px;
+	justify-content: space-evenly;
+	height: 100%;
+}
+
 div.sheet-weapon-card div.right_part,
-div.sheet-armor-card div.left_part,
 div.sheet-armor-card div.right_part{
 	width: 50%;
 	display: flex;
 	flex-direction: column;
+	justify-content: space-evenly;
+	margin: 3px;
 }
 
 div.sheet-weapon-card div.param,
@@ -277,14 +300,15 @@ div.sheet-armor-card div.param{
 	flex-direction: row;
 	display: flex;
 	justify-content: space-between;
-	margin-left: 5px;
-	height: 8%;
+	align-items: stretch;
+	height: 7%;
 }
 
 div.sheet-weapon-card input.param,
 div.sheet-armor-card input.param{
 	text-align: center;
 	width: 50%;
+	height:100%;
 	font-size:x-small;
 }
 
@@ -292,6 +316,13 @@ div.sheet-weapon-card input.param_long,
 div.sheet-armor-card input.param_long{
 	text-align: center;
 	width: 75%;
+	height:100%;
+	font-size:x-small;
+}
+
+div.sheet-weapon-card div.param select.select_param,
+div.sheet-armor-card div.param select.select_param{
+	height: 100%;
 	font-size:x-small;
 }
 
@@ -301,6 +332,7 @@ div.sheet-armor-card input.readonly_input{
 	background: none;
 	text-align: center;
 	width: 45%;
+	height:100%;
 	background-color: #ffffff;
 	font-size:x-small;
 }
@@ -311,6 +343,7 @@ div.sheet-weapon-card select.select_type,
 
 div.sheet-armor-card select{
 	width: 45%;
+	height:100%;
 	text-align: center;
 	font-size:x-small;
 }
@@ -318,18 +351,27 @@ div.sheet-armor-card select{
 div.sheet-weapon-card select.select_long,
 div.sheet-armor-card select.select_long{
 	width: 70%;
+	height:100%;
 	text-align: center;
 	font-size:x-small;
 }
 
-div.sheet-weapon-card img.icon-energy,
-div.sheet-armor-card img.icon-armor-part{
-	height:20%;
-	width: 28%;
-	margin-top: 10px;
-	display: flex;
-	justify-content: center;
+div.sheet-weapon-card div.image_div img.icon-energy,
+div.sheet-armor-card div.image_div img.icon-armor-part{
 	background-color: #ffffff;
+	height: 100%;
+	width: 28%;
+	margin: 5px;
+}
+
+div.sheet-weapon-card div.image_div,
+div.sheet-armor-card div.image_div{
+	display: flex;
+	justify-self: center;
+	flex-direction: row-reverse;
+	height:20%;
+	width: 100%;
+	
 }
 
 div.sheet-weapon-card div.block_mod_1,
@@ -338,11 +380,11 @@ div.sheet-weapon-card div.block_mod_2,
 div.sheet-armor-card div.block_mod_1,
 div.sheet-armor-card div.block_mod_2{
 	background-color: #ffffff;
-	width:50%;
+	width:75%;
 	height:30%;
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	justify-content: space-between;
 	margin: 5px;
 }
 
@@ -427,43 +469,43 @@ div.sheet-armor-card div.block_mod_2 textarea.small_ta{
 }
 
 /*Symbol energi obrażeń*/
-.sheet-energy-switch[value="kinetic"] ~ img.icon-energy{
+.sheet-energy-switch[value="kinetic"] ~ div.image_div img.icon-energy{
 	content: url(https://github.com/SzymonRogozinski/Karta-postaci-do-Destiny-RPG/blob/master/obrazy/kinetyczne.webp?raw=true);
 	object-fit: cover;
 }
 
-.sheet-energy-switch[value="arc"] ~ img.icon-energy{
+.sheet-energy-switch[value="arc"] ~ div.image_div img.icon-energy{
 	content: url(https://github.com/SzymonRogozinski/Karta-postaci-do-Destiny-RPG/blob/master/obrazy/arc.png?raw=true);
 	object-fit: cover;
 }
 
-.sheet-energy-switch[value="void"] ~ img.icon-energy{
+.sheet-energy-switch[value="void"] ~ div.image_div img.icon-energy{
 	content: url(https://github.com/SzymonRogozinski/Karta-postaci-do-Destiny-RPG/blob/master/obrazy/pr%C3%B3%C5%BCnia.png?raw=true);
 	object-fit: cover;
 }
 
-.sheet-energy-switch[value="solar"] ~ img.icon-energy{
+.sheet-energy-switch[value="solar"] ~ div.image_div img.icon-energy{
 	content: url(https://github.com/SzymonRogozinski/Karta-postaci-do-Destiny-RPG/blob/master/obrazy/solar.png?raw=true);
 	object-fit: cover;
 }
 
 /*Symbol części pancerza*/
-.sheet-armor-switch[value="legs"] ~ img.icon-armor-part{
+.sheet-armor-switch[value="legs"] ~ div.image_div img.icon-armor-part{
 	content: url(https://github.com/SzymonRogozinski/Karta-postaci-do-Destiny-RPG/blob/master/obrazy/Buty.png?raw=true);
 	object-fit: cover;
 }
 
-.sheet-armor-switch[value="hands"] ~ img.icon-armor-part{
+.sheet-armor-switch[value="hands"] ~ div.image_div img.icon-armor-part{
 	content: url(https://github.com/SzymonRogozinski/Karta-postaci-do-Destiny-RPG/blob/master/obrazy/Rekawice.png?raw=true);
 	object-fit: cover;
 }
 
-.sheet-armor-switch[value="body"] ~ img.icon-armor-part{
+.sheet-armor-switch[value="body"] ~ div.image_div img.icon-armor-part{
 	content: url(https://github.com/SzymonRogozinski/Karta-postaci-do-Destiny-RPG/blob/master/obrazy/Klata.png?raw=true);
 	object-fit: cover;
 }
 
-.sheet-armor-switch[value="head"] ~ img.icon-armor-part{
+.sheet-armor-switch[value="head"] ~ div.image_div img.icon-armor-part{
 	content: url(https://github.com/SzymonRogozinski/Karta-postaci-do-Destiny-RPG/blob/master/obrazy/Helm.png?raw=true);
 	object-fit: cover;
 }
