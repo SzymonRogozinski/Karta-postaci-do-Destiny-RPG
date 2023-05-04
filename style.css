@@ -326,7 +326,8 @@ div.sheet-armor-card div.param select.select_param{
 }
 
 div.sheet-weapon-card input.readonly_input,
-div.sheet-armor-card input.readonly_input{
+div.sheet-armor-card input.readonly_input,
+div.sheet-armor-card input.readonly_armor{
 	border-style: none;
 	background: none;
 	text-align: center;
@@ -356,7 +357,10 @@ div.sheet-armor-card select.select_long{
 }
 
 div.sheet-weapon-card div.image_div img.icon-energy,
-div.sheet-armor-card div.image_div img.icon-armor-part{
+div.sheet-armor-card div.image_div img.icon-armor-part-head,
+div.sheet-armor-card div.image_div img.icon-armor-part-hands,
+div.sheet-armor-card div.image_div img.icon-armor-part-body,
+div.sheet-armor-card div.image_div img.icon-armor-part-legs{
 	background-color: #ffffff;
 	height: 100%;
 	width: 28%;
@@ -408,8 +412,52 @@ div.sheet-armor-card div.block_mod_2 textarea.small_ta{
 	font-size:x-small;
 }
 
+/*Sztywne ustawienie wartości*/
 /*Kolor amunicji*/
-.sheet-weapon-card .sheet-amno-switch[value="-"] ~ select.sheet-amno-select{
+div.sheet-weapon-card div.param input.readonly_amno_kinetic,
+div.sheet-weapon-card div.param input.readonly_amno_special,
+div.sheet-weapon-card div.param input.readonly_amno_heavy{
+	border-style: none;
+	text-align: center;
+	width: 45%;
+	height:100%;
+	font-size:x-small;
+}
+
+div.sheet-weapon-card div.param input.readonly_amno_kinetic{
+	color:#aeaeae;
+}
+
+div.sheet-weapon-card div.param input.readonly_amno_special{
+	color:#3bff4f;
+}
+
+div.sheet-weapon-card div.param input.readonly_amno_heavy{
+	color:#b300ff;
+}
+/*Ikona pancerza*/
+div.sheet-armor-card div.image_div img.icon-armor-part-head{
+	content: url(https://github.com/SzymonRogozinski/Karta-postaci-do-Destiny-RPG/blob/master/obrazy/Helm.png?raw=true);
+	object-fit: cover;
+}
+
+div.sheet-armor-card div.image_div img.icon-armor-part-hands{
+	content: url(https://github.com/SzymonRogozinski/Karta-postaci-do-Destiny-RPG/blob/master/obrazy/Rekawice.png?raw=true);
+	object-fit: cover;
+}
+
+div.sheet-armor-card div.image_div img.icon-armor-part-body{
+	content: url(https://github.com/SzymonRogozinski/Karta-postaci-do-Destiny-RPG/blob/master/obrazy/Klata.png?raw=true);
+	object-fit: cover;
+}
+
+div.sheet-armor-card div.image_div img.icon-armor-part-legs{
+	content: url(https://github.com/SzymonRogozinski/Karta-postaci-do-Destiny-RPG/blob/master/obrazy/Buty.png?raw=true);
+	object-fit: cover;
+}
+
+/*Kolor amunicji*/
+/*.sheet-weapon-card .sheet-amno-switch[value="-"] ~ select.sheet-amno-select{
 	color:#000000;
 }
 
@@ -423,7 +471,7 @@ div.sheet-armor-card div.block_mod_2 textarea.small_ta{
 
 .sheet-weapon-card .sheet-amno-switch[value="heavy_amno"] ~ select.sheet-amno-select{
 	color:#b300ff;
-}
+}*/
 
 /*Tło zależne do jakości*/
 .sheet-weapon-quality-switch[value="-"] ~ div.sheet-weapon-card,
@@ -488,7 +536,7 @@ div.sheet-armor-card div.block_mod_2 textarea.small_ta{
 }
 
 /*Symbol części pancerza*/
-.sheet-armor-switch[value="legs"] ~ div.image_div img.icon-armor-part{
+/*.sheet-armor-switch[value="legs"] ~ div.image_div img.icon-armor-part{
 	content: url(https://github.com/SzymonRogozinski/Karta-postaci-do-Destiny-RPG/blob/master/obrazy/Buty.png?raw=true);
 	object-fit: cover;
 }
@@ -506,7 +554,7 @@ div.sheet-armor-card div.block_mod_2 textarea.small_ta{
 .sheet-armor-switch[value="head"] ~ div.image_div img.icon-armor-part{
 	content: url(https://github.com/SzymonRogozinski/Karta-postaci-do-Destiny-RPG/blob/master/obrazy/Helm.png?raw=true);
 	object-fit: cover;
-}
+}*/
 
 /*Liczba modyfikacji*/
 div.sheet-weapon-card div.block_mod_1,

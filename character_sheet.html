@@ -536,15 +536,9 @@
                         </div>
                         <!--Wybór typu amunicji-->
                         <div class="param">
-                            <!--Wyciągnięcie zmiennej, aby mogła zmieniać kolor czcionki-->
-                            <input name="attr_kinetic_weapon_amno" type="hidden" class="sheet-amno-switch">
                             <input class="readonly_input" type="text" value="Amunicja" readonly>
-                            <select class="sheet-amno-select" name="attr_kinetic_weapon_amno" value="-">
-                                <option value="-">-</option>
-                                <option style="color:#aeaeae;" value="kinetic_amno">Kinetyczna</option>
-                                <option style="color:#3bff4f;" value="special_amno">Specjalna</option>
-                                <option style="color:#b300ff;" value="heavy_amno">Ciężka</option>
-                            </select>
+                            <input class="readonly_amno_kinetic" type="text" value="Kinetyczna" readonly>
+                            <input type="hidden" name="attr_kinetic_weapon_amno" value="kinetic_amno">
                         </div>
                         <!--Wybór jakości-->
                         <div class="param">
@@ -672,15 +666,9 @@
                         </div>
                         <!--Wybór typu amunicji-->
                         <div class="param">
-                            <!--Wyciągnięcie zmiennej, aby mogła zmieniać kolor czcionki-->
-                            <input name="attr_special_weapon_amno" type="hidden" class="sheet-amno-switch">
                             <input class="readonly_input" type="text" value="Amunicja" readonly>
-                            <select class="sheet-amno-select" name="attr_special_weapon_amno" value="-">
-                                <option value="-">-</option>
-                                <option style="color:#aeaeae;" value="kinetic_amno">Kinetyczna</option>
-                                <option style="color:#3bff4f;" value="special_amno">Specjalna</option>
-                                <option style="color:#b300ff;" value="heavy_amno">Ciężka</option>
-                            </select>
+                            <input class="readonly_amno_special" type="text" value="Specjalna" readonly>
+                            <input type="hidden" name="attr_special_weapon_amno" value="special_amno">
                         </div>
                         <!--Wybór jakości-->
                         <div class="param">
@@ -808,15 +796,9 @@
                         </div>
                         <!--Wybór typu amunicji-->
                         <div class="param">
-                            <!--Wyciągnięcie zmiennej, aby mogła zmieniać kolor czcionki-->
-                            <input name="attr_heavy_weapon_amno" type="hidden" class="sheet-amno-switch">
                             <input class="readonly_input" type="text" value="Amunicja" readonly>
-                            <select class="sheet-amno-select" name="attr_heavy_weapon_amno" value="-">
-                                <option value="-">-</option>
-                                <option style="color:#aeaeae;" value="kinetic_amno">Kinetyczna</option>
-                                <option style="color:#3bff4f;" value="special_amno">Specjalna</option>
-                                <option style="color:#b300ff;" value="heavy_amno">Ciężka</option>
-                            </select>
+                            <input class="readonly_amno_heavy" type="text" value="Ciężka" readonly>
+                            <input type="hidden" name="attr_heavy_weapon_amno" value="heavy_amno">
                         </div>
                         <!--Wybór jakości-->
                         <div class="param">
@@ -864,13 +846,520 @@
                     </div>
                 </div>
             </div>
+            <!--Pancerze-->
+            <h3>Głowa</h3>
             <!--Karta pancerza-->
             <div class="sub_sector">
                 <!--Wyciągnięcie zmiennej, aby mogła zmieniać kolor tła-->
-                <input name="attr_armor_quality" type="hidden" class="sheet-armor-quality-switch">
+                <input name="attr_head_armor_quality" type="hidden" class="sheet-armor-quality-switch">
                 <div class="sheet-armor-card">
                     <div class="left_part">
                         <!--Parametry pancerza-->
+                        <div class="param">
+                            <input class="param_long" type="text" name="attr_head_armor_name" value="">
+                        </div>
+                        <div class="param">
+                            <input class="readonly_input" type="text" value="Mobilność" readonly>
+                            <input class="param" type="text" value="0" name="attr_head_armor_mobility">
+                        </div>
+                        <div class="param">
+                            <input class="readonly_input" type="text" value="Defensywa" readonly>
+                            <input class="param" type="text" value="0" name="attr_head_armor_defence">
+                        </div>
+                        <div class="param">
+                            <input class="readonly_input" type="text" value="Regeneracja" readonly>
+                            <input class="param" type="text" value="0" name="attr_head_armor_regeneration">
+                        </div>
+                        <div class="param">
+                            <input class="readonly_input" type="text" value="Dyscyplina" readonly>
+                            <input class="param" type="text" value="0" name="attr_head_armor_discipline">
+                        </div>
+                        <div class="param">
+                            <input class="readonly_input" type="text" value="Inteligencja" readonly>
+                            <input class="param" type="text" value="0" name="attr_head_armor_inteligence">
+                        </div>
+                        <div class="param">
+                            <input class="readonly_input" type="text" value="Krzepa" readonly>
+                            <input class="param" type="text" value="0" name="attr_head_armor_strong">
+                        </div>
+                        <div class="param">
+                            <input class="readonly_input" type="text" value="Pancerz" readonly>
+                            <input class="param" type="text" value="0" name="attr_head_armor_value">
+                        </div>
+                        <!--Klasa postaci, dla jakiej przeznaczony jest pancerz-->
+                        <div class="param">
+                            <input class="readonly_input" type="text" value="Klasa" readonly>
+                            <select class="sheet-amno-select" name="attr_head_armor_class" value="-">
+                                <option value="-">-</option>
+                                <option value="titan">Tytan</option>
+                                <option value="hunter">Łowca</option>
+                                <option value="warlock">Czarownik</option>
+                            </select>
+                        </div>
+                        <!--Rzadkość pancerza-->
+                        <div class="param">
+                            <input class="readonly_input" type="text" value="Rzadkość" readonly>
+                            <select class="sheet-quality-select" name="attr_head_armor_quality" value="-">
+                                <option value="-">-</option>
+                                <option value="common">Zwykła</option>
+                                <option value="uncommon">Niezwykła</option>
+                                <option value="rare">Rzadka</option>
+                                <option value="legend">Legendarna</option>
+                                <option value="exotic">Egzotyczna</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="right_part">
+                        <!--Wybór części pancerza-->
+                        <div class="param">
+                            <input class="readonly_input" type="text" value="Osłona" readonly>
+                            <input class="readonly_armor" type="text" value="Głowy" readonly>
+                            <input type="hidden" name="attr_head_armor_location" value="head" readonly>
+                        </div>
+                        <!--Polę na grafikę pancerza-->
+                        <div class="image_div">
+                            <img class="icon-armor-part-head">
+                        </div>
+                        <!--Wyciągnięcie zmiennej, aby mogła wyświetlać odpowiednią liczbę modyfikacji-->
+                        <input name="attr_head_armor_quality" type="hidden" class="sheet-block-mod-switch">
+                        <!--Modyfikacja 1-->
+                        <div class="block_mod_1">
+                            <input class="block_name" type="text" name="attr_head_armor_mod_name_1">
+                            <textarea class="small_ta" name="attr_head_armor_mod_desc_1"></textarea>
+                        </div>
+                        <!--Modyfikacja 2-->
+                        <div class="block_mod_2">
+                            <input class="block_name" type="text" name="attr_head_armor_mod_name_2">
+                            <textarea class="small_ta" name="attr_head_armor_mod_desc_2"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h3>Ręcę</h3>
+            <!--Karta pancerza-->
+            <div class="sub_sector">
+                <!--Wyciągnięcie zmiennej, aby mogła zmieniać kolor tła-->
+                <input name="attr_hands_armor_quality" type="hidden" class="sheet-armor-quality-switch">
+                <div class="sheet-armor-card">
+                    <div class="left_part">
+                        <!--Parametry pancerza-->
+                        <div class="param">
+                            <input class="param_long" type="text" name="attr_hands_armor_name" value="">
+                        </div>
+                        <div class="param">
+                            <input class="readonly_input" type="text" value="Mobilność" readonly>
+                            <input class="param" type="text" value="0" name="attr_hands_armor_mobility">
+                        </div>
+                        <div class="param">
+                            <input class="readonly_input" type="text" value="Defensywa" readonly>
+                            <input class="param" type="text" value="0" name="attr_hands_armor_defence">
+                        </div>
+                        <div class="param">
+                            <input class="readonly_input" type="text" value="Regeneracja" readonly>
+                            <input class="param" type="text" value="0" name="attr_hands_armor_regeneration">
+                        </div>
+                        <div class="param">
+                            <input class="readonly_input" type="text" value="Dyscyplina" readonly>
+                            <input class="param" type="text" value="0" name="attr_hands_armor_discipline">
+                        </div>
+                        <div class="param">
+                            <input class="readonly_input" type="text" value="Inteligencja" readonly>
+                            <input class="param" type="text" value="0" name="attr_hands_armor_inteligence">
+                        </div>
+                        <div class="param">
+                            <input class="readonly_input" type="text" value="Krzepa" readonly>
+                            <input class="param" type="text" value="0" name="attr_hands_armor_strong">
+                        </div>
+                        <div class="param">
+                            <input class="readonly_input" type="text" value="Pancerz" readonly>
+                            <input class="param" type="text" value="0" name="attr_hands_armor_value">
+                        </div>
+                        <!--Klasa postaci, dla jakiej przeznaczony jest pancerz-->
+                        <div class="param">
+                            <input class="readonly_input" type="text" value="Klasa" readonly>
+                            <select class="sheet-amno-select" name="attr_hands_armor_class" value="-">
+                                <option value="-">-</option>
+                                <option value="titan">Tytan</option>
+                                <option value="hunter">Łowca</option>
+                                <option value="warlock">Czarownik</option>
+                            </select>
+                        </div>
+                        <!--Rzadkość pancerza-->
+                        <div class="param">
+                            <input class="readonly_input" type="text" value="Rzadkość" readonly>
+                            <select class="sheet-quality-select" name="attr_hands_armor_quality" value="-">
+                                <option value="-">-</option>
+                                <option value="common">Zwykła</option>
+                                <option value="uncommon">Niezwykła</option>
+                                <option value="rare">Rzadka</option>
+                                <option value="legend">Legendarna</option>
+                                <option value="exotic">Egzotyczna</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="right_part">
+                        <!--Wybór części pancerza-->
+                        <div class="param">
+                            <input class="readonly_input" type="text" value="Osłona" readonly>
+                            <input class="readonly_armor" type="text" value="Rąk" readonly>
+                            <input type="hidden" name="attr_hands_armor_location" value="hands" readonly>
+                        </div>
+                        <!--Polę na grafikę pancerza-->
+                        <div class="image_div">
+                            <img class="icon-armor-part-hands">
+                        </div>
+                        <!--Wyciągnięcie zmiennej, aby mogła wyświetlać odpowiednią liczbę modyfikacji-->
+                        <input name="attr_hands_armor_quality" type="hidden" class="sheet-block-mod-switch">
+                        <!--Modyfikacja 1-->
+                        <div class="block_mod_1">
+                            <input class="block_name" type="text" name="attr_hands_armor_mod_name_1">
+                            <textarea class="small_ta" name="attr_hands_armor_mod_desc_1"></textarea>
+                        </div>
+                        <!--Modyfikacja 2-->
+                        <div class="block_mod_2">
+                            <input class="block_name" type="text" name="attr_hands_armor_mod_name_2">
+                            <textarea class="small_ta" name="attr_hands_armor_mod_desc_2"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h3>Korpus</h3>
+            <!--Karta pancerza-->
+            <div class="sub_sector">
+                <!--Wyciągnięcie zmiennej, aby mogła zmieniać kolor tła-->
+                <input name="attr_body_armor_quality" type="hidden" class="sheet-armor-quality-switch">
+                <div class="sheet-armor-card">
+                    <div class="left_part">
+                        <!--Parametry pancerza-->
+                        <div class="param">
+                            <input class="param_long" type="text" name="attr_body_armor_name" value="">
+                        </div>
+                        <div class="param">
+                            <input class="readonly_input" type="text" value="Mobilność" readonly>
+                            <input class="param" type="text" value="0" name="attr_body_armor_mobility">
+                        </div>
+                        <div class="param">
+                            <input class="readonly_input" type="text" value="Defensywa" readonly>
+                            <input class="param" type="text" value="0" name="attr_body_armor_defence">
+                        </div>
+                        <div class="param">
+                            <input class="readonly_input" type="text" value="Regeneracja" readonly>
+                            <input class="param" type="text" value="0" name="attr_body_armor_regeneration">
+                        </div>
+                        <div class="param">
+                            <input class="readonly_input" type="text" value="Dyscyplina" readonly>
+                            <input class="param" type="text" value="0" name="attr_body_armor_discipline">
+                        </div>
+                        <div class="param">
+                            <input class="readonly_input" type="text" value="Inteligencja" readonly>
+                            <input class="param" type="text" value="0" name="attr_body_armor_inteligence">
+                        </div>
+                        <div class="param">
+                            <input class="readonly_input" type="text" value="Krzepa" readonly>
+                            <input class="param" type="text" value="0" name="attr_body_armor_strong">
+                        </div>
+                        <div class="param">
+                            <input class="readonly_input" type="text" value="Pancerz" readonly>
+                            <input class="param" type="text" value="0" name="attr_body_armor_value">
+                        </div>
+                        <!--Klasa postaci, dla jakiej przeznaczony jest pancerz-->
+                        <div class="param">
+                            <input class="readonly_input" type="text" value="Klasa" readonly>
+                            <select class="sheet-amno-select" name="attr_body_armor_class" value="-">
+                                <option value="-">-</option>
+                                <option value="titan">Tytan</option>
+                                <option value="hunter">Łowca</option>
+                                <option value="warlock">Czarownik</option>
+                            </select>
+                        </div>
+                        <!--Rzadkość pancerza-->
+                        <div class="param">
+                            <input class="readonly_input" type="text" value="Rzadkość" readonly>
+                            <select class="sheet-quality-select" name="attr_body_armor_quality" value="-">
+                                <option value="-">-</option>
+                                <option value="common">Zwykła</option>
+                                <option value="uncommon">Niezwykła</option>
+                                <option value="rare">Rzadka</option>
+                                <option value="legend">Legendarna</option>
+                                <option value="exotic">Egzotyczna</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="right_part">
+                        <!--Wybór części pancerza-->
+                        <div class="param">
+                            <input class="readonly_input" type="text" value="Osłona" readonly>
+                            <input class="readonly_armor" type="text" value="Korpusu" readonly>
+                            <input type="hidden" name="attr_body_armor_location" value="body" readonly>
+                        </div>
+                        <!--Polę na grafikę pancerza-->
+                        <div class="image_div">
+                            <img class="icon-armor-part-body">
+                        </div>
+                        <!--Wyciągnięcie zmiennej, aby mogła wyświetlać odpowiednią liczbę modyfikacji-->
+                        <input name="attr_body_armor_quality" type="hidden" class="sheet-block-mod-switch">
+                        <!--Modyfikacja 1-->
+                        <div class="block_mod_1">
+                            <input class="block_name" type="text" name="attr_body_armor_mod_name_1">
+                            <textarea class="small_ta" name="attr_body_armor_mod_desc_1"></textarea>
+                        </div>
+                        <!--Modyfikacja 2-->
+                        <div class="block_mod_2">
+                            <input class="block_name" type="text" name="attr_body_armor_mod_name_2">
+                            <textarea class="small_ta" name="attr_body_armor_mod_desc_2"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h3>Nogi</h3>
+            <!--Karta pancerza-->
+            <div class="sub_sector">
+                <!--Wyciągnięcie zmiennej, aby mogła zmieniać kolor tła-->
+                <input name="attr_legs_armor_quality" type="hidden" class="sheet-armor-quality-switch">
+                <div class="sheet-armor-card">
+                    <div class="left_part">
+                        <!--Parametry pancerza-->
+                        <div class="param">
+                            <input class="param_long" type="text" name="attr_legs_armor_name" value="">
+                        </div>
+                        <div class="param">
+                            <input class="readonly_input" type="text" value="Mobilność" readonly>
+                            <input class="param" type="text" value="0" name="attr_legs_armor_mobility">
+                        </div>
+                        <div class="param">
+                            <input class="readonly_input" type="text" value="Defensywa" readonly>
+                            <input class="param" type="text" value="0" name="attr_legs_armor_defence">
+                        </div>
+                        <div class="param">
+                            <input class="readonly_input" type="text" value="Regeneracja" readonly>
+                            <input class="param" type="text" value="0" name="attr_legs_armor_regeneration">
+                        </div>
+                        <div class="param">
+                            <input class="readonly_input" type="text" value="Dyscyplina" readonly>
+                            <input class="param" type="text" value="0" name="attr_legs_armor_discipline">
+                        </div>
+                        <div class="param">
+                            <input class="readonly_input" type="text" value="Inteligencja" readonly>
+                            <input class="param" type="text" value="0" name="attr_legs_armor_inteligence">
+                        </div>
+                        <div class="param">
+                            <input class="readonly_input" type="text" value="Krzepa" readonly>
+                            <input class="param" type="text" value="0" name="attr_legs_armor_strong">
+                        </div>
+                        <div class="param">
+                            <input class="readonly_input" type="text" value="Pancerz" readonly>
+                            <input class="param" type="text" value="0" name="attr_legs_armor_value">
+                        </div>
+                        <!--Klasa postaci, dla jakiej przeznaczony jest pancerz-->
+                        <div class="param">
+                            <input class="readonly_input" type="text" value="Klasa" readonly>
+                            <select class="sheet-amno-select" name="attr_legs_armor_class" value="-">
+                                <option value="-">-</option>
+                                <option value="titan">Tytan</option>
+                                <option value="hunter">Łowca</option>
+                                <option value="warlock">Czarownik</option>
+                            </select>
+                        </div>
+                        <!--Rzadkość pancerza-->
+                        <div class="param">
+                            <input class="readonly_input" type="text" value="Rzadkość" readonly>
+                            <select class="sheet-quality-select" name="attr_legs_armor_quality" value="-">
+                                <option value="-">-</option>
+                                <option value="common">Zwykła</option>
+                                <option value="uncommon">Niezwykła</option>
+                                <option value="rare">Rzadka</option>
+                                <option value="legend">Legendarna</option>
+                                <option value="exotic">Egzotyczna</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="right_part">
+                        <!--Wybór części pancerza-->
+                        <div class="param">
+                            <input class="readonly_input" type="text" value="Osłona" readonly>
+                            <input class="readonly_armor" type="text" value="Nóg" readonly>
+                            <input type="hidden" name="attr_legs_armor_location" value="legs" readonly>
+                        </div>
+                        <!--Polę na grafikę pancerza-->
+                        <div class="image_div">
+                            <img class="icon-armor-part-legs">
+                        </div>
+                        <!--Wyciągnięcie zmiennej, aby mogła wyświetlać odpowiednią liczbę modyfikacji-->
+                        <input name="attr_legs_armor_quality" type="hidden" class="sheet-block-mod-switch">
+                        <!--Modyfikacja 1-->
+                        <div class="block_mod_1">
+                            <input class="block_name" type="text" name="attr_legs_armor_mod_name_1">
+                            <textarea class="small_ta" name="attr_legs_armor_mod_desc_1"></textarea>
+                        </div>
+                        <!--Modyfikacja 2-->
+                        <div class="block_mod_2">
+                            <input class="block_name" type="text" name="attr_legs_armor_mod_name_2">
+                            <textarea class="small_ta" name="attr_legs_armor_mod_desc_2"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--Karty nie zaekwipowane Strona prawa-->
+        <div class="sector" id="Out_hand">
+            <!--Przyciski funkcyjne-->
+            <div class="sub_sector">
+                <button type="action" name="act_reload_kinetic">Przeładuj</button>
+                <button type="action" name="act_attack_kinetic">Atakuj</button>
+            </div>
+            <!--Przyciski funkcyjne-->
+            <div class="sub_sector">
+                <button type="action" name="act_reload_special">Przeładuj</button>
+                <button type="action" name="act_attack_special">Atakuj</button>
+            </div>
+            <!--Przyciski funkcyjne-->
+            <div class="sub_sector">
+                <button type="action" name="act_reload_heavy">Przeładuj</button>
+                <button type="action" name="act_attack_heavy">Atakuj</button>
+            </div>
+            <!--Karta broni na przyszłość-->
+            <!--<div class="sub_sector">
+                Wyciągnięcie zmiennej, aby mogła zmieniać tło
+                <input name="attr_special_weapon_quality" type="hidden" class="sheet-weapon-quality-switch">
+                <div class="sheet-weapon-card">
+                    <div class="left_part">
+                        Nazwa
+                        <div class="param">
+                            <input class="param_long" type="text" name="attr_special_weapon_name" value="">
+                        </div>
+                        <div class="param">
+                            Typ broni
+                            <select class="select_long" name="attr_special_type" value="-">
+                                <option value="">-</option>
+
+                                <option disabled style="background-color: black; color: white; font-weight: bold;">
+                                    ---Broń
+                                    zwykła---</option>
+                                <option value="Hand_cannon">Rewolwer</option>
+                                <option value="Auto_rifle">Karabin automatyczny</option>
+                                <option value="Scout_rifle">Karabin zwiadowczy</option>
+                                <option value="Pulse_rifle">Karabin pulsacyjny</option>
+                                <option value="Sidearm">Broń boczna</option>
+                                <option value="Smg">Pistolet maszynowy</option>
+                                <option value="Bow">Łuk</option>
+
+                                <option disabled style="background-color: black; color: white; font-weight: bold;">
+                                    ---Broń
+                                    specjalna---</option>
+                                <option value="Shotgun">Strzelba</option>
+                                <option value="Sniper_rifle">Karabin snajperski</option>
+                                <option value="Fusion_rifle">Karabin fuzyjny</option>
+                                <option value="Light_grnd">Lekki Granatnik</option>
+
+                                <option disabled style="background-color: black; color: white; font-weight: bold;">
+                                    ---Broń
+                                    ciężka---</option>
+                                <option value="Machine_rifle">Karabin maszynowy</option>
+                                <option value="Line_rifle">Karabin liniowy</option>
+                                <option value="Rocket_launcher">Wyrzutnia rakiet</option>
+                                <option value="Granade_launcher">Granatnik</option>
+                                <option value="Sword">Miecz</option>
+                            </select>
+                        </div>
+                        Parametry broni
+                        <div class="param">
+                            <input class="readonly_input" type="text" name="attr_special_param_name_1" readonly>
+                            <input class="param" type="text" name="attr_special_param1">
+                        </div>
+                        <div class="param">
+                            <input class="readonly_input" type="text" name="attr_special_param_name_2" readonly>
+                            <input class="param" type="text" name="attr_special_param2">
+                        </div>
+                        <div class="param">
+                            <input class="readonly_input" type="text" name="attr_special_param_name_3" readonly>
+                            <input class="param" type="text" name="attr_special_param3">
+                        </div>
+                        <div class="param">
+                            <input class="readonly_input" type="text" name="attr_special_param_name_4" readonly>
+                            <input class="param" type="text" name="attr_special_param4">
+                        </div>
+                        <div class="param">
+                            <input class="readonly_input" type="text" name="attr_special_param_name_5" readonly>
+                            <input class="param" type="text" name="attr_special_param5">
+                        </div>
+                        <div class="param">
+                            <input class="readonly_input" type="text" name="attr_special_param_name_6" readonly>
+                            <input class="param" type="text" name="attr_special_param6">
+                        </div>
+                        <div class="param">
+                            <input class="readonly_input" type="text" name="attr_special_param_name_7" readonly>
+                            <input class="param" type="text" name="attr_special_param7">
+                        </div>
+                        <div class="param">
+                            <input class="readonly_input" type="text" value="Strzały" readonly>
+                            <input class="param" type="number" name="attr_special_weapon_current_ammo" min="0" readonly>
+                        </div>
+                        Wybór typu amunicji
+                        <div class="param">
+                            Wyciągnięcie zmiennej, aby mogła zmieniać kolor czcionki
+                            <input name="attr_special_weapon_amno" type="hidden" class="sheet-amno-switch">
+                            <input class="readonly_input" type="text" value="Amunicja" readonly>
+                            <select class="sheet-amno-select" name="attr_special_weapon_amno" value="-">
+                                <option value="-">-</option>
+                                <option style="color:#aeaeae;" value="kinetic_amno">Kinetyczna</option>
+                                <option style="color:#3bff4f;" value="special_amno">Specjalna</option>
+                                <option style="color:#b300ff;" value="heavy_amno">Ciężka</option>
+                            </select>
+                        </div>
+                        Wybór jakości
+                        <div class="param">
+                            <input class="readonly_input" type="text" value="Rzadkość" readonly>
+                            <select class="sheet-quality-select" name="attr_special_weapon_quality" value="-">
+                                <option value="-">-</option>
+                                <option value="common">Zwykła</option>
+                                <option value="uncommon">Niezwykła</option>
+                                <option value="rare">Rzadka</option>
+                                <option value="legend">Legendarna</option>
+                                <option value="exotic">Egzotyczna</option>
+                            </select>
+                        </div>
+                    </div>
+                    Wybór typu obrażeń
+                    <div class="right_part">
+                        Wyciągnięcie zmiennej, aby mogła zmieniać grafikę żywiołu
+                        <input name="attr_special_weapon_energy" type="hidden" class="sheet-energy-switch">
+                        <div class="param">
+                            <input class="readonly_input" type="text" value="Żywioł" readonly>
+                            <select class="select_param" name="attr_special_weapon_energy">
+                                <option value="">-</option>
+                                <option value="kinetic">Kinetyczny</option>
+                                <option value="arc">Arc</option>
+                                <option value="void">Próżniowy</option>
+                                <option value="solar">Solarny</option>
+                            </select>
+                        </div>
+                        Polę na grafikę żywiołu
+                        <div class="image_div">
+                            <img class="icon-energy">
+                        </div>
+                        Wyciągnięcie zmiennej, aby mogła wyświetlać odpowiednią liczbę modyfikacji
+                        <input name="attr_special_weapon_quality" type="hidden" class="sheet-block-mod-switch">
+                        Modyfikacja broni jeden
+                        <div class="block_mod_1">
+                            <input class="block_name" type="text" name="attr_special_weapons_mod_name_1">
+                            <textarea class="small_ta" name="attr_special_weapons_mod_desc_1"></textarea>
+                        </div>
+                        Modyfikacja broni dwa
+                        <div class="block_mod_2">
+                            <input class="block_name" type="text" name="attr_special_weapons_mod_name_2">
+                            <textarea class="small_ta" name="attr_special_weapons_mod_desc_2"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>-->
+
+            <!--Karta pancerza na przyszłość-->
+            <!--<div class="sub_sector">
+                Wyciągnięcie zmiennej, aby mogła zmieniać kolor tła
+                <input name="attr_armor_quality" type="hidden" class="sheet-armor-quality-switch">
+                <div class="sheet-armor-card">
+                    <div class="left_part">
+                        Parametry pancerza
                         <div class="param">
                             <input class="param_long" type="text" name="attr_armor_name" value="">
                         </div>
@@ -902,7 +1391,7 @@
                             <input class="readonly_input" type="text" value="Pancerz" readonly>
                             <input class="param" type="text" value="0" name="attr_armor_value">
                         </div>
-                        <!--Klasa postaci, dla jakiej przeznaczony jest pancerz-->
+                        Klasa postaci, dla jakiej przeznaczony jest pancerz
                         <div class="param">
                             <input class="readonly_input" type="text" value="Klasa" readonly>
                             <select class="sheet-amno-select" name="attr_armor_class" value="-">
@@ -912,7 +1401,7 @@
                                 <option value="warlock">Czarownik</option>
                             </select>
                         </div>
-                        <!--Rzadkość pancerza-->
+                        Rzadkość pancerza
                         <div class="param">
                             <input class="readonly_input" type="text" value="Rzadkość" readonly>
                             <select class="sheet-quality-select" name="attr_armor_quality" value="-">
@@ -926,9 +1415,9 @@
                         </div>
                     </div>
                     <div class="right_part">
-                        <!--Wyciągnięcie zmiennej, aby mogła zmieniać grafikę pancerza-->
+                        Wyciągnięcie zmiennej, aby mogła zmieniać grafikę pancerza
                         <input name="attr_armor_location" type="hidden" class="sheet-armor-switch">
-                        <!--Wybór części pancerza-->
+                        Wybór części pancerza
                         <div class="param">
                             <input class="readonly_input" type="text" value="Osłona" readonly>
                             <select class="select_param" name="attr_armor_location">
@@ -939,43 +1428,25 @@
                                 <option value="legs">Nóg</option>
                             </select>
                         </div>
-                        <!--Polę na grafikę pancerza-->
+                        Polę na grafikę pancerza
                         <div class="image_div">
                             <img class="icon-armor-part">
                         </div>
-                        <!--Wyciągnięcie zmiennej, aby mogła wyświetlać odpowiednią liczbę modyfikacji-->
+                        Wyciągnięcie zmiennej, aby mogła wyświetlać odpowiednią liczbę modyfikacji
                         <input name="attr_armor_quality" type="hidden" class="sheet-block-mod-switch">
-                        <!--Modyfikacja 1-->
+                        Modyfikacja 1
                         <div class="block_mod_1">
                             <input class="block_name" type="text" name="attr_armor_mod_name_1">
                             <textarea class="small_ta" name="attr_armor_mod_desc_1"></textarea>
                         </div>
-                        <!--Modyfikacja 2-->
+                        Modyfikacja 2
                         <div class="block_mod_2">
                             <input class="block_name" type="text" name="attr_armor_mod_name_2">
                             <textarea class="small_ta" name="attr_armor_mod_desc_2"></textarea>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <!--Karty nie zaekwipowane Strona prawa-->
-        <div class="sector" id="Out_hand">
-            <!--Przyciski funkcyjne-->
-            <div class="sub_sector">
-                <button type="action" name="act_reload_kinetic">Przeładuj</button>
-                <button type="action" name="act_attack_kinetic">Atakuj</button>
-            </div>
-            <!--Przyciski funkcyjne-->
-            <div class="sub_sector">
-                <button type="action" name="act_reload_special">Przeładuj</button>
-                <button type="action" name="act_attack_special">Atakuj</button>
-            </div>
-            <!--Przyciski funkcyjne-->
-            <div class="sub_sector">
-                <button type="action" name="act_reload_heavy">Przeładuj</button>
-                <button type="action" name="act_attack_heavy">Atakuj</button>
-            </div>
+            </div>-->
         </div>
     </div>
 
@@ -1654,49 +2125,69 @@
     }
     //Parametry pancerza
     const armor_param=["armor_mobility","armor_defence","armor_regeneration","armor_discipline","armor_inteligence","armor_strong"]
-    //Sprawdź wartości pancerza
-    on("change:armor_mobility change:armor_defence change:armor_regeneration change:armor_discipline change:armor_inteligence change:armor_strong change:armor_value change:armor_quality", function(){
+
+    //Sprawdza parametry jednego elementu pancerza
+    function check_fully_armor(part_of_body){
         //Wywołaj spawdzenie dla każdej cechy
         armor_param.forEach(arm =>{
-            check_armor(arm,"armor_quality")
+            check_armor(part_of_body+arm,part_of_body+"armor_quality")
         })
         //Sprawdź wartości opancerzenia
-        getAttrs(["armor_quality","armor_value"],function(values){
-            var qual=values.armor_quality
+        getAttrs([part_of_body+"armor_quality",part_of_body+"armor_value"],function(values){
+            var qual_name=part_of_body+"armor_quality"
+            var qual=values[qual_name]
             qual=qual=="-"?"none":qual
-            var val=values.armor_value
+            var val_name=part_of_body+"armor_value"
+            var val=values[val_name]
             //Sprawdź wartość opancerzenia
             if(qual=="common"){
                 if(val!="0" && val!="1"){
                     setAttrs({
-                        armor_value: "0"
+                        [val_name]: "0"
                     })
                 }
             }else{
                 if(val!=armor[qual]){
                     setAttrs({
-                        armor_value: armor[qual]
+                        [val_name]: armor[qual]
                     })
                 }
             }
         })
+    }
+
+    //Sprawdź wartości pancerza
+    on("change:head_armor_mobility change:head_armor_defence change:head_armor_regeneration change:head_armor_discipline change:head_armor_inteligence change:head_armor_strong change:head_armor_value change:head_armor_quality", function(){
+        check_fully_armor("head_")
+    })
+
+    on("change:hands_armor_mobility change:hands_armor_defence change:hands_armor_regeneration change:hands_armor_discipline change:hands_armor_inteligence change:hands_armor_strong change:hands_armor_value change:hands_armor_quality", function(){
+        check_fully_armor("hands_")
+    })
+
+    on("change:body_armor_mobility change:body_armor_defence change:body_armor_regeneration change:body_armor_discipline change:body_armor_inteligence change:body_armor_strong change:body_armor_value change:body_armor_quality", function(){
+        check_fully_armor("body_")
+    })
+
+    on("change:legs_armor_mobility change:legs_armor_defence change:legs_armor_regeneration change:legs_armor_discipline change:legs_armor_inteligence change:legs_armor_strong change:legs_armor_value change:legs_armor_quality", function(){
+        check_fully_armor("legs_")
     })
 
     //Funkcja służąca do podpinania ataku
-    function bind_atack_roll(attribute_name,attribute,wp_name,damage,series=1){
+    function bind_atack_roll(attribute_name,attribute,wp_name,damage,curr_amno,series=1){
         var query="&{template:Attack} "                                                                       //Szablon rzutu
         query=query.concat("{{name=@{name} wykonuje atak za pomocą @{"+wp_name+"}}} ")                        //Nazwa rzutu
 
-        getAttrs([attribute,damage,"kinetic_weapon_current_ammo"], function(values){
+        getAttrs([attribute,damage,curr_amno], function(values){
             var atr=values[attribute]
-            var camno=parseInt(values.kinetic_weapon_current_ammo)      //Obecna amunicja
+            var camno=parseInt(values[curr_amno])      //Obecna amunicja
             //Czy broń jest naładowana?
             if(camno==0){
                 throw new Error("Brak amunicji!")
             }else{
                 //Odejmij amunicje
                 setAttrs({
-                    kinetic_weapon_current_ammo: camno-series
+                    [curr_amno]: camno-series
                 })
             }
             //Sprawdzenie czy umiejętność jest wykupiona
@@ -1742,80 +2233,77 @@
         })
     }
 
-    function bind_atack(weap_type,firerate){
+    function bind_atack(weap_type,firerate,weap_name,damage,curr_amno){
         getAttrs([weap_type,firerate],function(values){
-            var w_type=values[weap_type]       //Typ broni
-            var rate=values[firerate]     //Szybkostrzelność
+            var w_type=values[weap_type]                    //Typ broni
+            var rate=values[firerate]                       //Szybkostrzelność
             //Sprawdź typ broni
-            if(w_type=="Sword"){          //Miecz wykorzystuję inny rzut
-                bind_atack_roll("walki wręcz","brawl","kinetic_weapon_name","kinetic_param1")
-            }else if(w_type=="Rocket_launcher" || w_type=="Granade_launcher"){  //Bronie bez cechy szybkostrzelność
-                bind_atack_roll("strzelania","shoot","kinetic_weapon_name","kinetic_param1")
+            if(w_type=="Sword"){                            //Miecz wykorzystuję inny rzut
+                bind_atack_roll("walki wręcz","brawl",weap_name,damage,curr_amno)
+            }else if(w_type=="Rocket_launcher" || w_type=="Granade_launcher"){                  //Bronie bez cechy szybkostrzelność
+                bind_atack_roll("strzelania","shoot",weap_name,damage,curr_amno)
             }else{
                 //Sprawdzenie czy broń strzela serią
                 if(rate[0]=='s'){
-                    bind_atack_roll("strzelania","shoot","kinetic_weapon_name","kinetic_param1",series=parseInt(rate.slice(1)))
+                    bind_atack_roll("strzelania","shoot",weap_name,damage,curr_amno,series=parseInt(rate.slice(1)))
                 }else{
-                    bind_atack_roll("strzelania","shoot","kinetic_weapon_name","kinetic_param1")
+                    bind_atack_roll("strzelania","shoot",weap_name,damage,curr_amno)
                 }
             }
         })
     }
 
-    function bind_roll(){
-        getAttrs(["kinetic_w_type","kinetic_weapon_current_ammo","kinetic_weapon_amno","kinetic_param5","kinetic_amno","special_amno","heavy_amno"],function(values){
-            var w_type=values.kinetic_type       //Typ broni
+    function bind_reload(weap_type,curr_amno,mag_size,amno_type){
+        getAttrs([weap_type,curr_amno,amno_type,mag_size],function(values){
+            var w_type=values[weap_type]      //Typ broni
             //Broni któych się nie przeładowuje lub nie mają magazynka
             if(w_type=="Sword" || w_type=="Light_grnd" || w_type=="Bow"){
                 return
             }
             //1 żeton=1 magazynek
             if(w_type=="Hand_cannon" || w_type=="Auto_rifle" || w_type=="Scout_rifle" || w_type=="Pulse_rifle" || w_type=="Sidearm" || w_type=="Smg"){
-                var at=values.kinetic_weapon_amno                           //Typ amunicji
-                var amno=parseInt(values[at])                     //Ile żetonów pozostało
-                var max=parseInt(values.kinetic_param5)                   //Wielkość magazynka
-                var camno=parseInt(values.kinetic_weapon_current_ammo)    //Obecna amunicja
+                var amno=parseInt(values[amno_type])                     //Ile żetonów pozostało
+                var max=parseInt(values[mag_size])                   //Wielkość magazynka
+                var camno=parseInt(values[curr_amno])    //Obecna amunicja
                 //Zmień wartość amunicji
                 if(amno!=0  && camno!=max){
                     setAttrs({
-                        kinetic_weapon_current_ammo: max,
-                        [at]: amno-1
+                        [curr_amno]: max,
+                        [amno_type]: amno-1
                     })
                 }
             //2 żetony=1 magazynek
             }else if(w_type=="Shotgun" || w_type=="Sniper_rifle" || w_type=="Fusion_rifle" || w_type=="Machine_rifle" || w_type=="Line_rifle" || w_type=="Granade_launcher"){
-                var at=values.kinetic_weapon_amno                           //Typ amunicji
-                var amno=parseInt(values[at])                     //Ile żetonów pozostało
-                var max=parseInt(values.kinetic_param5)                   //Wielkość magazynka
-                var camno=parseInt(values.kinetic_weapon_current_ammo)    //Obecna amunicja
+                var amno=parseInt(values[amno_type])                     //Ile żetonów pozostało
+                var max=parseInt(values[mag_size])                   //Wielkość magazynka
+                var camno=parseInt(values[curr_amno])    //Obecna amunicja
                 //Zmień wartość amunicji
                 if(amno>1 && camno!=max){
                     setAttrs({
-                        kinetic_weapon_current_ammo: max,
-                        [at]: amno-2
+                        [curr_amno]: max,
+                        [amno_type]: amno-2
                     })
                 }else if(amno==1 && camno!=max){
                     setAttrs({
-                        kinetic_weapon_current_ammo: Math.floor(max/2),
-                        [at]: amno-1
+                        [curr_amno]: Math.floor(max/2),
+                        [amno_type]: amno-1
                     })
                 }
             //1 żeton=1 pocisk //Wyrzutnia rakiet
             }else{
-                var at=values.kinetic_weapon_amno                           //Typ amunicji
-                var amno=parseInt(values[at])                     //Ile żetonów pozostało
-                var max=parseInt(values.kinetic_param5)                   //Wielkość magazynka
-                var camno=parseInt(values.kinetic_weapon_current_ammo)    //Obecna amunicja
+                var amno=parseInt(values[amno_type])                     //Ile żetonów pozostało
+                var max=parseInt(values[mag_size])                   //Wielkość magazynka
+                var camno=parseInt(values[curr_amno])    //Obecna amunicja
                 //Zmień wartość amunicji
                 if(amno>=max && camno!=max){
                     setAttrs({
-                        kinetic_weapon_current_ammo: max,
-                        [at]: amno-max
+                        [curr_amno]: max,
+                        [amno_type]: amno-max
                     })
                 }else if(amno>0 && camno!=max){
                     setAttrs({
-                        kinetic_weapon_current_ammo: amno,
-                        [at]: 0
+                        [curr_amno]: amno,
+                        [amno_type]: 0
                     })
                 }
             }
@@ -1824,19 +2312,27 @@
 
     //Przyciski na karcie broni
     on('clicked:attack_kinetic', (info) => {
-        bind_atack("kinetic_type","kinetic_param4")
+        bind_atack("kinetic_type","kinetic_param4","kinetic_weapon_name","kinetic_param1","kinetic_weapon_current_ammo")
     })
 
     on('clicked:attack_special', (info) => {
-        bind_atack("special_type","special_param4")
+        bind_atack("special_type","special_param4","special_weapon_name","special_param1","special_weapon_current_ammo")
     })
 
     on('clicked:attack_heavy', (info) => {
-        bind_atack("heavy_type","heavy_param4")
+        bind_atack("heavy_type","heavy_param4","heavy_weapon_name","heavy_param1","heavy_weapon_current_ammo")
     })
 
     //Obsługa przycisku przeładuj
     on('clicked:reload_kinetic', (info) => {
-        bind_roll()
+        bind_reload("kinetic_type","kinetic_weapon_current_ammo","kinetic_param5","kinetic_amno")
+    })
+
+    on('clicked:reload_special', (info) => {
+        bind_reload("special_type","special_weapon_current_ammo","special_param5","special_amno")
+    })
+
+    on('clicked:reload_heavy', (info) => {
+        bind_reload("heavy_type","heavy_weapon_current_ammo","heavy_param5","heavy_amno")
     })
 </script>
