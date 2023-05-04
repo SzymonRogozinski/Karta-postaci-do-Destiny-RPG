@@ -219,6 +219,48 @@ div.sheet-main div.sheet-col div.vig_sub_sector{
 	margin:0;
 }
 
+.sheet-main div.sheet-col #gun_shortcut #kinetic_shortcut{
+	border-width: 3px;
+	border-style: solid;
+	border-color: #aeaeae;
+}
+
+.sheet-main div.sheet-col #gun_shortcut #special_shortcut{
+	border-width: 3px;
+	border-style: solid;
+	border-color: #3bff4f;
+}
+
+.sheet-main div.sheet-col #gun_shortcut #heavy_shortcut{
+	border-width: 3px;
+	border-style: solid;
+	border-color: #b300ff;
+}
+
+.sheet-main div.sheet-col #gun_shortcut input.gun_name{
+	width: 58%;
+}
+
+.sheet-main div.sheet-col #gun_shortcut input.gun_status{
+	width: 22%;
+}
+
+.sheet-main div.sheet-col button.reload_button{
+	padding: 1px;
+	height: 20px;
+	width: 20px;
+	background-image: url(https://github.com/SzymonRogozinski/Karta-postaci-do-Destiny-RPG/blob/master/obrazy/reload.png?raw=true);
+	background-size: cover;
+}
+
+.sheet-main div.sheet-col button.atack_button{
+	padding: 1px;
+	height: 20px;
+	width: 20px;
+	background-image: url(https://github.com/SzymonRogozinski/Karta-postaci-do-Destiny-RPG/blob/master/obrazy/atack.png?raw=true);
+	background-size: cover;
+}
+
 /*Strona ekwipunku*/
 .sheet-equipment{
 	font-family: "Audiowide";

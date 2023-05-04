@@ -432,12 +432,25 @@
         <div id="gun_shortcut" class="sector">
             <h3>Bronie</h3>
             <!--Bron kinetyczna-->
-            <div class="sub_sector">
-                <input class="readonly_input" name="attr_kinetic_weapon_name" readonly>
-                <input class="readonly_input" name="attr_kinetic_weapon_amno_status" readonly>
-                <button type="action" name="act_reload_kinetic">Przeładuj</button>
-                <button type="action" name="act_attack_kinetic">Atakuj</button>
+            <div class="sub_sector" id="kinetic_shortcut">
+                <input class="gun_name" name="attr_kinetic_weapon_name" readonly>
+                <input class="gun_status" name="attr_kinetic_weapon_amno_status" readonly>
+                <button class="reload_button" type="action" name="act_reload_kinetic"></button>
+                <button class="atack_button" type="action" name="act_attack_kinetic"></button>
             </div>
+            <!--Bron specjalna-->
+            <div class="sub_sector" id="special_shortcut">
+                <input class="gun_name" name="attr_special_weapon_name" readonly>
+                <input class="gun_status" name="attr_special_weapon_amno_status" readonly>
+                <button class="reload_button" type="action" name="act_reload_special"></button>
+                <button class="atack_button" type="action" name="act_attack_special"></button>
+            </div>
+            <!--Bron ciężka-->
+            <div class="sub_sector" id="heavy_shortcut">
+                <input class="gun_name" name="attr_heavy_weapon_name" readonly>
+                <input class="gun_status" name="attr_heavy_weapon_amno_status" readonly>
+                <button class="reload_button" type="action" name="act_reload_heavy"></button>
+                <button class="atack_button" type="action" name="act_attack_heavy"></button>
             </div>
         </div>
     </div>
@@ -1213,16 +1226,6 @@
         </div>
         <!--Karty nie zaekwipowane Strona prawa-->
         <div class="sector" id="Out_hand">
-            <!--Przyciski funkcyjne-->
-            <div class="sub_sector">
-                <button type="action" name="act_reload_special">Przeładuj</button>
-                <button type="action" name="act_attack_special">Atakuj</button>
-            </div>
-            <!--Przyciski funkcyjne-->
-            <div class="sub_sector">
-                <button type="action" name="act_reload_heavy">Przeładuj</button>
-                <button type="action" name="act_attack_heavy">Atakuj</button>
-            </div>
             <!--Karta broni na przyszłość-->
             <!--<div class="sub_sector">
                 Wyciągnięcie zmiennej, aby mogła zmieniać tło
@@ -2073,17 +2076,39 @@
             }
         }) 
     }
+    //Aktualizuję stan amunicji w skrócie
+    function amno_status(weap_type,current_amno,mag_size,weap_status){
+        getAttrs([weap_type,current_amno,mag_size],function(values){
+            var w_type=values[weap_type]                                    //Typ broni
+            var amno=parseInt(values[current_amno])                         //Obecna liczba naboi w magazynku
+            var mag=parseInt(values[mag_size])                              //param5    //Wielkość magazynka
+            var status                                                      //Stan amunicji naboje w magazynku/wielkość magazynku
+            if(w_type=="Light_grnd"){
+                status=amno+"/"+"20"
+            }else if(w_type=="Bow"){
+                status=amno+"/"+"60"
+            }else{
+                status=amno+"/"+mag
+            }
+            setAttrs({
+                [weap_status]: status
+            })
+        })
+    }
 
-    on("change:kinetic_param5 change:kinetic_amno",function(){
+    on("change:kinetic_param5 change:kinetic_amno change:kinetic_weapon_current_ammo",function(){
         amno_in_gun("kinetic_type","kinetic_weapon_current_ammo","kinetic_param5","kinetic_amno")
+        amno_status("kinetic_type","kinetic_weapon_current_ammo","kinetic_param5","kinetic_weapon_amno_status")
     })
 
-    on("change:special_param5 change:special_amno",function(){
+    on("change:special_param5 change:special_amno change:special_weapon_current_ammo",function(){
         amno_in_gun("special_type","special_weapon_current_ammo","special_param5","special_amno")
+        amno_status("special_type","special_weapon_current_ammo","special_param5","special_weapon_amno_status")
     })
 
-    on("change:heavy_param5 change:heavy_amno",function(){
+    on("change:heavy_param5 change:heavy_amno change:heavy_weapon_current_ammo",function(){
         amno_in_gun("heavy_type","heavy_weapon_current_ammo","heavy_param5","heavy_amno")
+        amno_status("heavy_type","heavy_weapon_current_ammo","heavy_param5","heavy_weapon_amno_status")
     })
 
     //Maksymalna wartość cechy dla pancerza danej jakości
