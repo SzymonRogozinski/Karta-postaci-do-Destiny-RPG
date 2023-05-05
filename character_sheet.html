@@ -1462,6 +1462,32 @@
 </div>
 <!--Strona na pozostałe szczegóły-->
 <div class="sheet-details">
+    <!--Podsumowanie cech pancerza-->
+    <div class="sector" id="armor_summary">
+        <h3>Statystyki opancerzenia</h3>
+        <div class="sub_sector">
+            Mobilność<input name="attr_mobility" readonly>
+            Defensywa<input name="attr_defence" readonly>
+            Regeneracja<input name="attr_regeneration" readonly>
+            Dyscyplina<input name="attr_discipline" readonly>
+            Inteligencja<input name="attr_inteligence" readonly>
+            Krzepa<input name="attr_strong" readonly>
+        </div>
+        <div class="sub_sector">
+            Tempo<input name="attr_armor_bonus_speed" value="0" readonly>
+            Ruch<input name="attr_armor_bonus_move" value="0" readonly>
+            Regeneracja<input name="attr_armor_regeneration_dice" value="d4" readonly>
+            Tarcze<input name="attr_armor_bonus_shield" value="0" readonly>
+            Wytrzymałość<input name="attr_armor_bonus_tough" value="0" readonly>
+            Koszt granatu<input name="attr_armor_bonus_granade_cost" value="0" readonly>
+            Obr. granatu<input name="attr_armor_bonus_granade_damage" value="0" readonly>
+            Koszt superzdolności<input name="attr_armor_bonus_super_cost" value="0" readonly>
+            Obr. superzdolności<input name="attr_armor_bonus_super_damage" value="0" readonly>
+            Zasięg superzdolności<input name="attr_armor_bonus_super_range" value="0/0/0" readonly>
+            Koszt silnego ciosu<input name="attr_armor_bonus_melee_cost" value="0" readonly>
+            Obr. silnego ciosu<input name="attr_armor_bonus_melee_damage" value="0" readonly>
+        </div>
+    </div>
     <!--Opis postaci-->
     <div class="sector">
         <h3>Opis postaci</h3>
@@ -2076,6 +2102,34 @@
             }
         }) 
     }
+
+    //Zmiana na wskutek zmiany amunicji
+    function amno_in_backpack(weap_type,current_amno,mag_size,amno_type){
+        getAttrs([weap_type,current_amno,mag_size], function(values){
+            var w_type=values[weap_type]                                    //Typ broni
+            var amno=parseInt(values[current_amno])                         //Obecna liczba naboi w magazynku
+            var mag=parseInt(values[mag_size])                              //param5    //Wielkość magazynka
+
+            if(w_type=="Sword"){
+                let amno_pack_size=mag/5                                    //Wielkość paczki z amunicją
+                let rest_pack=Math.floor(amno/amno_pack_size)                 //Ile paczek zostało?
+                setAttrs({
+                    [amno_type]: rest_pack                              
+                })
+            }else if(w_type=="Light_grnd"){
+                let rest_pack=Math.floor(amno/2)                            //Ile całych paczek zostało
+                setAttrs({
+                    [amno_type]: rest_pack                              
+                })
+            }else if(w_type=="Bow"){
+                let rest_pack=Math.floor(amno/6)                            //Ile całych paczek zostało
+                setAttrs({
+                    [amno_type]: rest_pack                              
+                })
+            }
+        }) 
+    }
+
     //Aktualizuję stan amunicji w skrócie
     function amno_status(weap_type,current_amno,mag_size,weap_status){
         getAttrs([weap_type,current_amno,mag_size],function(values){
@@ -2096,18 +2150,33 @@
         })
     }
 
-    on("change:kinetic_param5 change:kinetic_amno change:kinetic_weapon_current_ammo",function(){
+    on("change:kinetic_param5 change:kinetic_amno change:kinetic_type",function(){
         amno_in_gun("kinetic_type","kinetic_weapon_current_ammo","kinetic_param5","kinetic_amno")
         amno_status("kinetic_type","kinetic_weapon_current_ammo","kinetic_param5","kinetic_weapon_amno_status")
     })
 
-    on("change:special_param5 change:special_amno change:special_weapon_current_ammo",function(){
+    on("change:special_param5 change:special_amno change:kinetic_type",function(){
         amno_in_gun("special_type","special_weapon_current_ammo","special_param5","special_amno")
         amno_status("special_type","special_weapon_current_ammo","special_param5","special_weapon_amno_status")
     })
 
-    on("change:heavy_param5 change:heavy_amno change:heavy_weapon_current_ammo",function(){
+    on("change:heavy_param5 change:heavy_amno change:kinetic_type",function(){
         amno_in_gun("heavy_type","heavy_weapon_current_ammo","heavy_param5","heavy_amno")
+        amno_status("heavy_type","heavy_weapon_current_ammo","heavy_param5","heavy_weapon_amno_status")
+    })
+
+    on("change:kinetic_param5 change:kinetic_weapon_current_ammo change:kinetic_type",function(){
+        amno_in_backpack("kinetic_type","kinetic_weapon_current_ammo","kinetic_param5","kinetic_amno")
+        amno_status("kinetic_type","kinetic_weapon_current_ammo","kinetic_param5","kinetic_weapon_amno_status")
+    })
+
+    on("change:special_param5 change:special_weapon_current_ammo change:special_type",function(){
+        amno_in_backpack("special_type","special_weapon_current_ammo","special_param5","special_amno")
+        amno_status("special_type","special_weapon_current_ammo","special_param5","special_weapon_amno_status")
+    })
+
+    on("change:heavy_param5 change:heavy_weapon_current_ammo change:heavy_type",function(){
+        amno_in_backpack("heavy_type","heavy_weapon_current_ammo","heavy_param5","heavy_amno")
         amno_status("heavy_type","heavy_weapon_current_ammo","heavy_param5","heavy_weapon_amno_status")
     })
 
@@ -2186,6 +2255,22 @@
             }
         })
     }
+    //Sumuje wartości statystyk pancerzy
+    function sum_armor(stat,clas="-",stat_clas=""){
+        var head="head_armor_"+stat
+        var hands="hands_armor_"+stat
+        var body="body_armor_"+stat
+        var legs="legs_armor_"+stat
+        getAttrs([head,hands,body,legs,clas],function(values){
+            let sum=parseInt(values[head])+parseInt(values[hands])+parseInt(values[body])+parseInt(values[legs])
+            if(clas!="-" && stat_clas!="" && values[clas]==stat_clas){
+                sum=sum+10
+            }
+            setAttrs({
+                [stat]: sum
+            })
+        })
+    }
 
     //Sprawdź wartości pancerza
     on("change:head_armor_mobility change:head_armor_defence change:head_armor_regeneration change:head_armor_discipline change:head_armor_inteligence change:head_armor_strong change:head_armor_value change:head_armor_quality", function(){
@@ -2202,6 +2287,31 @@
 
     on("change:legs_armor_mobility change:legs_armor_defence change:legs_armor_regeneration change:legs_armor_discipline change:legs_armor_inteligence change:legs_armor_strong change:legs_armor_value change:legs_armor_quality", function(){
         check_fully_armor("legs_")
+    })
+
+    //Sumowanie wartości
+    on("change:class change:head_armor_mobility change:hands_armor_mobility change:body_armor_mobility change:legs_armor_mobility",function(){
+        sum_armor("mobility",clas="class",stat_clas="Łowca")
+    })
+
+    on("change:class change:head_armor_defence change:hands_armor_defence change:body_armor_defence change:legs_armor_defence",function(){
+        sum_armor("defence",clas="class",stat_clas="Tytan")
+    })
+
+    on("change:class change:head_armor_regeneration change:hands_armor_regeneration change:body_armor_regeneration change:legs_armor_regeneration",function(){
+        sum_armor("regeneration",clas="class",stat_clas="Czarownik")
+    })
+
+    on("change:head_armor_discipline change:hands_armor_discipline change:body_armor_discipline change:legs_armor_discipline",function(){
+        sum_armor("discipline")
+    })
+
+    on("change:head_armor_inteligence change:hands_armor_inteligence change:body_armor_inteligence change:legs_armor_inteligence",function(){
+        sum_armor("inteligence")
+    })
+
+    on("change:head_armor_strong change:hands_armor_strong change:body_armor_strong change:legs_armor_strong",function(){
+        sum_armor("strong")
     })
 
     //Funkcja służąca do podpinania ataku
