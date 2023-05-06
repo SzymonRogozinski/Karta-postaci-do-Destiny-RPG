@@ -642,8 +642,14 @@ div.sheet-armor-card div.block_mod_2{
 
 .sheet-details div.sub_sector{
 	display: flex;
-	flex-direction:column;
+	flex-direction:row;
+	justify-content: space-between;
 	margin: 5px;
+}
+
+.sheet-details div.sector_col{
+	display: flex;
+	flex-direction: column;
 }
 
 .sheet-details div.sub_sector textarea{

@@ -453,6 +453,21 @@
                 <button class="atack_button" type="action" name="act_attack_heavy"></button>
             </div>
         </div>
+        <div class="sector">
+            <h3>Pancerz</h3>
+            <div class="sub_sector">
+                Głowa<input name="attr_head_armor_value" readonly>
+            </div>
+            <div class="sub_sector">
+                Ręce<input name="attr_hands_armor_value" readonly>
+            </div>
+            <div class="sub_sector">
+                Korpus<input name="attr_body_armor_value" readonly>
+            </div>
+            <div class="sub_sector">
+                Nogi<input name="attr_legs_armor_value" readonly>
+            </div>
+        </div>
     </div>
 </div>
 <!--Strona ekwipunku-->
@@ -1463,51 +1478,57 @@
 <!--Strona na pozostałe szczegóły-->
 <div class="sheet-details">
     <!--Podsumowanie cech pancerza-->
+
     <div class="sector" id="armor_summary">
         <h3>Statystyki opancerzenia</h3>
         <div class="sub_sector">
-            Mobilność<input name="attr_mobility" readonly>
-            Defensywa<input name="attr_defence" readonly>
-            Regeneracja<input name="attr_regeneration" readonly>
-            Dyscyplina<input name="attr_discipline" readonly>
-            Inteligencja<input name="attr_inteligence" readonly>
-            Krzepa<input name="attr_strong" readonly>
-        </div>
-        <div class="sub_sector">
-            Tempo<input name="attr_armor_bonus_speed" value="0" readonly>
-            Ruch<input name="attr_armor_bonus_move" value="0" readonly>
-            Regeneracja<input name="attr_armor_regeneration_dice" value="d4" readonly>
-            Tarcze<input name="attr_armor_bonus_shield" value="0" readonly>
-            Wytrzymałość<input name="attr_armor_bonus_tough" value="0" readonly>
-            Koszt granatu<input name="attr_armor_bonus_granade_cost" value="0" readonly>
-        </div>
-        <div class="sub_sector">
-            Obr. granatu<input name="attr_armor_bonus_granade_damage" value="0" readonly>
-            Koszt superzdolności<input name="attr_armor_bonus_super_cost" value="0" readonly>
-            Obr. superzdolności<input name="attr_armor_bonus_super_damage" value="0" readonly>
-            Zasięg superzdolności<input name="attr_armor_bonus_super_range" value="0/0/0" readonly>
-            Koszt silnego ciosu<input name="attr_armor_bonus_melee_cost" value="0" readonly>
-            Obr. silnego ciosu<input name="attr_armor_bonus_melee_damage" value="0" readonly>
+            <div class="sector_col">
+                Mobilność<input name="attr_mobility" readonly>
+                Defensywa<input name="attr_defence" readonly>
+                Regeneracja<input name="attr_regeneration" readonly>
+                Dyscyplina<input name="attr_discipline" readonly>
+                Inteligencja<input name="attr_inteligence" readonly>
+                Krzepa<input name="attr_strong" readonly>
+            </div>
+            <div class="sector_col">
+                Tempo<input name="attr_armor_bonus_speed" value="0" readonly>
+                Ruch<input name="attr_armor_bonus_move" value="0" readonly>
+                Regeneracja<input name="attr_armor_regeneration_dice" value="d4" readonly>
+                Tarcze<input name="attr_armor_bonus_shield" value="0" readonly>
+                Wytrzymałość<input name="attr_armor_bonus_tough" value="0" readonly>
+                Koszt granatu<input name="attr_armor_bonus_granade_cost" value="0" readonly>
+            </div>
+            <div class="sector_col">
+                Obr. granatu<input name="attr_armor_bonus_granade_damage" value="0" readonly>
+                Koszt superzdolności<input name="attr_armor_bonus_super_cost" value="0" readonly>
+                Obr. superzdolności<input name="attr_armor_bonus_super_damage" value="0" readonly>
+                Zasięg superzdolności<input name="attr_armor_bonus_super_range" value="0/0/0" readonly>
+                Koszt silnego ciosu<input name="attr_armor_bonus_melee_cost" value="0" readonly>
+                Obr. silnego ciosu<input name="attr_armor_bonus_melee_damage" value="0" readonly>
+            </div>
         </div>
     </div>
     <!--Opis postaci-->
     <div class="sector">
         <h3>Opis postaci</h3>
+        Opis
         <div class="sub_sector">
-            Opis<textarea id="tx_desc" name="attr_description"></textarea>
+            <textarea id="tx_desc" name="attr_description"></textarea>
         </div>
+        Historia
         <div class="sub_sector">
-            Historia<textarea id="tx_hist" name="attr_history"></textarea>
+            <textarea id="tx_hist" name="attr_history"></textarea>
         </div>
+        Dlaczego zostałeś wskrzeszony?
         <div class="sub_sector">
-            Dlaczego zostałeś wskrzeszony?<textarea id="tx_res" name="attr_resurection"></textarea>
+            <textarea id="tx_res" name="attr_resurection"></textarea>
         </div>
     </div>
     <div class="sector" id="sec_two_part">
         <!--Notatki-->
         <div class="sector" id="sec_notes">
+            <h3>Notatki</h3>
             <div class="sub_sector">
-                <h3>Notatki</h3>
                 <textarea id="tx_nt" name="attr_notes"></textarea>
             </div>
         </div>
