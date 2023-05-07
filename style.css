@@ -143,6 +143,20 @@
 ########################
 */
 
+/*Guziki zmiany strony*/
+.sheet_selector{
+	font-family: "Audiowide";
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	width: 920px;
+}
+
+.sheet_selector button{
+	width: 25%;
+	font-size: larger;
+}
+
 /*Strona główna*/
 .sheet-main{
 	font-family: "Audiowide";

@@ -2012,6 +2012,46 @@
         bind_roll_ghost("skanowania","scan")
     })
 
+    /*
+    #############################
+    ######Sumowanie bonusów######
+    #############################
+    */
+
+    on("change:armor_bonus_speed",function(){
+        getAttrs(["armor_bonus_speed"],(values)=>{
+            //6 to minimum
+            sped=parseInt(values.armor_bonus_speed)+6
+            setAttrs({
+                "speed":sped
+            })
+        })
+    })
+
+    on("change:armor_bonus_move",function(){
+        getAttrs(["armor_bonus_move"],(values)=>{
+            move_b=parseInt(values.armor_bonus_move) //Odczytanie i zsumowanie wyników
+            setAttrs({
+                "move_mod":move_b
+            })
+        })
+    })
+
+    on("change:armor_bonus_tough",function(){
+        getAttrs(["armor_bonus_tough"],(values)=>{
+            tough_b=parseInt(values.armor_bonus_tough) //Odczytanie i zsumowanie wyników
+            setAttrs({
+                "tough_mod":tough_b
+            })
+        })
+    })
+
+    /*
+    #############################
+    ##########Ekwipunek##########
+    #############################
+    */
+
     //Typowe bronie
     const gun_atr=["Obrażenia","Zasięg","Stabilność","Szybkostrzelność","Magazynek","Przeładowanie","Dobycie"]
     const guns=["Hand_cannon","Auto_rifle","Scout_rifle","Pulse_rifle","Sidearm","Smg","Shotgun","Sniper_rifle","Fusion_rifle","Machine_rifle","Line_rifle"]
