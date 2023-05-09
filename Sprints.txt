@@ -44,3 +44,10 @@ Sprint 5:
 	- Dodanie sektora sumującego wartości cech z pancerzy (05.04.2023 - 07.05.2023)
 	- Dodanie pola podsumowującego informacje o broniach na głównej stronie (04.05.2023 - 05.05.2023)
 	- Poprawienie estetyki kodu (25.04.2023 - 26.04.2023)
+
+Sprint 6:
+	- Poprawienie skryptu ataku [Szybkostrzelność]
+	- Dodanie pól Engramów [Dodawanie, wybór koloru]
+	- Dodanie kart ekwipunku ogólnego przeznaczenia [Można wybrać typ, dodawać/odejmować]
+	- Możliwość zamiany kart zaekwipowanych na te z kart wolnych
+	
