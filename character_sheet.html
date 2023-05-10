@@ -2430,6 +2430,32 @@
         armor_bonus_set("strong","armor_bonus_melee_cost",melee_cost_bonus)
         armor_bonus_set("strong","armor_bonus_melee_damage",melee_damage_bonus)
     })
+    //Zwielokrotnianie obrażeń przez serię
+    function multipy_by_series(damage,series){
+        damage=damage.replace(/\s+/g, '')                   //Usunięcie spacji
+        var multiply_damage=""                              //Zwielokrotnione obrażenia
+        var shots=Math.floor(Math.random() * series + 1)    //Liczba wystrzałów
+        var dice_pos=damage.indexOf("d")                    //Pozycja początkowa kości
+        var dice_count=parseInt(damage.slice(0,dice_pos))   //Iloma kośmi się rzuca
+        //Zwielokrotnienie kości
+        if(isNaN(dice_count)){
+            multiply_damage=shots
+        }else{
+            multiply_damage=shots*dice_count
+        }
+        var dice_end=damage.indexOf("+")                    //Gdzie kończy się zapis kości
+        dice_end=(dice_end==-1 ? damage.length : dice_end)
+        dice=damage.slice(dice_pos,dice_end)                //Jaką kością się rzuca
+        multiply_damage=multiply_damage+""+dice             //Dodanie kości do zapisu
+        //Modyfikator
+        if(damage.indexOf("+")!=-1){
+            bonus=parseInt(damage.slice(dice_end))          //Modyfikator rzutu
+            bonus=isNaN(bonus)?0:bonus
+            bonus=bonus*shots                               //Zwielokrotnienie modyfikatora
+            multiply_damage=multiply_damage+"+"+bonus       //Dodanie modyfikatora do zapisu
+        }
+        return multiply_damage
+    }
 
     //Funkcja służąca do podpinania ataku
     function bind_atack_roll(attribute_name,attribute,wp_name,damage,curr_amno,series=1){
@@ -2458,12 +2484,8 @@
             }
             //Czy broń atakuję serią
             if(series!=1){
-                //Skomplikowane
-                if(/*values[damage].search("+")!=-1*/false){
-                //TODO
-                }else{
-                    query=query.concat("{{Obr=[[[[d"+series+"]]@{"+damage+"}!]] }}")
-                }
+                
+                query=query.concat("{{Obr=[["+multipy_by_series(values[damage],series)+"]] }}")
             //Jeśli nie
             }else{
                 query=query.concat("{{Obr=[[@{"+damage+"}! ]]}}")
