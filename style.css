@@ -565,7 +565,7 @@ div.sheet-armor-card div.image_div img.icon-armor-part-legs{
 
 .sheet-weapon-quality-switch[value="exotic"] ~ div.sheet-weapon-card,
 .sheet-armor-quality-switch[value="exotic"] ~ div.sheet-armor-card{
-	background-color:#bbd400;
+	background-color:#e9d400;
 	background-image: url(https://github.com/SzymonRogozinski/Karta-postaci-do-Destiny-RPG/blob/master/obrazy/exotic.png?raw=true);
 	background-size: cover;
 }
