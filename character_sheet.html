@@ -472,6 +472,20 @@
 </div>
 <!--Strona ekwipunku-->
 <div class="sheet-equipment">
+    <!--Engramy-->
+    <div class="sector">
+        <h3>Engramy</h3>
+        <div class="engram_list">
+            <div class="sub_sector">
+                <input type="hidden" name="attr_engram1" value="null">
+                <div class="image_div">
+                    <img class="icon-engram">
+                </div>
+                <button type="action" name="act_add_engram"></button>
+            </div>
+        </div>
+    </div>
+
     <!--Ekwipunek ogólny-->
     <div class="sector">
         <h3>Ekwipunek</h3>
@@ -2614,5 +2628,18 @@
 
     on('clicked:reload_heavy', (info) => {
         bind_reload("heavy_type","heavy_weapon_current_ammo","heavy_param5","heavy_amno")
+    })
+
+    const quality=["common","uncommon","rare","legend","exotic"]
+
+    //Dodawanie engramów
+    on('clicked:add_engram',(info)=>{
+        var query="&{template:default} {{enquality=[[?{Jakość|Zwykły,0|Niezwykły,1|Rzadki,2|Legendarny,3|Egzotyczny,4}]] }}"
+        startRoll(query, (results) => {
+            var e_q = results.results.enquality.result    //Jakość engramu
+            setAttrs({
+                DEBUG3: quality[e_q]
+            })
+        })
     })
 </script>
