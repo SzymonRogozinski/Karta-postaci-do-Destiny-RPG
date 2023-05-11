@@ -307,6 +307,24 @@ div.sheet-main div.sheet-col div.vig_sub_sector{
 	text-align: center;
 }
 
+.sheet-equipment div.sector div.engram_list div.sub_sector div.image_div{
+	display: flex;
+	justify-self: center;
+	flex-direction: row-reverse;
+	height: 70px;
+	width: 70px;
+}
+
+.sheet-equipment div.sector div.engram_list{
+	display: flex;
+	flex-direction:row;
+}
+
+.sheet-equipment div.sector div.engram_list div.sub_sector div.image_div img.icon-engram{
+	height: 100%;
+	width: 100%;
+}
+
 .sheet-engram-switch[value="null"] ~ div.image_div img.icon-engram{
 	content: url(https://github.com/SzymonRogozinski/Karta-postaci-do-Destiny-RPG/blob/master/obrazy/E_null.png?raw=true);
 	object-fit: cover;

@@ -47,7 +47,7 @@ Sprint 5:
 
 Sprint 6:
 	- Poprawienie skryptu ataku [Szybkostrzelność] (10.05.2023 - 10.05.2023)
-	- Dodanie pól Engramów [Dodawanie, wybór koloru] (10.05.2023)
+	- Dodanie pól Engramów [Dodawanie, wybór koloru] (10.05.2023 - 11.05.2023)
 	- Dodanie kart ekwipunku ogólnego przeznaczenia [Można wybrać typ, dodawać/odejmować]
 	- Możliwość zamiany kart zaekwipowanych na te z kart wolnych
 	

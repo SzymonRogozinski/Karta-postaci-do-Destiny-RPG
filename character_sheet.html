@@ -481,7 +481,64 @@
                 <div class="image_div">
                     <img class="icon-engram">
                 </div>
-                <button type="action" name="act_add_engram"></button>
+            </div>
+            <div class="sub_sector">
+                <input class="sheet-engram-switch" type="hidden" name="attr_engram2" value="null">
+                <div class="image_div">
+                    <img class="icon-engram">
+                </div>
+            </div>
+            <div class="sub_sector">
+                <input class="sheet-engram-switch" type="hidden" name="attr_engram3" value="null">
+                <div class="image_div">
+                    <img class="icon-engram">
+                </div>
+            </div>
+            <div class="sub_sector">
+                <input class="sheet-engram-switch" type="hidden" name="attr_engram4" value="null">
+                <div class="image_div">
+                    <img class="icon-engram">
+                </div>
+            </div>
+            <div class="sub_sector">
+                <input class="sheet-engram-switch" type="hidden" name="attr_engram5" value="null">
+                <div class="image_div">
+                    <img class="icon-engram">
+                </div>
+            </div>
+            <div class="sub_sector">
+                <input class="sheet-engram-switch" type="hidden" name="attr_engram6" value="null">
+                <div class="image_div">
+                    <img class="icon-engram">
+                </div>
+            </div>
+            <div class="sub_sector">
+                <input class="sheet-engram-switch" type="hidden" name="attr_engram7" value="null">
+                <div class="image_div">
+                    <img class="icon-engram">
+                </div>
+            </div>
+            <div class="sub_sector">
+                <input class="sheet-engram-switch" type="hidden" name="attr_engram8" value="null">
+                <div class="image_div">
+                    <img class="icon-engram">
+                </div>
+            </div>
+            <div class="sub_sector">
+                <input class="sheet-engram-switch" type="hidden" name="attr_engram9" value="null">
+                <div class="image_div">
+                    <img class="icon-engram">
+                </div>
+            </div>
+            <div class="sub_sector">
+                <input class="sheet-engram-switch" type="hidden" name="attr_engram10" value="null">
+                <div class="image_div">
+                    <img class="icon-engram">
+                </div>
+            </div>
+            <div class="sub_sector">
+                <button type="action" name="act_add_engram">Dodaj</button>
+                <button type="action" name="act_delete_engram">Usuń</button>
             </div>
         </div>
     </div>
@@ -2634,15 +2691,50 @@
     })
 
     const quality=["common","uncommon","rare","legend","exotic"]
+    const engrams=["engram1","engram2","engram3","engram4","engram5","engram6","engram7","engram8","engram9","engram10"]
 
     //Dodawanie engramów
     on('clicked:add_engram',(info)=>{
         var query="&{template:None} {{enquality=[[?{Jakość|Zwykły,0|Niezwykły,1|Rzadki,2|Legendarny,3|Egzotyczny,4}]] }}"
         startRoll(query, (results) => {
             var e_q = results.results.enquality.result    //Jakość engramu
-            setAttrs({
-                engram1: quality[e_q]
+            getAttrs(engrams,(values)=>{
+                var i=0                                     //Indeks
+                var len=engrams.length                      //Długość tablicy
+                //Znajdź pierwsze puste pole
+                for(i=0;i<len;i++){
+                    if(values[engrams[i]]=="null"){
+                        break
+                    }
+                }
+                //Ustaw nowy engram
+                if(i!=len){
+                    setAttrs({
+                        [engrams[i]]: quality[e_q]
+                    })
+                }
             })
         })
     })
+
+    //Usuwanie engramów
+    on('clicked:delete_engram',(info)=>{
+        getAttrs(engrams,(values)=>{
+            var i=0                                         //Indeks
+            var len=engrams.length                          //Długość tablicy
+            //Znajdź pierwsze puste pole
+            for(i=0;i<len;i++){
+                if(values[engrams[i]]=="null"){
+                    break
+                }
+            }
+            //Skasuj engram
+            if(i!=0){
+                setAttrs({
+                    [engrams[i-1]]: "null"
+                })
+            }
+        })
+    })
+
 </script>
