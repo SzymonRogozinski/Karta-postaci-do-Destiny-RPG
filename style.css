@@ -307,6 +307,36 @@ div.sheet-main div.sheet-col div.vig_sub_sector{
 	text-align: center;
 }
 
+.sheet-engram-switch[value="null"] ~ div.image_div img.icon-engram{
+	content: url(https://github.com/SzymonRogozinski/Karta-postaci-do-Destiny-RPG/blob/master/obrazy/E_null.png?raw=true);
+	object-fit: cover;
+}
+
+.sheet-engram-switch[value="common"] ~ div.image_div img.icon-engram{
+	content: url(https://github.com/SzymonRogozinski/Karta-postaci-do-Destiny-RPG/blob/master/obrazy/E_common.png?raw=true);
+	object-fit: cover;
+}
+
+.sheet-engram-switch[value="uncommon"] ~ div.image_div img.icon-engram{
+	content: url(https://github.com/SzymonRogozinski/Karta-postaci-do-Destiny-RPG/blob/master/obrazy/E_uncommon.png?raw=true);
+	object-fit: cover;
+}
+
+.sheet-engram-switch[value="rare"] ~ div.image_div img.icon-engram{
+	content: url(https://github.com/SzymonRogozinski/Karta-postaci-do-Destiny-RPG/blob/master/obrazy/E_rare.png?raw=true);
+	object-fit: cover;
+}
+
+.sheet-engram-switch[value="legend"] ~ div.image_div img.icon-engram{
+	content: url(https://github.com/SzymonRogozinski/Karta-postaci-do-Destiny-RPG/blob/master/obrazy/E_legend.png?raw=true);
+	object-fit: cover;
+}
+
+.sheet-engram-switch[value="exotic"] ~ div.image_div img.icon-engram{
+	content: url(https://github.com/SzymonRogozinski/Karta-postaci-do-Destiny-RPG/blob/master/obrazy/E_exotic.png?raw=true);
+	object-fit: cover;
+}
+
 .sheet-equipment textarea.big_textfield{
 	max-width: 900px;
 }
