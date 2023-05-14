@@ -367,7 +367,7 @@ div.sheet-main div.sheet-col div.vig_sub_sector{
 
 .sheet-equipment #cards #In_hand,
 .sheet-equipment #cards #Out_hand{
-	width:50%;
+	width:448px;
 }
 
 
@@ -684,6 +684,25 @@ div.sheet-armor-card div.block_mod_2{
 .sheet-block-mod-switch[value="legend"] ~ div.sheet-armor-card,
 .sheet-block-mod-switch[value="exotic"] ~ div.sheet-armor-card{
 	display:block;
+}
+
+/*Ustawienia kart ogólnego przeznaczenia*/
+.sheet-equipment #cards #Out_hand div.general-card{
+	max-width: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+.sheet-equipment #cards #Out_hand div.general-card div.card-selector,
+.sheet-equipment #cards #Out_hand div.general-card div.gun-card,
+.sheet-equipment #cards #Out_hand div.general-card div.armor-card{
+	display: none;
+}
+
+div.sheet-equipment #cards #Out_hand div.general-card input.sheet-switch-card-type[value="-"] ~ div.card-selector,
+div.sheet-equipment #cards #Out_hand div.general-card input.sheet-switch-card-type[value="gun"] ~ div.gun-card,
+div.sheet-equipment #cards #Out_hand div.general-card input.sheet-switch-card-type[value="armor"] ~ div.armor-card{
+	display: block;
 }
 
 /*Strona szczegółów*/
