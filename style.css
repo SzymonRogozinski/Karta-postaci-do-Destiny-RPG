@@ -162,13 +162,13 @@
 	font-family: "Audiowide";
 	display: flex;
 	flex-direction: row;
-	justify-content: center;
-	min-width: 900px;
+	width: 920px;
 }
 
 .sheet-col{
-	border: 5px solid rgb(0, 0, 0);
-	max-width: 300px;
+	border-color: #000;
+	border-width: 5px;
+	width: 33%;
 }
 
 button.roll_button{
@@ -289,12 +289,14 @@ div.sheet-main div.sheet-col div.vig_sub_sector{
 	border: 5px solid rgb(0, 0, 0);
 	display: flex;
 	flex-direction: column;
+	width:100%;
 }
 
 .sheet-equipment div.sub_sector{
 	display: flex;
 	flex-direction:row;
 	margin: 5px;
+	width:100%;
 }
 
 .sheet-equipment div.sector div.sub_sector input.long_number{
@@ -362,14 +364,15 @@ div.sheet-main div.sheet-col div.vig_sub_sector{
 .sheet-equipment #cards{
 	display: flex;
 	flex-direction:row;
+	border:5px;
 }
 
 
 .sheet-equipment #cards #In_hand,
 .sheet-equipment #cards #Out_hand{
-	width:448px;
+	max-width:455px;
+	border:0%;
 }
-
 
 /*Ustawienie wyglądu karty*/
 /*Proporcje wymiarów obrazu 19x13*/
@@ -464,7 +467,8 @@ div.sheet-weapon-card div.image_div img.icon-energy,
 div.sheet-armor-card div.image_div img.icon-armor-part-head,
 div.sheet-armor-card div.image_div img.icon-armor-part-hands,
 div.sheet-armor-card div.image_div img.icon-armor-part-body,
-div.sheet-armor-card div.image_div img.icon-armor-part-legs{
+div.sheet-armor-card div.image_div img.icon-armor-part-legs,
+div.sheet-armor-card div.image_div img.icon-armor-part{
 	background-color: #ffffff;
 	height: 100%;
 	width: 28%;
@@ -561,7 +565,7 @@ div.sheet-armor-card div.image_div img.icon-armor-part-legs{
 }
 
 /*Kolor amunicji*/
-/*.sheet-weapon-card .sheet-amno-switch[value="-"] ~ select.sheet-amno-select{
+.sheet-weapon-card .sheet-amno-switch[value="-"] ~ select.sheet-amno-select{
 	color:#000000;
 }
 
@@ -575,7 +579,7 @@ div.sheet-armor-card div.image_div img.icon-armor-part-legs{
 
 .sheet-weapon-card .sheet-amno-switch[value="heavy_amno"] ~ select.sheet-amno-select{
 	color:#b300ff;
-}*/
+}
 
 /*Tło zależne do jakości*/
 .sheet-weapon-quality-switch[value="-"] ~ div.sheet-weapon-card,
@@ -640,7 +644,7 @@ div.sheet-armor-card div.image_div img.icon-armor-part-legs{
 }
 
 /*Symbol części pancerza*/
-/*.sheet-armor-switch[value="legs"] ~ div.image_div img.icon-armor-part{
+.sheet-armor-switch[value="legs"] ~ div.image_div img.icon-armor-part{
 	content: url(https://github.com/SzymonRogozinski/Karta-postaci-do-Destiny-RPG/blob/master/obrazy/Buty.png?raw=true);
 	object-fit: cover;
 }
@@ -658,7 +662,7 @@ div.sheet-armor-card div.image_div img.icon-armor-part-legs{
 .sheet-armor-switch[value="head"] ~ div.image_div img.icon-armor-part{
 	content: url(https://github.com/SzymonRogozinski/Karta-postaci-do-Destiny-RPG/blob/master/obrazy/Helm.png?raw=true);
 	object-fit: cover;
-}*/
+}
 
 /*Liczba modyfikacji*/
 div.sheet-weapon-card div.block_mod_1,
