@@ -709,6 +709,10 @@ div.sheet-equipment #cards #Out_hand div.general-card input.sheet-switch-card-ty
 	display: block;
 }
 
+div.sheet-equipment #cards #Out_hand button.change-eq-button{
+	min-height:21px;
+}
+
 /*Strona szczegółów*/
 .sheet-details{
 	font-family: "Audiowide";

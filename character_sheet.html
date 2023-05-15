@@ -1560,7 +1560,7 @@
                         </div>
                     </div>
                 </div>
-                <h3 style="color:white">Place holder</h3>
+                <button type="action" class="change-eq-button" name="act_changeeq">Zaekwipuj</button>
             </fieldset>
 
         </div>
@@ -2773,6 +2773,28 @@
             if(i!=0){
                 setAttrs({
                     [engrams[i-1]]: "null"
+                })
+            }
+        })
+    })
+
+    //Przeekwipowanie karty
+    on("clicked:repeating_card:changeeq",(info)=>{
+        getAttrs(["repeating_card_card_type","repeating_card_weapon_amno","repeating_card_armor_location"],(values)=>{
+            var cardType=values.repeating_card_card_type        //Typ przedmiotu
+            var gunAmno=values.repeating_card_weapon_amno       //Typ amunicji broni
+            var armorType=values.repeating_card_armor_location  //Typ części opancerzenia
+            if(cardType=="gun" && gunAmno!="-"){
+                setAttrs({
+                    DEBUG3: "gun"
+                })
+            }else if(cardType=="armor" && armorType!=""){
+                setAttrs({
+                    DEBUG3: "armor"
+                })
+            }else{
+                setAttrs({
+                    DEBUG3: "None"
                 })
             }
         })
