@@ -1313,6 +1313,7 @@
         <div class="sector" id="Out_hand">
             <h3>Ekwipunek</h3>
             <fieldset class="repeating_card">
+                <input type="hidden" class="sheet-switch-card-type" name="attr_card_type" value="-">
                 <div class="sub_sector">
                     <div class="general-card">
                         <!--Zmiana kształtu karty-->
@@ -1403,8 +1404,7 @@
                                     </div>
                                     <div class="param">
                                         <input class="readonly_input" type="text" value="Strzały" readonly>
-                                        <input class="param" type="number" name="attr_weapon_current_ammo" min="0"
-                                            readonly>
+                                        <input class="param" type="number" name="attr_weapon_current_ammo" min="0">
                                     </div>
                                     <!--Wybór typu amunicji-->
                                     <div class="param">
@@ -2777,24 +2777,43 @@
             }
         })
     })
+    const gun_parameters=["weapon_quality","weapon_name","type","param1","param2","param3","param4","param5","param6","param7","weapon_current_ammo","weapon_energy","weapons_mod_name_1","weapons_mod_desc_1","weapons_mod_name_2","weapons_mod_desc_2"]
+    const armor_parameters=["armor_quality","armor_name","armor_mobility","armor_defence","armor_regeneration","armor_discipline","armor_inteligence","armor_strong","armor_value","armor_class","armor_mod_name_1","armor_mod_desc_1","armor_mod_name_2","armor_mod_desc_2"]
 
     //Przeekwipowanie karty
     on("clicked:repeating_card:changeeq",(info)=>{
         getAttrs(["repeating_card_card_type","repeating_card_weapon_amno","repeating_card_armor_location"],(values)=>{
-            var cardType=values.repeating_card_card_type        //Typ przedmiotu
-            var gunAmno=values.repeating_card_weapon_amno       //Typ amunicji broni
-            var armorType=values.repeating_card_armor_location  //Typ części opancerzenia
+            var cardType=values.repeating_card_card_type            //Typ przedmiotu
+            var gunAmno=values.repeating_card_weapon_amno           //Typ amunicji broni
+            var armorType=values.repeating_card_armor_location      //Typ części opancerzenia
             if(cardType=="gun" && gunAmno!="-"){
-                setAttrs({
-                    DEBUG3: "gun"
+                gunAmno=gunAmno.slice(0,gunAmno.indexOf("_")+1)     //Usunięcie "amno"
+                gun_parameters.forEach(param => {
+                    let equiped_param=gunAmno+param                 //Nazwa parametru broni zaekwipowanej
+                    let unequiped_param="repeating_card_"+param     //Nazwa parametru broni niezaekwipowanej
+                    getAttrs([equiped_param,unequiped_param],(values)=>{
+                        let tmp_equiped=values[equiped_param]       //Wartość parametru broni zaekwipowanej
+                        let tmp_unequiped=values[unequiped_param]   //Wartość parametru broni niezaekwipowanej
+                        //Zamiana miejscami
+                        setAttrs({
+                            [equiped_param]: tmp_unequiped,
+                            [unequiped_param]: tmp_equiped
+                        })
+                    })
                 })
             }else if(cardType=="armor" && armorType!=""){
-                setAttrs({
-                    DEBUG3: "armor"
-                })
-            }else{
-                setAttrs({
-                    DEBUG3: "None"
+                armor_parameters.forEach(param => {
+                    let equiped_param=armorType+"_"+param               //Nazwa parametru broni zaekwipowanej
+                    let unequiped_param="repeating_card_"+param         //Nazwa parametru broni niezaekwipowanej
+                    getAttrs([equiped_param,unequiped_param],(values)=>{
+                        let tmp_equiped=values[equiped_param]           //Wartość parametru broni zaekwipowanej
+                        let tmp_unequiped=values[unequiped_param]       //Wartość parametru broni niezaekwipowanej
+                        //Zamiana miejscami
+                        setAttrs({
+                            [equiped_param]: tmp_unequiped,
+                            [unequiped_param]: tmp_equiped
+                        })
+                    })
                 })
             }
         })

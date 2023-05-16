@@ -367,7 +367,6 @@ div.sheet-main div.sheet-col div.vig_sub_sector{
 	border:5px;
 }
 
-
 .sheet-equipment #cards #In_hand,
 .sheet-equipment #cards #Out_hand{
 	max-width:455px;
@@ -697,11 +696,16 @@ div.sheet-armor-card div.block_mod_2{
 	flex-direction: column;
 }
 
+.sheet-equipment #cards #Out_hand button.change-eq-button,
+
 .sheet-equipment #cards #Out_hand div.general-card div.card-selector,
 .sheet-equipment #cards #Out_hand div.general-card div.gun-card,
 .sheet-equipment #cards #Out_hand div.general-card div.armor-card{
 	display: none;
 }
+
+div.sheet-equipment #cards #Out_hand input.sheet-switch-card-type[value="gun"] ~ button.change-eq-button,
+div.sheet-equipment #cards #Out_hand input.sheet-switch-card-type[value="armor"] ~ button.change-eq-button,
 
 div.sheet-equipment #cards #Out_hand div.general-card input.sheet-switch-card-type[value="-"] ~ div.card-selector,
 div.sheet-equipment #cards #Out_hand div.general-card input.sheet-switch-card-type[value="gun"] ~ div.gun-card,
