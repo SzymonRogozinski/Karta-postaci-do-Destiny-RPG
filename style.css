@@ -408,16 +408,16 @@ div.sheet-armor-card div.right_part{
 }
 
 div.sheet-spaceship-card div.upper_line{
-	height: 33%;
+	height: 20%;
 	width: 100%;
 	display: flex;
 	flex-direction: row;
 	margin: 3px;
-	justify-content: space-evenly;
+	justify-content: space-between;
 }
 
 div.sheet-spaceship-card div.lower_line{
-	height: 66%;
+	height: 70%;
 	width: 100%;
 	display: flex;
 	flex-direction: row;
@@ -426,7 +426,8 @@ div.sheet-spaceship-card div.lower_line{
 }
 
 div.sheet-spaceship-card div.lower_line div.left_part{
-	width: 33%;
+	background-color: #ffffff;
+	width: 30%;
 	display: flex;
 	flex-direction: column;
 	margin: 3px;
@@ -435,18 +436,18 @@ div.sheet-spaceship-card div.lower_line div.left_part{
 }
 
 div.sheet-spaceship-card div.lower_line div.right_part{
-	width: 66%;
+	background-color: #ffffff;
+	width: 55%;
 	display: flex;
 	flex-direction: column;
 	margin: 3px;
-	justify-content: space-evenly;
+	justify-content: space-between;
 	height: 100%;
 }
 
 
 div.sheet-weapon-card div.param,
-div.sheet-armor-card div.param,
-div.sheet-spaceship-card div.param{
+div.sheet-armor-card div.param{
 	flex-direction: row;
 	display: flex;
 	justify-content: space-between;
@@ -454,20 +455,46 @@ div.sheet-spaceship-card div.param{
 	height: 7%;
 }
 
+div.sheet-spaceship-card div.left_part div.param{
+	flex-direction: column;
+	display: flex;
+	justify-content: center;
+	height: 22%;
+}
+
+div.sheet-spaceship-card div.right_part div.param{
+	flex-direction: column;
+	display: flex;
+	justify-content: center;
+	height: 25%;
+}
+
 div.sheet-weapon-card div.param input.param,
-div.sheet-armor-card div.param input.param,
-div.sheet-spaceship-card div.param input.param{
+div.sheet-armor-card div.param input.param{
 	text-align: center;
 	width: 50%;
 	height:100%;
 	font-size:x-small;
 }
 
+div.sheet-spaceship-card div.param input.param{
+	text-align: center;
+	width: 100%;
+	height:100%;
+	font-size:x-small;
+}
+
 div.sheet-weapon-card input.param_long,
-div.sheet-armor-card input.param_long,
-div.sheet-spaceship-card input.param_long{
+div.sheet-armor-card input.param_long{
 	text-align: center;
 	width: 75%;
+	height:100%;
+	font-size:x-small;
+}
+
+div.sheet-spaceship-card input.param_long{
+	text-align: center;
+	width: 100%;
 	height:100%;
 	font-size:x-small;
 }
@@ -481,12 +508,21 @@ div.sheet-spaceship-card div.param select.select_param{
 
 div.sheet-weapon-card input.readonly_input,
 div.sheet-armor-card input.readonly_input,
-div.sheet-armor-card input.readonly_armor,
-div.sheet-spaceship-card input.readonly_input{
+div.sheet-armor-card input.readonly_armor{
 	border-style: none;
 	background: none;
 	text-align: center;
 	width: 45%;
+	height:100%;
+	background-color: #ffffff;
+	font-size:x-small;
+}
+
+div.sheet-spaceship-card input.readonly_input{
+	border-style: none;
+	background: none;
+	text-align: center;
+	width: 100%;
 	height:100%;
 	background-color: #ffffff;
 	font-size:x-small;
@@ -502,6 +538,14 @@ div.sheet-armor-card select{
 	text-align: center;
 	font-size:x-small;
 }
+
+div.sheet-spaceship-card select.sheet-quality-select{
+	width: 100%;
+	height:100%;
+	text-align: center;
+	margin-bottom: 0%;
+}
+	
 
 div.sheet-weapon-card select.select_long,
 div.sheet-armor-card select.select_long{
@@ -568,6 +612,25 @@ div.sheet-armor-card div.block_mod_2 textarea.small_ta{
 	font-size:x-small;
 }
 
+div.sheet-spaceship-card div.upper_line input.param_long{
+	height: 40%;
+	width: 160%;
+}
+
+div.sheet-spaceship-card div.upper_line div.image_div img.icon-spaceship{
+	width: 60px;
+	height: 60px;
+	margin-right: 6px;
+}
+
+div.sheet-spaceship-card div.right_part div.param textarea.small_ta{
+	min-width:94%;
+	min-height:60%;
+	max-width:94%;
+	max-height:60%;
+	font-size:x-small;
+}
+
 /*Sztywne ustawienie wartości*/
 /*Kolor amunicji*/
 div.sheet-weapon-card div.param input.readonly_amno_kinetic,
@@ -591,6 +654,13 @@ div.sheet-weapon-card div.param input.readonly_amno_special{
 div.sheet-weapon-card div.param input.readonly_amno_heavy{
 	color:#b300ff;
 }
+
+/*Ikona statku*/
+div.sheet-spaceship-card div.image_div img.icon-spaceship{
+	content: url(https://github.com/SzymonRogozinski/Karta-postaci-do-Destiny-RPG/blob/master/obrazy/statek.png?raw=true);
+	object-fit: cover;
+}
+
 /*Ikona pancerza*/
 div.sheet-armor-card div.image_div img.icon-armor-part-head{
 	content: url(https://github.com/SzymonRogozinski/Karta-postaci-do-Destiny-RPG/blob/master/obrazy/Helm.png?raw=true);
