@@ -382,7 +382,8 @@ div.sheet-weapon-card,div.sheet-armor-card{
 	flex-direction:row;
 }
 
-div.sheet-spaceship-card{
+div.sheet-spaceship-card,
+div.sheet-sparrow-card{
 	width: 450px;
 	height: 308px;
 	display: flex;
@@ -407,7 +408,8 @@ div.sheet-armor-card div.right_part{
 	margin: 3px;
 }
 
-div.sheet-spaceship-card div.upper_line{
+div.sheet-spaceship-card div.upper_line,
+div.sheet-sparrow-card div.upper_line{
 	height: 20%;
 	width: 100%;
 	display: flex;
@@ -425,7 +427,17 @@ div.sheet-spaceship-card div.lower_line{
 	justify-content: space-evenly;
 }
 
-div.sheet-spaceship-card div.lower_line div.left_part{
+div.sheet-sparrow-card div.lower_line{
+	height: 75%;
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	margin: 3px;
+	justify-content: space-evenly;
+}
+
+div.sheet-spaceship-card div.lower_line div.left_part,
+div.sheet-sparrow-card div.lower_line div.left_part{
 	background-color: #ffffff;
 	width: 30%;
 	display: flex;
@@ -435,7 +447,8 @@ div.sheet-spaceship-card div.lower_line div.left_part{
 	height: 100%;
 }
 
-div.sheet-spaceship-card div.lower_line div.right_part{
+div.sheet-spaceship-card div.lower_line div.right_part,
+div.sheet-sparrow-card div.lower_line div.right_part{
 	background-color: #ffffff;
 	width: 55%;
 	display: flex;
@@ -462,12 +475,31 @@ div.sheet-spaceship-card div.left_part div.param{
 	height: 22%;
 }
 
-div.sheet-spaceship-card div.right_part div.param{
+div.sheet-sparrow-card div.left_part div.param{
+	flex-direction: column;
+	display: flex;
+	justify-content: center;
+	height: 14%;
+}
+
+
+div.sheet-sparrow-card div.left_part #sparrow-quality{
+	flex-direction: column;
+	display: flex;
+	justify-content: center;
+	height: 20%;
+}
+
+
+div.sheet-spaceship-card div.right_part div.param,
+div.sheet-sparrow-card div.right_part div.param{
 	flex-direction: column;
 	display: flex;
 	justify-content: center;
 	height: 25%;
 }
+
+
 
 div.sheet-weapon-card div.param input.param,
 div.sheet-armor-card div.param input.param{
@@ -477,7 +509,14 @@ div.sheet-armor-card div.param input.param{
 	font-size:x-small;
 }
 
-div.sheet-spaceship-card div.param input.param{
+div.sheet-spaceship-card div.param input.param,
+div.sheet-spaceship-card div.param input.spaceship_mod1,
+div.sheet-spaceship-card div.param input.spaceship_mod2,
+
+div.sheet-sparrow-card div.param input.param,
+div.sheet-sparrow-card div.param input.sparrow_mod1,
+div.sheet-sparrow-card div.param input.sparrow_mod2,
+div.sheet-sparrow-card div.param input.sparrow_mod3{
 	text-align: center;
 	width: 100%;
 	height:100%;
@@ -492,7 +531,8 @@ div.sheet-armor-card input.param_long{
 	font-size:x-small;
 }
 
-div.sheet-spaceship-card input.param_long{
+div.sheet-spaceship-card input.param_long,
+div.sheet-sparrow-card input.param_long{
 	text-align: center;
 	width: 100%;
 	height:100%;
@@ -501,7 +541,8 @@ div.sheet-spaceship-card input.param_long{
 
 div.sheet-weapon-card div.param select.select_param,
 div.sheet-armor-card div.param select.select_param,
-div.sheet-spaceship-card div.param select.select_param{
+div.sheet-spaceship-card div.param select.select_param,
+div.sheet-sparrow-card div.param select.select_param{
 	height: 100%;
 	font-size:x-small;
 }
@@ -518,7 +559,8 @@ div.sheet-armor-card input.readonly_armor{
 	font-size:x-small;
 }
 
-div.sheet-spaceship-card input.readonly_input{
+div.sheet-spaceship-card input.readonly_input,
+div.sheet-sparrow-card input.readonly_input{
 	border-style: none;
 	background: none;
 	text-align: center;
@@ -539,11 +581,13 @@ div.sheet-armor-card select{
 	font-size:x-small;
 }
 
-div.sheet-spaceship-card select.sheet-quality-select{
+div.sheet-spaceship-card select.sheet-quality-select,
+div.sheet-sparrow-card select.sheet-quality-select{
 	width: 100%;
 	height:100%;
 	text-align: center;
 	margin-bottom: 0%;
+	font-size:x-small;
 }
 	
 
@@ -612,18 +656,21 @@ div.sheet-armor-card div.block_mod_2 textarea.small_ta{
 	font-size:x-small;
 }
 
-div.sheet-spaceship-card div.upper_line input.param_long{
+div.sheet-spaceship-card div.upper_line input.param_long,
+div.sheet-sparrow-card div.upper_line input.param_long{
 	height: 40%;
 	width: 160%;
 }
 
-div.sheet-spaceship-card div.upper_line div.image_div img.icon-spaceship{
+div.sheet-spaceship-card div.upper_line div.image_div img.icon-spaceship,
+div.sheet-sparrow-card div.upper_line div.image_div img.icon-sparrow{
 	width: 60px;
 	height: 60px;
 	margin-right: 6px;
 }
 
-div.sheet-spaceship-card div.right_part div.param textarea.small_ta{
+div.sheet-spaceship-card div.right_part div.param textarea.small_ta,
+div.sheet-sparrow-card div.right_part div.param textarea.small_ta{
 	min-width:94%;
 	min-height:60%;
 	max-width:94%;
@@ -658,6 +705,12 @@ div.sheet-weapon-card div.param input.readonly_amno_heavy{
 /*Ikona statku*/
 div.sheet-spaceship-card div.image_div img.icon-spaceship{
 	content: url(https://github.com/SzymonRogozinski/Karta-postaci-do-Destiny-RPG/blob/master/obrazy/statek.png?raw=true);
+	object-fit: cover;
+}
+
+/*Ikona wróbla*/
+div.sheet-sparrow-card div.image_div img.icon-sparrow{
+	content: url(https://github.com/SzymonRogozinski/Karta-postaci-do-Destiny-RPG/blob/master/obrazy/wróbel.png?raw=true);
 	object-fit: cover;
 }
 
@@ -707,7 +760,8 @@ div.sheet-armor-card div.image_div img.icon-armor-part-legs{
 
 .sheet-weapon-quality-switch[value="common"] ~ div.sheet-weapon-card,
 .sheet-armor-quality-switch[value="common"] ~ div.sheet-armor-card,
-.sheet-spaceship-quality-switch[value="common"] ~ div.sheet-spaceship-card{
+.sheet-spaceship-quality-switch[value="common"] ~ div.sheet-spaceship-card,
+.sheet-sparrow-quality-switch[value="common"] ~ div.sheet-sparrow-card{
 	background-color:#aeaeae;
 	background-image: url(https://github.com/SzymonRogozinski/Karta-postaci-do-Destiny-RPG/blob/master/obrazy/common.png?raw=true);
 	background-size: cover;
@@ -715,7 +769,8 @@ div.sheet-armor-card div.image_div img.icon-armor-part-legs{
 
 .sheet-weapon-quality-switch[value="uncommon"] ~ div.sheet-weapon-card,
 .sheet-armor-quality-switch[value="uncommon"] ~ div.sheet-armor-card,
-.sheet-spaceship-quality-switch[value="uncommon"] ~ div.sheet-spaceship-card{
+.sheet-spaceship-quality-switch[value="uncommon"] ~ div.sheet-spaceship-card,
+.sheet-sparrow-quality-switch[value="uncommon"] ~ div.sheet-sparrow-card{
 	background-color:#20b22e;
 	background-image: url(https://github.com/SzymonRogozinski/Karta-postaci-do-Destiny-RPG/blob/master/obrazy/uncommon.png?raw=true);
 	background-size: cover;
@@ -723,7 +778,8 @@ div.sheet-armor-card div.image_div img.icon-armor-part-legs{
 
 .sheet-weapon-quality-switch[value="rare"] ~ div.sheet-weapon-card,
 .sheet-armor-quality-switch[value="rare"] ~ div.sheet-armor-card,
-.sheet-spaceship-quality-switch[value="rare"] ~ div.sheet-spaceship-card{
+.sheet-spaceship-quality-switch[value="rare"] ~ div.sheet-spaceship-card,
+.sheet-sparrow-quality-switch[value="rare"] ~ div.sheet-sparrow-card{
 	background-color:#0026ff;
 	background-image: url(https://github.com/SzymonRogozinski/Karta-postaci-do-Destiny-RPG/blob/master/obrazy/rare.png?raw=true);
 	background-size: cover;
@@ -731,7 +787,8 @@ div.sheet-armor-card div.image_div img.icon-armor-part-legs{
 
 .sheet-weapon-quality-switch[value="legend"] ~ div.sheet-weapon-card,
 .sheet-armor-quality-switch[value="legend"] ~ div.sheet-armor-card,
-.sheet-spaceship-quality-switch[value="legend"] ~ div.sheet-spaceship-card{
+.sheet-spaceship-quality-switch[value="legend"] ~ div.sheet-spaceship-card,
+.sheet-sparrow-quality-switch[value="legend"] ~ div.sheet-sparrow-card{
 	background-color:#d000f9;
 	background-image: url(https://github.com/SzymonRogozinski/Karta-postaci-do-Destiny-RPG/blob/master/obrazy/legendary.png?raw=true);
 	background-size: cover;
@@ -739,10 +796,49 @@ div.sheet-armor-card div.image_div img.icon-armor-part-legs{
 
 .sheet-weapon-quality-switch[value="exotic"] ~ div.sheet-weapon-card,
 .sheet-armor-quality-switch[value="exotic"] ~ div.sheet-armor-card,
-.sheet-spaceship-quality-switch[value="exotic"] ~ div.sheet-spaceship-card{
+.sheet-spaceship-quality-switch[value="exotic"] ~ div.sheet-spaceship-card,
+.sheet-sparrow-quality-switch[value="exotic"] ~ div.sheet-sparrow-card{
 	background-color:#e9d400;
 	background-image: url(https://github.com/SzymonRogozinski/Karta-postaci-do-Destiny-RPG/blob/master/obrazy/exotic.png?raw=true);
 	background-size: cover;
+}
+
+/*Liczba pól zależna od jakości*/
+/*Statek*/
+.sheet-spaceship-quality-switch[value="-"] ~ div.sheet-spaceship-card div.lower_line div.right_part div.param  input.spaceship_mod2,
+.sheet-spaceship-quality-switch[value="common"] ~ div.sheet-spaceship-card div.lower_line div.right_part div.param  input.spaceship_mod2,
+.sheet-spaceship-quality-switch[value="uncommon"] ~ div.sheet-spaceship-card div.lower_line div.right_part div.param  input.spaceship_mod2,
+.sheet-spaceship-quality-switch[value="rare"] ~ div.sheet-spaceship-card div.lower_line div.right_part div.param  input.spaceship_mod2{
+	display: none;
+	visibility: hidden;
+}
+
+.sheet-spaceship-quality-switch[value="legend"] ~ div.sheet-spaceship-card div.lower_line div.right_part div.param input.spaceship_mod2,
+.sheet-spaceship-quality-switch[value="exotic"] ~ div.sheet-spaceship-card div.lower_line div.right_part div.param input.spaceship_mod2{
+	display: block;
+	visibility: visible;
+}
+
+/*Wróbel*/
+.sheet-sparrow-quality-switch[value="-"] ~ div.sheet-sparrow-card div.lower_line div.right_part div.param  input.sparrow_mod2,
+.sheet-sparrow-quality-switch[value="common"] ~ div.sheet-sparrow-card div.lower_line div.right_part div.param  input.sparrow_mod2,
+.sheet-sparrow-quality-switch[value="uncommon"] ~ div.sheet-sparrow-card div.lower_line div.right_part div.param  input.sparrow_mod2,
+.sheet-sparrow-quality-switch[value="rare"] ~ div.sheet-sparrow-card div.lower_line div.right_part div.param  input.sparrow_mod2,
+
+.sheet-sparrow-quality-switch[value="-"] ~ div.sheet-sparrow-card div.lower_line div.right_part div.param  input.sparrow_mod3,
+.sheet-sparrow-quality-switch[value="common"] ~ div.sheet-sparrow-card div.lower_line div.right_part div.param  input.sparrow_mod3,
+.sheet-sparrow-quality-switch[value="uncommon"] ~ div.sheet-sparrow-card div.lower_line div.right_part div.param  input.sparrow_mod3,
+.sheet-sparrow-quality-switch[value="rare"] ~ div.sheet-sparrow-card div.lower_line div.right_part div.param  input.sparrow_mod3,
+.sheet-sparrow-quality-switch[value="legend"] ~ div.sheet-sparrow-card div.lower_line div.right_part div.param input.sparrow_mod3{
+	display: none;
+	visibility: hidden;
+}
+
+.sheet-sparrow-quality-switch[value="legend"] ~ div.sheet-sparrow-card div.lower_line div.right_part div.param input.sparrow_mod2,
+.sheet-sparrow-quality-switch[value="exotic"] ~ div.sheet-sparrow-card div.lower_line div.right_part div.param input.sparrow_mod2,
+.sheet-sparrow-quality-switch[value="exotic"] ~ div.sheet-sparrow-card div.lower_line div.right_part div.param input.sparrow_mod3{
+	display: block;
+	visibility: visible;
 }
 
 /*Symbol energi obrażeń*/

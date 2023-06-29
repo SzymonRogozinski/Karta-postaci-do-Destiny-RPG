@@ -1364,13 +1364,83 @@
                             </div>
                             <div class="param">
                                 <input class="readonly_input" type="text" value="Modyfikacje" readonly>
-                                <input class="param" type="text" class="spaceship_mod1" name="attr_spaceship_mod1">
-                                <input class="param" type="text" class="spaceship_mod2" name="attr_spaceship_mod2">
-                                <input class="param" type="text" class="spaceship_mod3" name="attr_spaceship_mod3">
+                                <input class="spaceship_mod1" type="text"  name="attr_spaceship_mod1">
+                                <input class="spaceship_mod2" type="text" name="attr_spaceship_mod2">
                             </div>
                             <div class="param">
                                 <input class="readonly_input" type="text" value="Dodatkowy ekwipunek" readonly>
                                 <textarea class="small_ta" name="attr_spaceship_eq"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h3>Wróbel</h3>
+            <!--Karta wróbla-->
+            <div class="sub_sector">
+                <!--Wyciągnięcie zmiennej, aby mogła zmieniać tło-->
+                <input name="attr_sparrow_quality" type="hidden" class="sheet-sparrow-quality-switch">
+                <div class="sheet-sparrow-card">
+                    <div class="upper_line">
+                        <!--Nazwa-->
+                        <div class="param">
+                            <input class="param_long" type="text" name="attr_sparrow_name" value="">
+                        </div>
+                        <!--Polę na grafikę statku-->
+                        <div class="image_div">
+                            <img class="icon-sparrow">
+                        </div>
+                    </div>
+                    <div class="lower_line">
+                        <div class="left_part">
+                            <div class="param">
+                                <h4>Statystyki</h4>
+                            </div>
+                            <!--Parametry statku-->
+                            <div class="param">
+                                <input class="readonly_input" type="text" value="Przyspieszenie" readonly>
+                                <input class="param" type="text" name="attr_sparrow_acceleration">
+                            </div>
+                            <div class="param">
+                                <input class="readonly_input" type="text" value="Prędkość max" readonly>
+                                <input class="param" type="text" name="attr_sparrow_max_speed">
+                            </div>
+                            <div class="param">
+                                <input class="readonly_input" type="text" value="Wytrzymałość" readonly>
+                                <input class="param" type="text" name="attr_sparrow_tough">
+                            </div>
+                            <div class="param">
+                                <input class="readonly_input" type="text" value="Pojemność D." readonly>
+                                <input class="param" type="text" name="attr_sparrow_nitro">
+                            </div>
+                            <div class="param">
+                                <input class="readonly_input" type="text" value="Regeneracja D." readonly>
+                                <input class="param" type="text" name="attr_sparrow_nitro_reg">
+                            </div>
+                            <!--Wybór jakości-->
+                            <div class="param" id="sparrow-quality">
+                                <input class="readonly_input" type="text" value="Rzadkość" readonly>
+                                <select class="sheet-quality-select" name="attr_sparrow_quality" value="-">
+                                    <option value="-">-</option>
+                                    <option value="common">Zwykła</option>
+                                    <option value="uncommon">Niezwykła</option>
+                                    <option value="rare">Rzadka</option>
+                                    <option value="legend">Legendarna</option>
+                                    <option value="exotic">Egzotyczna</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="right_part">
+                            <h4>Opis</h4>
+                            <div class="param">
+                                <input class="readonly_input" type="text" value="Modyfikacje" readonly>
+                                <input class="sparrow_mod1" type="text"  name="attr_sparrow_mod1">
+                                <input class="sparrow_mod2" type="text" name="attr_sparrow_mod2">
+                                <input class="sparrow_mod3" type="text" name="attr_sparrow_mod3">
+                            </div>
+                            <div class="param">
+                                <input class="readonly_input" type="text" value="Dodatkowy ekwipunek" readonly>
+                                <textarea class="small_ta" name="attr_sparrow_eq"></textarea>
                             </div>
                         </div>
                     </div>
