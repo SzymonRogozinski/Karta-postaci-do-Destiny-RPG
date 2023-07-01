@@ -1851,7 +1851,7 @@
 <rolltemplate class="sheet-rolltemplate-None">
 </rolltemplate>
 
-<rolltemplate class="sheet-rolltemplate-BasicDiceRoll">
+<rolltemplate class="sheet-rolltemplate-basicDiceRoll">
     <div class="sheet-template-container">
         <div class="sheet-template-header">{{name}}</div>
         <div class="sheet-results">
@@ -2037,7 +2037,7 @@
 
     //Funkcja służąca do podpinania rzutu do przycisku
     function bind_roll(attribute_name,attribute){
-        var query="&{template:BasicDiceRoll} "                                                          //Szablon rzutu
+        var query="&{template:basicDiceRoll} "                                                          //Szablon rzutu
         query=query.concat("{{name=@{name} wykonuje test "+attribute_name+"}} ")                        //Nazwa rzutu
 
         getAttrs([attribute], function(values){
@@ -2076,7 +2076,7 @@
         attribute_name="repeating_newskill_"+attribute_name         //Nazwa umiejętności
         attribute="repeating_newskill_"+attribute                   //Wartość umiejętności
         attribute_mod=attribute+"mod"                               //Modyfikator umiejętności
-        var query="&{template:BasicDiceRoll} "                      //Szablon rzutu
+        var query="&{template:basicDiceRoll} "                      //Szablon rzutu
 
         getAttrs([attribute,attribute_name,attribute_mod], function(values){
             var name=values[attribute_name]             //Nazwa umiejętności

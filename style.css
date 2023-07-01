@@ -25,11 +25,15 @@
 */
 
 /*Podstawowy test*/
-.sheet-rolltemplate-BasicDiceRoll div.sheet-template-container {
-	border: 2px solid #000 !important;
+.sheet-rolltemplate-basicDiceRoll{
+	display: none;
+}
+
+.sheet-rolltemplate-basicDiceRoll div.sheet-template-container{
+	border: 2px solid #000;
 	border-radius: 3px 3px 3px 3px;
 }
-.sheet-rolltemplate-BasicDiceRoll .sheet-template-header {
+.sheet-rolltemplate-basicDiceRoll .sheet-template-header {
 	background-color: rgba(112, 32, 130,1);
 	color: #000;
 	padding: 2px;
@@ -38,26 +42,29 @@
 	line-height: 1.6em;
 	font-size: 1.2em;
 }
-.sheet-rolltemplate-BasicDiceRoll div {
+
+.sheet-rolltemplate-basicDiceRoll div {
 	padding: 5px;
 	border-bottom: 1px solid black;
 }
-.sheet-rolltemplate-BasicDiceRoll div:nth-child(odd) {
+
+.sheet-rolltemplate-basicDiceRoll div:nth-child(odd) {
 	background-color: rgba(217, 217, 214,1);
 }
-.sheet-rolltemplate-BasicDiceRoll div:nth-child(even) {
+.sheet-rolltemplate-basicDiceRoll div:nth-child(even) {
 	background-color: rgba(233, 233, 233,1);
 }
-.sheet-rolltemplate-BasicDiceRoll .inlinerollresult  {
+.sheet-rolltemplate-basicDiceRoll .inlinerollresult  {
 	display: inline-block;
 	min-width: 1.5em;
 	text-align: center;
 	border: 2px solid rgba(167, 168, 170,1);
 }
-.sheet-rolltemplate-BasicDiceRoll div.sheet-template-row-lost {
+
+.sheet-rolltemplate-basicDiceRoll div.sheet-template-row-lost {
 	color: rgb(202, 11, 11);
 }
-.sheet-rolltemplate-BasicDiceRoll div.sheet-template-row-won {
+.sheet-rolltemplate-basicDiceRoll div.sheet-template-row-won {
 	color: rgb(22, 149, 11);
 }
 
