@@ -25,10 +25,6 @@
 */
 
 /*Podstawowy test*/
-.sheet-rolltemplate-basicDiceRoll{
-	display: none;
-}
-
 .sheet-rolltemplate-basicDiceRoll div.sheet-template-container{
 	border: 2px solid #000;
 	border-radius: 3px 3px 3px 3px;
@@ -164,7 +160,7 @@
 	font-size: larger;
 }
 
-/*Strona główna*/
+/*Strona głowna*/
 .sheet-main{
 	font-family: "Audiowide";
 	display: flex;
@@ -381,7 +377,7 @@ div.sheet-main div.sheet-col div.vig_sub_sector{
 }
 
 /*Ustawienie wyglądu karty*/
-/*Proporcje wymiarów obrazu 19x13*/
+/*Proporcje wymiarow obrazu 19x13*/
 div.sheet-weapon-card,div.sheet-armor-card{
 	width: 450px;
 	height: 308px;
@@ -715,9 +711,9 @@ div.sheet-spaceship-card div.image_div img.icon-spaceship{
 	object-fit: cover;
 }
 
-/*Ikona wróbla*/
+/*Ikona wrobla*/
 div.sheet-sparrow-card div.image_div img.icon-sparrow{
-	content: url(https://github.com/SzymonRogozinski/Karta-postaci-do-Destiny-RPG/blob/master/obrazy/wróbel.png?raw=true);
+	content: url(https://github.com/SzymonRogozinski/Karta-postaci-do-Destiny-RPG/blob/master/obrazy/wrobel.png?raw=true);
 	object-fit: cover;
 }
 
@@ -810,7 +806,7 @@ div.sheet-armor-card div.image_div img.icon-armor-part-legs{
 	background-size: cover;
 }
 
-/*Liczba pól zależna od jakości*/
+/*Liczba pol zależna od jakości*/
 /*Statek*/
 .sheet-spaceship-quality-switch[value="-"] ~ div.sheet-spaceship-card div.lower_line div.right_part div.param  input.spaceship_mod2,
 .sheet-spaceship-quality-switch[value="common"] ~ div.sheet-spaceship-card div.lower_line div.right_part div.param  input.spaceship_mod2,
@@ -826,7 +822,7 @@ div.sheet-armor-card div.image_div img.icon-armor-part-legs{
 	visibility: visible;
 }
 
-/*Wróbel*/
+/*Wrobel*/
 .sheet-sparrow-quality-switch[value="-"] ~ div.sheet-sparrow-card div.lower_line div.right_part div.param  input.sparrow_mod2,
 .sheet-sparrow-quality-switch[value="common"] ~ div.sheet-sparrow-card div.lower_line div.right_part div.param  input.sparrow_mod2,
 .sheet-sparrow-quality-switch[value="uncommon"] ~ div.sheet-sparrow-card div.lower_line div.right_part div.param  input.sparrow_mod2,
@@ -916,7 +912,7 @@ div.sheet-armor-card div.block_mod_2{
 	display:block;
 }
 
-/*Ustawienia kart ogólnego przeznaczenia*/
+/*Ustawienia kart ogolnego przeznaczenia*/
 .sheet-equipment #cards #Out_hand div.general-card{
 	max-width: 100%;
 	display: flex;
@@ -944,7 +940,7 @@ div.sheet-equipment #cards #Out_hand button.change-eq-button{
 	min-height:21px;
 }
 
-/*Strona szczegółów*/
+/*Strona szczegołow*/
 .sheet-details{
 	font-family: "Audiowide";
 	display: flex;

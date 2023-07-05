@@ -2051,6 +2051,10 @@
                 query=query.concat("{{pomoc=[[d6!-2 +@{"+attribute+"_mod} +?{Modyfikator|0}]]}}")             //Rzut kością figury
             }
 
+            setAttrs({
+                "DEBUG3": query
+            })
+
             startRoll(query, (results) => {
                 var basicDice = results.results.wynik.result    //Kość główna
                 var figDice = results.results.pomoc.result      //Kość figury
