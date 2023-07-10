@@ -923,16 +923,22 @@ div.sheet-armor-card div.block_mod_2{
 
 .sheet-equipment #cards #Out_hand div.general-card div.card-selector,
 .sheet-equipment #cards #Out_hand div.general-card div.gun-card,
-.sheet-equipment #cards #Out_hand div.general-card div.armor-card{
+.sheet-equipment #cards #Out_hand div.general-card div.armor-card,
+.sheet-equipment #cards #Out_hand div.general-card div.spaceship-card,
+.sheet-equipment #cards #Out_hand div.general-card div.sparrow-card{
 	display: none;
 }
 
 div.sheet-equipment #cards #Out_hand input.sheet-switch-card-type[value="gun"] ~ button.change-eq-button,
 div.sheet-equipment #cards #Out_hand input.sheet-switch-card-type[value="armor"] ~ button.change-eq-button,
+div.sheet-equipment #cards #Out_hand input.sheet-switch-card-type[value="spaceship"] ~ button.change-eq-button,
+div.sheet-equipment #cards #Out_hand input.sheet-switch-card-type[value="sparrow"] ~ button.change-eq-button,
 
 div.sheet-equipment #cards #Out_hand div.general-card input.sheet-switch-card-type[value="-"] ~ div.card-selector,
 div.sheet-equipment #cards #Out_hand div.general-card input.sheet-switch-card-type[value="gun"] ~ div.gun-card,
-div.sheet-equipment #cards #Out_hand div.general-card input.sheet-switch-card-type[value="armor"] ~ div.armor-card{
+div.sheet-equipment #cards #Out_hand div.general-card input.sheet-switch-card-type[value="armor"] ~ div.armor-card,
+div.sheet-equipment #cards #Out_hand div.general-card input.sheet-switch-card-type[value="spaceship"] ~ div.spaceship-card,
+div.sheet-equipment #cards #Out_hand div.general-card input.sheet-switch-card-type[value="sparrow"] ~ div.sparrow-card{
 	display: block;
 }
 

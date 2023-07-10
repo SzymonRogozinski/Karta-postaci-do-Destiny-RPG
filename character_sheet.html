@@ -1364,7 +1364,7 @@
                             </div>
                             <div class="param">
                                 <input class="readonly_input" type="text" value="Modyfikacje" readonly>
-                                <input class="spaceship_mod1" type="text"  name="attr_spaceship_mod1">
+                                <input class="spaceship_mod1" type="text" name="attr_spaceship_mod1">
                                 <input class="spaceship_mod2" type="text" name="attr_spaceship_mod2">
                             </div>
                             <div class="param">
@@ -1434,7 +1434,7 @@
                             <h4>Opis</h4>
                             <div class="param">
                                 <input class="readonly_input" type="text" value="Modyfikacje" readonly>
-                                <input class="sparrow_mod1" type="text"  name="attr_sparrow_mod1">
+                                <input class="sparrow_mod1" type="text" name="attr_sparrow_mod1">
                                 <input class="sparrow_mod2" type="text" name="attr_sparrow_mod2">
                                 <input class="sparrow_mod3" type="text" name="attr_sparrow_mod3">
                             </div>
@@ -1462,6 +1462,8 @@
                                 <option value="-">-</option>
                                 <option value="gun">Broń</option>
                                 <option value="armor">Pancerz</option>
+                                <option value="spaceship">Statek</option>
+                                <option value="sparrow">Wróbel</option>
                             </select>
                         </div>
                         <!--Karta broni-->
@@ -1692,6 +1694,146 @@
                                     <div class="block_mod_2">
                                         <input class="block_name" type="text" name="attr_armor_mod_name_2">
                                         <textarea class="small_ta" name="attr_armor_mod_desc_2"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Karta statku-->
+                        <div class="spaceship-card">
+                            <!--Wyciągnięcie zmiennej, aby mogła zmieniać tło-->
+                            <input name="attr_spaceship_quality" type="hidden" class="sheet-spaceship-quality-switch">
+                            <div class="sheet-spaceship-card">
+                                <div class="upper_line">
+                                    <!--Nazwa-->
+                                    <div class="param">
+                                        <input class="param_long" type="text" name="attr_spaceship_name" value="">
+                                    </div>
+                                    <!--Polę na grafikę statku-->
+                                    <div class="image_div">
+                                        <img class="icon-spaceship">
+                                    </div>
+                                </div>
+                                <div class="lower_line">
+                                    <div class="left_part">
+                                        <div class="param">
+                                            <h4>Statystyki</h4>
+                                        </div>
+                                        <!--Parametry statku-->
+                                        <div class="param">
+                                            <input class="readonly_input" type="text" value="Przyspieszenie" readonly>
+                                            <input class="param" type="text" name="attr_spaceship_acceleration">
+                                        </div>
+                                        <div class="param">
+                                            <input class="readonly_input" type="text" value="Prędkość max" readonly>
+                                            <input class="param" type="text" name="attr_spaceship_max_speed">
+                                        </div>
+                                        <div class="param">
+                                            <input class="readonly_input" type="text" value="Wytrzymałość" readonly>
+                                            <input class="param" type="text" name="attr_spaceship_tough">
+                                        </div>
+                                        <!--Wybór jakości-->
+                                        <div class="param">
+                                            <input class="readonly_input" type="text" value="Rzadkość" readonly>
+                                            <select class="sheet-quality-select" name="attr_spaceship_quality"
+                                                value="-">
+                                                <option value="-">-</option>
+                                                <option value="common">Zwykła</option>
+                                                <option value="uncommon">Niezwykła</option>
+                                                <option value="rare">Rzadka</option>
+                                                <option value="legend">Legendarna</option>
+                                                <option value="exotic">Egzotyczna</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="right_part">
+                                        <h4>Opis</h4>
+                                        <div class="param">
+                                            <input class="readonly_input" type="text" value="Broń podstawowa" readonly>
+                                            <input class="param" type="text" name="attr_spaceship_weapon_damage">
+                                            <input class="param" type="text"
+                                                name="attr_spaceship_weapon_armor_penetration">
+                                        </div>
+                                        <div class="param">
+                                            <input class="readonly_input" type="text" value="Modyfikacje" readonly>
+                                            <input class="spaceship_mod1" type="text" name="attr_spaceship_mod1">
+                                            <input class="spaceship_mod2" type="text" name="attr_spaceship_mod2">
+                                        </div>
+                                        <div class="param">
+                                            <input class="readonly_input" type="text" value="Dodatkowy ekwipunek"
+                                                readonly>
+                                            <textarea class="small_ta" name="attr_spaceship_eq"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--Karta wróbla-->
+                        <div class="sparrow-card">
+                            <!--Wyciągnięcie zmiennej, aby mogła zmieniać tło-->
+                            <input name="attr_sparrow_quality" type="hidden" class="sheet-sparrow-quality-switch">
+                            <div class="sheet-sparrow-card">
+                                <div class="upper_line">
+                                    <!--Nazwa-->
+                                    <div class="param">
+                                        <input class="param_long" type="text" name="attr_sparrow_name" value="">
+                                    </div>
+                                    <!--Polę na grafikę statku-->
+                                    <div class="image_div">
+                                        <img class="icon-sparrow">
+                                    </div>
+                                </div>
+                                <div class="lower_line">
+                                    <div class="left_part">
+                                        <div class="param">
+                                            <h4>Statystyki</h4>
+                                        </div>
+                                        <!--Parametry statku-->
+                                        <div class="param">
+                                            <input class="readonly_input" type="text" value="Przyspieszenie" readonly>
+                                            <input class="param" type="text" name="attr_sparrow_acceleration">
+                                        </div>
+                                        <div class="param">
+                                            <input class="readonly_input" type="text" value="Prędkość max" readonly>
+                                            <input class="param" type="text" name="attr_sparrow_max_speed">
+                                        </div>
+                                        <div class="param">
+                                            <input class="readonly_input" type="text" value="Wytrzymałość" readonly>
+                                            <input class="param" type="text" name="attr_sparrow_tough">
+                                        </div>
+                                        <div class="param">
+                                            <input class="readonly_input" type="text" value="Pojemność D." readonly>
+                                            <input class="param" type="text" name="attr_sparrow_nitro">
+                                        </div>
+                                        <div class="param">
+                                            <input class="readonly_input" type="text" value="Regeneracja D." readonly>
+                                            <input class="param" type="text" name="attr_sparrow_nitro_reg">
+                                        </div>
+                                        <!--Wybór jakości-->
+                                        <div class="param" id="sparrow-quality">
+                                            <input class="readonly_input" type="text" value="Rzadkość" readonly>
+                                            <select class="sheet-quality-select" name="attr_sparrow_quality" value="-">
+                                                <option value="-">-</option>
+                                                <option value="common">Zwykła</option>
+                                                <option value="uncommon">Niezwykła</option>
+                                                <option value="rare">Rzadka</option>
+                                                <option value="legend">Legendarna</option>
+                                                <option value="exotic">Egzotyczna</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="right_part">
+                                        <h4>Opis</h4>
+                                        <div class="param">
+                                            <input class="readonly_input" type="text" value="Modyfikacje" readonly>
+                                            <input class="sparrow_mod1" type="text" name="attr_sparrow_mod1">
+                                            <input class="sparrow_mod2" type="text" name="attr_sparrow_mod2">
+                                            <input class="sparrow_mod3" type="text" name="attr_sparrow_mod3">
+                                        </div>
+                                        <div class="param">
+                                            <input class="readonly_input" type="text" value="Dodatkowy ekwipunek"
+                                                readonly>
+                                            <textarea class="small_ta" name="attr_sparrow_eq"></textarea>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -2687,6 +2829,7 @@
         armor_bonus_set("strong","armor_bonus_melee_cost",melee_cost_bonus)
         armor_bonus_set("strong","armor_bonus_melee_damage",melee_damage_bonus)
     })
+
     //Zwielokrotnianie obrażeń przez serię
     function multipy_by_series(damage,series){
         damage=damage.replace(/\s+/g, '')                   //Usunięcie spacji
@@ -2919,8 +3062,11 @@
             }
         })
     })
+
     const gun_parameters=["weapon_quality","weapon_name","type","param1","param2","param3","param4","param5","param6","param7","weapon_current_ammo","weapon_energy","weapons_mod_name_1","weapons_mod_desc_1","weapons_mod_name_2","weapons_mod_desc_2"]
     const armor_parameters=["armor_quality","armor_name","armor_mobility","armor_defence","armor_regeneration","armor_discipline","armor_inteligence","armor_strong","armor_value","armor_class","armor_mod_name_1","armor_mod_desc_1","armor_mod_name_2","armor_mod_desc_2"]
+    const spaceship_parameters=["spaceship_quality","spaceship_name","spaceship_acceleration","spaceship_max_speed","spaceship_tough","spaceship_weapon_damage","spaceship_weapon_armor_penetration","spaceship_mod1","spaceship_mod2","spaceship_eq"]
+    const sparrow_parameters=["sparrow_quality","sparrow_name","sparrow_acceleration","sparrow_max_speed","sparrow_tough","sparrow_nitro","sparrow_nitro_reg","sparrow_mod1","sparrow_mod2","sparrow_mod3","sparrow_eq"]
 
     //Przeekwipowanie karty
     on("clicked:repeating_card:changeeq",(info)=>{
@@ -2950,6 +3096,34 @@
                     getAttrs([equiped_param,unequiped_param],(values)=>{
                         let tmp_equiped=values[equiped_param]           //Wartość parametru broni zaekwipowanej
                         let tmp_unequiped=values[unequiped_param]       //Wartość parametru broni niezaekwipowanej
+                        //Zamiana miejscami
+                        setAttrs({
+                            [equiped_param]: tmp_unequiped,
+                            [unequiped_param]: tmp_equiped
+                        })
+                    })
+                })
+            }else if(cardType=="spaceship"){
+                spaceship_parameters.forEach(param => {
+                    let equiped_param=param                             //Nazwa parametru statku zaekwipowanej
+                    let unequiped_param="repeating_card_"+param         //Nazwa parametru statku niezaekwipowanej
+                    getAttrs([equiped_param,unequiped_param],(values)=>{
+                        let tmp_equiped=values[equiped_param]           //Wartość parametru statku zaekwipowanej
+                        let tmp_unequiped=values[unequiped_param]       //Wartość parametru statku niezaekwipowanej
+                        //Zamiana miejscami
+                        setAttrs({
+                            [equiped_param]: tmp_unequiped,
+                            [unequiped_param]: tmp_equiped
+                        })
+                    })
+                })
+            }else if(cardType=="sparrow"){
+                sparrow_parameters.forEach(param => {
+                    let equiped_param=param                             //Nazwa parametru wróbla zaekwipowanej
+                    let unequiped_param="repeating_card_"+param         //Nazwa parametru wróbla niezaekwipowanej
+                    getAttrs([equiped_param,unequiped_param],(values)=>{
+                        let tmp_equiped=values[equiped_param]           //Wartość parametru wróbla zaekwipowanej
+                        let tmp_unequiped=values[unequiped_param]       //Wartość parametru wróbla niezaekwipowanej
                         //Zamiana miejscami
                         setAttrs({
                             [equiped_param]: tmp_unequiped,
