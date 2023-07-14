@@ -453,7 +453,7 @@
                 <button class="atack_button" type="action" name="act_attack_heavy"></button>
             </div>
         </div>
-        <div class="sector">
+        <div id="armor_sec" class="sector">
             <h3>Pancerz</h3>
             <div class="sub_sector">
                 Głowa<input name="attr_head_armor_value" readonly>
@@ -466,6 +466,27 @@
             </div>
             <div class="sub_sector">
                 Nogi<input name="attr_legs_armor_value" readonly>
+            </div>
+        </div>
+        <div id="health" class="sector">
+            <input class="sheet-max-barrier-switch" type="hidden" name="attr_max_barrier" value="5">
+            <div class="sub_sector">
+                <h3>Zdrowie</h3>
+                <input type="hidden" name="attr_actual_health">
+                <input type="checkbox" name="attr_health_death" class="death">
+                <input type="checkbox" name="attr_health_wound"  class="wound">
+                <input type="checkbox" name="attr_health_shock"  class="shock">
+                <input type="checkbox" name="attr_health_barrier1"  class="barrier1">
+                <input type="checkbox" name="attr_health_barrier2"  class="barrier2">
+                <input type="checkbox" name="attr_health_barrier3"  class="barrier3">
+                <input type="checkbox" name="attr_health_barrier4"  class="barrier4">
+                <input type="checkbox" name="attr_health_barrier5"  class="barrier5">
+                <input type="checkbox" name="attr_health_barrier6"  class="barrier6">
+            </div>
+            <div class="sub_sector">
+                <h3>Regeneracja</h3>
+                <input class="text" name="attr_armor_regeneration_dice" readonly>
+                <button type="action" class="roll_button" name="act_roll_regeneration"></button><br>
             </div>
         </div>
     </div>
@@ -2421,6 +2442,21 @@
             tough_b=parseInt(values.armor_bonus_tough) //Odczytanie i zsumowanie wyników
             setAttrs({
                 "tough_mod":tough_b
+            })
+        })
+    })
+
+    /*
+    #############################
+    ############Życie############
+    #############################
+    */    
+    
+    //Zmienianie maksymalnej wartości tarcz
+    on("change:armor_bonus_shield", function(){
+        getAttrs(["armor_bonus_shield"],(values)=>{
+            setAttrs({
+                "max_barrier": 3+parseInt(values.armor_bonus_shield)
             })
         })
     })

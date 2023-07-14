@@ -278,6 +278,56 @@ div.sheet-main div.sheet-col div.vig_sub_sector{
 	background-size: cover;
 }
 
+/*Zmiana liczby wyświetlanych okienek życia*/
+.sheet-max-barrier-switch[value="3"] ~ div.sub_sector input.barrier4,
+.sheet-max-barrier-switch[value="3"] ~ div.sub_sector input.barrier5,
+.sheet-max-barrier-switch[value="3"] ~ div.sub_sector input.barrier6,
+
+.sheet-max-barrier-switch[value="4"] ~ div.sub_sector input.barrier5,
+.sheet-max-barrier-switch[value="4"] ~ div.sub_sector input.barrier6,
+
+.sheet-max-barrier-switch[value="5"] ~ div.sub_sector input.barrier6{
+	display: none;
+}
+
+.sheet-max-barrier-switch[value="4"] ~ div.sub_sector input.barrier4,
+
+.sheet-max-barrier-switch[value="5"] ~ div.sub_sector input.barrier4,
+.sheet-max-barrier-switch[value="5"] ~ div.sub_sector input.barrier5,
+
+.sheet-max-barrier-switch[value="6"] ~ div.sub_sector input.barrier4,
+.sheet-max-barrier-switch[value="6"] ~ div.sub_sector input.barrier5,
+.sheet-max-barrier-switch[value="6"] ~ div.sub_sector input.barrier6{
+	display: block;
+}
+
+/*Kolory życia*/
+.sheet-main div.sheet-col div.sector div.sub_sector input.death{
+	accent-color: #000000;
+}
+
+.sheet-main div.sheet-col div.sector div.sub_sector input.wound{
+	accent-color: #a70000;
+}
+
+.sheet-main div.sheet-col div.sector div.sub_sector input.shock{
+	accent-color: rgb(251, 255, 21);
+}
+
+.sheet-main div.sheet-col div.sector div.sub_sector input.barrier1,
+.sheet-main div.sheet-col div.sector div.sub_sector input.barrier2,
+.sheet-main div.sheet-col div.sector div.sub_sector input.barrier3,
+.sheet-main div.sheet-col div.sector div.sub_sector input.barrier4,
+.sheet-main div.sheet-col div.sector div.sub_sector input.barrier5,
+.sheet-main div.sheet-col div.sector div.sub_sector input.barrier6{
+	accent-color: rgb(114, 227, 255);
+}
+
+.sheet-main div.sheet-col div.sector div.sub_sector input.text{
+	width:25%;
+}
+
+
 /*Strona ekwipunku*/
 .sheet-equipment{
 	font-family: "Audiowide";
