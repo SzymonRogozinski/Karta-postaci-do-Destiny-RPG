@@ -473,7 +473,6 @@
             <div class="sub_sector">
                 <h3>Zdrowie</h3>
                 <input type="hidden" name="attr_actual_health">
-                <input type="hidden" name="attr_shocked">
                 <input type="checkbox" name="attr_health_death" class="death">
                 <input type="checkbox" name="attr_health_wound"  class="wound">
                 <input type="checkbox" name="attr_health_shock"  class="shock">
@@ -490,6 +489,7 @@
                 <button type="action" class="roll_button" name="act_roll_regeneration"></button><br>
             </div>
             <div class="sub_sector">
+                <h3>Wyjście z szoku</h3>
                 <button type="action" class="roll_button" name="act_roll_unshock" value="wyjście z szoku"></button><br>
             </div>
         </div>
@@ -2218,10 +2218,6 @@
                 query=query.concat("{{pomoc=[[d6!-2 +@{"+attribute+"_mod} +?{Modyfikator|0}]]}}")             //Rzut kością figury
             }
 
-            setAttrs({
-                "DEBUG3": query
-            })
-
             startRoll(query, (results) => {
                 var basicDice = results.results.wynik.result    //Kość główna
                 var figDice = results.results.pomoc.result      //Kość figury
@@ -2465,6 +2461,18 @@
         })
     })
 
+    //Zmienianie obecnej wartości życia
+    on("change:max_barrier", function(){
+        getAttrs(["max_barrier","actual_health"],(values)=>{
+            var max=values.max_barrier
+            if(values.actual_health>max+2){
+                setAttrs({
+                    "actual_health": max+2
+                })
+            }
+        })
+    })
+
     //Walidacja wyświetlania się komórek
     on("change:health_death change:health_wound change:health_barrier1 change:health_barrier2 change:health_barrier3 change:health_barrier4 change:health_barrier5 change:health_barrier6", function(){
         const healthBar=["health_death", "health_wound", "health_barrier1", "health_barrier2","health_barrier3","health_barrier4", "health_barrier5","health_barrier6"]
@@ -2497,6 +2505,11 @@
             for(i=0;i<counter;i++){
                 setAttrs({
                     [healthBar[i]]: "on"
+                })
+            }
+            for(i;i<healthBar.length;i++){
+                setAttrs({
+                    [healthBar[i]]: 0
                 })
             }
         })
@@ -2551,7 +2564,44 @@
 
     //Rzut na wyjście z szoku
     on('clicked:roll_unshock', (info) => {
-        //TODO
+        var query="&{template:basicDiceRoll} "                                                          //Szablon rzutu
+        query=query.concat("{{name=@{name} wykonuje test na wyjście z szoku}} ")                        //Nazwa rzutu
+        attribute="spirit"
+
+        getAttrs([attribute], function(values){
+            var atr=values[attribute]
+            //Sprawdzenie czy umiejętność jest wykupiona
+            if(atr!="-"){
+                query=query.concat("{{wynik=[[@{"+attribute+"}! +@{"+attribute+"_mod} +?{Modyfikator|0}]]}} ")    //Rzut kością główną
+                query=query.concat("{{pomoc=[[d6! +@{"+attribute+"_mod} +?{Modyfikator|0}]]}}")                   //Rzut kością figury
+            }else{
+                query=query.concat("{{wynik=[[d4!-2 +@{"+attribute+"_mod} +?{Modyfikator|0}]]}}")             //Rzut kością główną
+                query=query.concat("{{pomoc=[[d6!-2 +@{"+attribute+"_mod} +?{Modyfikator|0}]]}}")             //Rzut kością figury
+            }
+
+            startRoll(query, (results) => {
+                var basicDice = results.results.wynik.result    //Kość główna
+                var figDice = results.results.pomoc.result      //Kość figury
+                var resDice                                     //Kość wyniku
+                //Jeśli kość główna nie jest równa jeden i figury jest większa, to zamień
+                if(basicDice>1 && figDice>basicDice){
+                    resDice=figDice
+                }else{
+                    resDice=basicDice
+                }
+                if(resDice>=4){
+                    setAttrs({
+                        "health_shock": "on"
+                    })
+                }
+                finishRoll(
+                    results.rollId,
+                    {
+                        wynik: resDice
+                    }
+                )
+            })
+        })
     })
 
     /*
