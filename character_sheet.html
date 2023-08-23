@@ -452,6 +452,12 @@
                 <button class="reload_button" type="action" name="act_reload_heavy"></button>
                 <button class="atack_button" type="action" name="act_attack_heavy"></button>
             </div>
+            <!--Walka wręcz-->
+            <div class="sub_sector" id="melee_shortcut">
+                <input class="gun_name" name="attr_melee_name" value="Walka wręcz" readonly>
+                <input type="hidden" name="attr_melee_damage" value="d4">
+                <button class="atack_button" type="action" name="act_attack_melee"></button>
+            </div>
         </div>
         <div id="armor_sec" class="sector">
             <h3>Pancerz</h3>
@@ -474,14 +480,14 @@
                 <h3>Zdrowie</h3>
                 <input type="hidden" name="attr_actual_health">
                 <input type="checkbox" name="attr_health_death" class="death">
-                <input type="checkbox" name="attr_health_wound"  class="wound">
-                <input type="checkbox" name="attr_health_shock"  class="shock">
-                <input type="checkbox" name="attr_health_barrier1"  class="barrier1">
-                <input type="checkbox" name="attr_health_barrier2"  class="barrier2">
-                <input type="checkbox" name="attr_health_barrier3"  class="barrier3">
-                <input type="checkbox" name="attr_health_barrier4"  class="barrier4">
-                <input type="checkbox" name="attr_health_barrier5"  class="barrier5">
-                <input type="checkbox" name="attr_health_barrier6"  class="barrier6">
+                <input type="checkbox" name="attr_health_wound" class="wound">
+                <input type="checkbox" name="attr_health_shock" class="shock">
+                <input type="checkbox" name="attr_health_barrier1" class="barrier1">
+                <input type="checkbox" name="attr_health_barrier2" class="barrier2">
+                <input type="checkbox" name="attr_health_barrier3" class="barrier3">
+                <input type="checkbox" name="attr_health_barrier4" class="barrier4">
+                <input type="checkbox" name="attr_health_barrier5" class="barrier5">
+                <input type="checkbox" name="attr_health_barrier6" class="barrier6">
             </div>
             <div class="sub_sector">
                 <h3>Regeneracja</h3>
@@ -3112,6 +3118,51 @@
         })
     }
 
+    function bind_melee(){
+        var damage="melee_damage"         
+        var attribute="brawl"
+        var wp_name="melee_name"
+
+        var query="&{template:Attack} "                                                                       //Szablon rzutu
+        query=query.concat("{{name=@{name} wykonuje atak za pomocą @{"+wp_name+"}}} ")                        //Nazwa rzutu
+
+        query=query.concat("{{wynik=[[@{"+attribute+"}! +@{"+attribute+"_mod} +?{Modyfikator|0}]]}} ")    //Rzut kością główną
+        query=query.concat("{{pomoc=[[d6! +@{"+attribute+"_mod} +?{Modyfikator|0}]]}}")                  //Rzut kością figury
+
+        query=query.concat("{{Obr=[[@{"+damage+"}! ]]}}")
+        query=query.concat("{{FObr=[[d6!]]}}")
+    
+        startRoll(query, (results) => {
+            var basicDice = results.results.wynik.result    //Kość główna
+            var figDice = results.results.pomoc.result      //Kość figury
+            var resDice                                     //Kość wyniku
+    
+            //Jeśli kość główna nie jest równa jeden i figury jest większa, to zamień
+            if(basicDice>1 && figDice>basicDice){
+                resDice=figDice
+            }else{
+                resDice=basicDice
+            }
+            finishRoll(
+                results.rollId,
+                {
+                    wynik: resDice
+                }
+            )
+        })
+    }
+
+    //Obliczanie obrażeń walki wręcz
+    on("change:strength change:strength_mod", function(){
+        getAttrs(["strength","strength_mod"], function(values){
+            var str=values.strength
+            var strm=values.strength_mod
+            var melee_dmg=str+"!+d4!+"+strm
+
+            setAttrs({melee_damage: melee_dmg})
+        })
+    })
+
     function bind_reload(weap_type,curr_amno,mag_size,amno_type){
         getAttrs([weap_type,curr_amno,amno_type,mag_size],function(values){
             var w_type=values[weap_type]      //Typ broni
@@ -3180,6 +3231,10 @@
 
     on('clicked:attack_heavy', (info) => {
         bind_atack("heavy_type","heavy_param4","heavy_weapon_name","heavy_param1","heavy_weapon_current_ammo")
+    })
+
+    on('clicked:attack_melee', (info) => {
+        bind_melee()
     })
 
     //Obsługa przycisku przeładuj
