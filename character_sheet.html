@@ -1881,7 +1881,6 @@
 <!--Strona na pozostałe szczegóły-->
 <div class="sheet-details">
     <!--Podsumowanie cech pancerza-->
-
     <div class="sector" id="armor_summary">
         <h3>Statystyki opancerzenia</h3>
         <div class="sub_sector">
@@ -1909,6 +1908,130 @@
                 Koszt silnego ciosu<input name="attr_armor_bonus_melee_cost" value="0" readonly>
                 Obr. silnego ciosu<input name="attr_armor_bonus_melee_damage" value="0" readonly>
             </div>
+        </div>
+    </div>
+    <!--Schemat rozwoju-->
+    <div class="sector" id="skill_tree">
+        <h3>Schemat rozwoju</h3>
+        <div class="sector" id="upper_half">
+            <!--Skok-->
+            <div class="sub_sector">
+                <h3>Skoki</h3>
+                <div class="position">
+                    <input type="text" class="position_name" name="attr_jump_name_1" readonly>
+                    <input type="checkbox" class="position_bought" name="attr_jump_bought_1" value="false">
+                </div>
+                <div class="position">
+                    <input type="text" class="position_name" name="attr_jump_name_2" readonly>
+                    <input type="checkbox" class="position_bought" name="attr_jump_bought_2" value="false">
+                </div>
+                <div class="position">
+                    <input type="text" class="position_name" name="attr_jump_name_3" readonly>
+                    <input type="checkbox" class="position_bought" name="attr_jump_bought_3" value="false">
+                </div>
+            </div>
+            <!--Granat-->
+            <div class="sub_sector">
+                <h3>Granaty</h3>
+                <div class="position">
+                    <input type="text" class="position_name" name="attr_grenade_name_1" readonly>
+                    <input type="checkbox" class="position_bought" name="attr_grenade_bought_1" value="false">
+                </div>
+                <div class="position">
+                    <input type="text" class="position_name" name="attr_grenade_name_2" readonly>
+                    <input type="checkbox" class="position_bought" name="attr_grenade_bought_2" value="false">
+                </div>
+                <div class="position">
+                    <input type="text" class="position_name" name="attr_grenade_name_3" readonly>
+                    <input type="checkbox" class="position_bought" name="attr_grenade_bought_3" value="false">
+                </div>
+            </div>
+            <!--Zdolność klasowa-->
+            <div class="sub_sector">
+                <h3>Zdolności klasowe</h3>
+                <div class="position">
+                    <input type="text" class="position_name" name="attr_class_ability_name_1" readonly>
+                    <input type="checkbox" class="position_bought" name="attr_class_ability_bought_1" value="false">
+                </div>
+                <div class="position">
+                    <input type="text" class="position_name" name="attr_class_ability_name_2" readonly>
+                    <input type="checkbox" class="position_bought" name="attr_class_ability_bought_2" value="false">
+                </div>
+            </div>
+        </div>
+        <!--Ścieżki rozwoju-->
+        <h3>Schematy rozwoju</h3>
+        <div class="sector" id="lower_half">
+
+            <div class="sub_sector">
+                <input class="way_title" name="attr_way_name_1">
+                <div class="position">
+                    <input type="text" class="position_name" name="attr_skill_tree_name_11" readonly>
+                    <input type="checkbox" class="position_bought" name="attr_skill_tree_bought_11" value="false">
+                </div>
+                <div class="position">
+                    <input type="text" class="position_name" name="attr_skill_tree_name_12" readonly>
+                    <input type="checkbox" class="position_bought" name="attr_skill_tree_bought_12" value="false">
+                </div>
+                <div class="position">
+                    <input type="text" class="position_name" name="attr_skill_tree_name_13" readonly>
+                    <input type="checkbox" class="position_bought" name="attr_skill_tree_bought_13" value="false">
+                </div>
+                <div class="position">
+                    <input type="text" class="position_name" name="attr_skill_tree_name_14" readonly>
+                    <input type="checkbox" class="position_bought" name="attr_skill_tree_bought_14" value="false">
+                </div>
+            </div>
+
+            <div class="sub_sector">
+                <input class="way_title" name="attr_way_name_2">
+                <div class="position">
+                    <input type="text" class="position_name" name="attr_skill_tree_name_21" readonly>
+                    <input type="checkbox" class="position_bought" name="attr_skill_tree_bought_21" value="false">
+                </div>
+                <div class="position">
+                    <input type="text" class="position_name" name="attr_skill_tree_name_22" readonly>
+                    <input type="checkbox" class="position_bought" name="attr_skill_tree_bought_22" value="false">
+                </div>
+                <div class="position">
+                    <input type="text" class="position_name" name="attr_skill_tree_name_23" readonly>
+                    <input type="checkbox" class="position_bought" name="attr_skill_tree_bought_23" value="false">
+                </div>
+                <div class="position">
+                    <input type="text" class="position_name" name="attr_skill_tree_name_24" readonly>
+                    <input type="checkbox" class="position_bought" name="attr_skill_tree_bought_24" value="false">
+                </div>
+            </div>
+
+            <div class="sub_sector">
+                <input class="way_title" name="attr_way_name_3">
+                <div class="position">
+                    <input type="text" class="position_name" name="attr_skill_tree_name_31" readonly>
+                    <input type="checkbox" class="position_bought" name="attr_skill_tree_bought_31" value="false">
+                </div>
+                <div class="position">
+                    <input type="text" class="position_name" name="attr_skill_tree_name_32" readonly>
+                    <input type="checkbox" class="position_bought" name="attr_skill_tree_bought_32" value="false">
+                </div>
+                <div class="position">
+                    <input type="text" class="position_name" name="attr_skill_tree_name_33" readonly>
+                    <input type="checkbox" class="position_bought" name="attr_skill_tree_bought_33" value="false">
+                </div>
+                <div class="position">
+                    <input type="text" class="position_name" name="attr_skill_tree_name_34" readonly>
+                    <input type="checkbox" class="position_bought" name="attr_skill_tree_bought_34" value="false">
+                </div>
+            </div>
+        </div>
+        <!--Doświadczenie-->
+        <div class="sector">
+            EXP<input type="number" class="short_input" name="attr_EXP">
+        </div>
+        <!--Dokładny opis-->
+        <div class="sub_sector">
+            <details>
+                <textarea id="tx_desc" name="attr_skill_tree_description"></textarea>
+            </details>
         </div>
     </div>
     <!--Opis postaci-->
@@ -2015,7 +2138,6 @@
         </div>
     </div>
     <!--Atrybuty Debug-->
-    <input type="number" name="attr_EXP">
     <input type="text" name="attr_DEBUG">
     <input type="text" name="attr_DEBUG2">
     <input type="text" name="attr_DEBUG3">
@@ -3365,6 +3487,59 @@
                         })
                     })
                 })
+            }
+        })
+    })
+
+    //Tablice nazw
+    const sp=["Wysokie uniesienie","Uniesienie boczne","Uniesienie katapultujące","Granat Fuzyjny","Granat Termitowy","Granat Zapalający","Barykada kontrofensywa","Potężna barykada","Kodeks Zrodzonego w ogniu","Cios młotem (Silny cios)","Hartowany metal","Wybuchowy stos","Gniew wulkana","Kodeks Spustoszyciela","Płonący młot","Młot do rzucania(silny cios)","Niestrudzony wojownik","Rozszalałe płomienie","Kodeks Niszczyciela oblężeń","Wybuch moździerza (Silny cios)","Sol invictus","Wojownik słońca","Nieustanne oblężenie"]
+
+    const none=["","","","","","","","","","","","","","","","","","","","","","",""]
+
+    const subclass_dict={"Słoneczny pogromca":sp,"-":none}
+    //Zmiana schematów rozwoju
+    on('change:subclass',(info)=>{
+        getAttrs(["subclass"],(values)=>{
+            var sub=values.subclass
+            var iter=0
+            //Skoki
+            for(i=1;i<4;i++){
+                let atrib="jump_name_"+i
+                setAttrs({
+                    [atrib]:subclass_dict[sub][iter]
+                })
+                iter++
+            }
+            //Granaty
+            for(i=1;i<4;i++){
+                let atrib="grenade_name_"+i
+                setAttrs({
+                    [atrib]:subclass_dict[sub][iter]
+                })
+                iter++
+            }
+            //Zdolności klasowe
+            for(i=1;i<3;i++){
+                let atrib="class_ability_name_"+i
+                setAttrs({
+                    [atrib]:subclass_dict[sub][iter]
+                })
+                iter++
+            }
+            //Ścieżki
+            for(i=1;i<4;i++){
+                let atrib="way_name_"+i
+                setAttrs({
+                    [atrib]:subclass_dict[sub][iter]
+                })
+                iter++
+                for(j=1;j<5;j++){
+                    let atrib="skill_tree_name_"+i+j
+                    setAttrs({
+                        [atrib]:subclass_dict[sub][iter]
+                    })
+                    iter++ 
+                }
             }
         })
     })

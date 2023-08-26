@@ -1024,6 +1024,38 @@ div.sheet-equipment #cards #Out_hand button.change-eq-button{
 	flex-direction: column;
 }
 
+.sheet-details #skill_tree{
+	border: 5px solid rgb(0, 0, 0);
+	display: flex;
+	flex-direction: column;
+}
+
+.sheet-details #skill_tree div.sector{
+	border: none;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.sheet-details #skill_tree div.sub_sector{
+	display: flex;
+	flex-direction:column;
+	justify-content: space-between;
+	margin: 5px;
+}
+
+.sheet-details #skill_tree input.position_name{
+	width:85%;
+}
+
+.sheet-details #skill_tree input.way_title{
+	width:85%;
+	border-style: none;
+	font-weight:bold;
+	background-color: #ffffff;
+
+}
+
 .sheet-details div.sub_sector textarea{
 	max-width: 890px;
 }
