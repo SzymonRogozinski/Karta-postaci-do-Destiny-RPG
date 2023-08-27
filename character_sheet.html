@@ -345,16 +345,23 @@
                 <input type="hidden" name="attr_spirit_mod" value="0">
                 <button type="action" class="roll_button" name="act_roll_spirit"></button><br>
             </div>
-            <div class="vig_sub_sector">
-                Wigor<select class="vig_select" name="attr_vigor" value="d4">
-                    <option value="d4">k4</option>
-                    <option value="d6">k6</option>
-                    <option value="d8">k8</option>
-                    <option value="d10">k10</option>
-                    <option value="d12">k12</option>
-                </select>
-                <input type="hidden" class="roll_button" name="attr_vigor_mod" value="0">
-                <button type="action" class="roll_button" name="act_roll_vigor"></button><br>
+            <div class="sub_sector">
+                <div>
+                    Wigor<select class="vig_select" name="attr_vigor" value="d4">
+                        <option value="d4">k4</option>
+                        <option value="d6">k6</option>
+                        <option value="d8">k8</option>
+                        <option value="d10">k10</option>
+                        <option value="d12">k12</option>
+                    </select>
+                    <input type="hidden" class="roll_button" name="attr_vigor_mod" value="0">
+                    <button type="action" class="roll_button" name="act_roll_vigor"></button><br>
+                </div>
+                <div>
+                    Bieg
+                    <input type="hidden" name="attr_run_dice" value="d6">
+                    <button type="action" class="roll_button" name="act_roll_run"></button><br>
+                </div>
             </div>
             <!--Cechy pochodne-->
             <div class="sub_sector">
@@ -2191,6 +2198,17 @@
     </div>
 </rolltemplate>
 
+<rolltemplate class="sheet-rolltemplate-run">
+    <div class="sheet-template-container">
+        <div class="sheet-template-header">{{name}}</div>
+        <div class="sheet-results">
+            <div class="sheet-template-row">
+                <span>Może przebiec = {{result}}</span>
+            </div>
+        </div>
+    </div>
+</rolltemplate>
+
 <rolltemplate class="sheet-rolltemplate-Attack">
     <div class="sheet-template-container">
         <div class="sheet-template-header">{{name}}</div>
@@ -2538,6 +2556,13 @@
 
     on('clicked:roll_scan', (info) => {
         bind_roll_ghost("skanowania","scan")
+    })
+
+    //Rzut na bieg
+    on('clicked:roll_run',(info)=>{
+        var query="&{template:run} {{name=@{name} biegnie}} {{result=[[@{run_dice}+@{speed}]]}}"                                                      //Szablon rzutu
+            
+        startRoll(query, (results) => {})
     })
 
     /*
