@@ -2233,7 +2233,7 @@
     });
 
     //Walidacja podklasy
-    on("change:subclass", function(){
+    on("change:subclass change:class", function(){
         getAttrs(["class","subclass"], function(values){
             var clas=values.class;    
             var sub_clas=values.subclass;
@@ -3493,10 +3493,20 @@
 
     //Tablice nazw
     const sp=["Wysokie uniesienie","Uniesienie boczne","Uniesienie katapultujące","Granat Fuzyjny","Granat Termitowy","Granat Zapalający","Barykada kontrofensywa","Potężna barykada","Kodeks Zrodzonego w ogniu","Cios młotem (Silny cios)","Hartowany metal","Wybuchowy stos","Gniew wulkana","Kodeks Spustoszyciela","Płonący młot","Młot do rzucania(silny cios)","Niestrudzony wojownik","Rozszalałe płomienie","Kodeks Niszczyciela oblężeń","Wybuch moździerza (Silny cios)","Sol invictus","Wojownik słońca","Nieustanne oblężenie"]
+    const wa=["Wysokie uniesienie","Uniesienie boczne","Uniesienie katapultujące","Granat Magnetyczny","Granat Zaporowy","Granat Tłumiący","Barykada kontrofensywa","Potężna barykada","Kodeks obrońcy","Defensywny cios (Silny cios)","Inspirująca siła","Odwrócone szale","Osłona świtu","Kodeks dowódcy","Osłona chorągwi","Taktyczne uderzenie (Silny cios)","Kontrolowane wzburzenie","Uzupełnienie","Kodeks napastnika","Cios tarczą (Silny cios)","Doskonały arsenał","W okopach","Druga tarcza"] 
+    const st=["Wysokie uniesienie","Uniesienie boczne","Uniesienie katapultujące","Granat Piorunowy","Granat Hukowy","Granat Impulsowy","Barykada kontrofensywa","Potężna barykada","Kodeks Roztrzaskania","Sejsmiczne uderzenie (Silny cios)","Wstrząsy wtórne","Wielkość","Prędkość graniczna","Kodeks Rakiety","Nawałnica","Rakietowe uderzenie (Silny cios)","Konwersja uderzenia","Obejście inercji","Kodeks Niezłomnego","Atak frontalny (Silny cios)","Odwrócenie","Nokaut","Tratowanie"]
+
+    const str=["Wysoki skok","Skok na bok","Potrójny skok","Granat Zapalający","Granat Rozpryskowy","Granat Pułapka","Unik strzelca","Unik szulera","Droga banity","Eksplodujący nóż zbliżeniowy (SC)","Łańcuchy rozpaczy","Zabójczy strzał","Sześciostrzałowiec","Droga tysiąca cięć","Wachlarz noży","Nożowy trik (Silny cios)","Zabawa z ogniem","Płonące ostrze","Droga strzelca wyborowego","Wyważony nóż (Silny cios)","Praktyka czyni mistrza","Eliminacja","Ustawcie się"]
+    const gr=["Wysoki skok","Skok na bok","Potrójny skok","Granat Skaczący","Granat Przepływowy","Granat Ładunkowy","Unik strzelca","Unik szulera","Droga wojownika","Cios kombinacyjny (Silny cios)","Zwinność bojowa","Śmiertelny zasięg","Zabójczy prąd","Droga prądu","Wirowa garda","Uderzenie nawałnicy (SC)","Piorunowy splot","Odpływ i przypływ","Droga wiatru","Dezorientujący cios (Silny cios)","Miarowe oddychanie","Medytacja bojowa","Błyskawiczny refleks"]
+    const tp=["Wysoki skok","Skok na bok","Potrójny skok","Granat Wirowy","Granat Kolczasty","Granat Zaporowy","Unik strzelca","Unik szulera","Droga trapera","Wnyki (Silny cios)","Zwiadowca","Martwy upadek","Znikające kroki","Droga widma","Widmowe ostrza","Gryzący dym (Silny cios)","Perfekcyjna egzekucja","Druzgoczące uderzenie","Droga łowczego","Zniknięcie w dymie (Silny cios)","Blokada","Rezerwy bojowe","Kołczan moebiusa"]
+
+    const os=["Szybowanie boczne","Impuls szybowania","Zrównoważone szybowanie","Granat Słoneczny","Granat Ognisty","Granat Fuzyjny","Uzdrawiająca wyrwa","Wzmacniająca wyrwa","Dostrojenie do nieba","Niebiański ogień (Silny cios)","Skrzydlate słońce","Robi się gorąco","Upadek Ikara","Dostrojenie do łaski","Studnia blasku","Płomień przewodzący (Silny cios)","Boska ochrona","Dobroczynny świt","Dostrojenie do płomieni","Podpalający dotyk (Silny cios)","Przeznaczony płomieniom","Nieskończony ogień","Nurkowanie feniksa"]
+    const kp=["Szybowanie boczne","Impuls szybowania","Doskok","Pocisk Aksjonowy","Granat Wirowy","Granat Kasetowy","Uzdrawiająca wyrwa","Wzmacniająca wyrwa","Dostrojenie do chaosu","Zew entropii (Silny cios)","Akcelerator chaosu","Pobłysk","Kataklizm","Dostrojenie do rozczepienia","Między wymiarowy rozbłysk","Atomowy wyłom (Silny cios)","Podręczna supernowa","Ciemna materia","Dostrojenie do głodu","Pochłonięcie (Silny cios)","Nakarm próżnię","Nienasycenie","Wir"]
+    const sb=["Szybowanie boczne","Impuls szybowania","Zrównoważone szybowanie","Granat Impulsowy","Granat Ładunkowy","Granat Burzowy","Uzdrawiająca wyrwa","Wzmacniająca wyrwa","Dostrojenie do przewodnictwa","Przeskok błyskawicy (Silny cios)","Transcendencja","Sieć elektryczna","Jonowy doskok","Dostrojenie do kontroli","Ręka chaosu","Piorun kulisty (Silny cios)","Ślad jonowy","Fala pulsowa","Dostrojenie do żywiołu ","Nadchodząca burza (Silny cios)","Naziemne wyładowanie","Elektrostatyczny przypływ","Dusza elektryczna"]
 
     const none=["","","","","","","","","","","","","","","","","","","","","","",""]
 
-    const subclass_dict={"Słoneczny pogromca":sp,"-":none}
+    const subclass_dict={"Słoneczny pogromca":sp,"Wartownik":wa,"Szturmowiec":st,"Strzelec":str,"Gromodzierżca":gr,"Tropiciel":tp,"Ostrze świtu":os,"Kroczący przez próżnię":kp,"Siewca burz":sb,"-":none}
     //Zmiana schematów rozwoju
     on('change:subclass',(info)=>{
         getAttrs(["subclass"],(values)=>{

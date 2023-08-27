@@ -1045,11 +1045,11 @@ div.sheet-equipment #cards #Out_hand button.change-eq-button{
 }
 
 .sheet-details #skill_tree input.position_name{
-	width:85%;
+	width:92%;
 }
 
 .sheet-details #skill_tree input.way_title{
-	width:85%;
+	width:92%;
 	border-style: none;
 	font-weight:bold;
 	background-color: #ffffff;
