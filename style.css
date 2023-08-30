@@ -327,6 +327,31 @@ button.roll_button{
 	width:25%;
 }
 
+/*Karty umiejętności*/
+.sheet-main div.sheet-col #ability_shortcuts div.param{
+	display: flex;
+	justify-content: space-between;
+}
+
+.sheet-main div.sheet-col #ability_shortcuts input.name_input{
+	width:60%;
+}
+
+.sheet-main div.sheet-col #ability_shortcuts input.medium_input{
+	width:25%;
+}
+
+.sheet-main div.sheet-col #ability_shortcuts input.short_input{
+	width:10%;
+}
+
+.sheet-main div.sheet-col #ability_shortcuts textarea{
+	max-width:95%;
+	min-width:95%;
+	max-height:90px;
+	min-height:90px;
+}
+
 
 /*Strona ekwipunku*/
 .sheet-equipment{

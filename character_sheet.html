@@ -506,6 +506,32 @@
                 <button type="action" class="roll_button" name="act_roll_unshock" value="wyjście z szoku"></button><br>
             </div>
         </div>
+        <div id="ability_shortcuts" class="sector">
+            <!--Granat-->
+            <h3>Granat</h3>
+            <div class="skill_card">
+                <div class="param">
+                    <input type="text" name="attr_grenade_name" class="name_input" readonly>
+                    Koszt<input type="text" name="attr_grenade_cost" class="short_input" readonly>
+                </div>
+                <input type="hidden" name="attr_grenade_damage_type" readonly>
+                <div class="param">
+                    Obrażenia<input type="text" name="attr_grenade_damage" class="medium_input" readonly>
+                    Zasięg<input type="text" name="attr_grenade_throw_range" class="medium_input" readonly>
+                </div>
+                <div class="param">
+                    P. wybuchu<input type="text" name="attr_grenade_explosion_range" class="short_input" readonly>
+                    Mod. trafienia<input type="text" name="attr_grenade_throw_mod" class="short_input" readonly>
+                </div>
+                <div class="param">
+                    Bonus do trafienia<input type="text" name="attr_grenade_throw_mod" class="short_input" readonly>
+                    <button type="action" class="roll_button" name="act_throw_granade"></button><br>
+                </div>
+                <div class="param">
+                    <textarea name="attr_granade_desc"></textarea>
+                </div>         
+            </div>
+        </div>
     </div>
 </div>
 <!--Strona ekwipunku-->
@@ -3576,6 +3602,19 @@
                     iter++ 
                 }
             }
+        })
+    })
+
+    //Rzut granatem
+    on('clicked:throw_granade',(info)=>{
+        setAttrs({
+            "grenade_name":"Granat Magnetyczny",
+            "grenade_damage":"3d6+6",
+            "grenade_throw_range":"10/20/40",
+            "grenade_explosion_range":"3",
+            "grenade_cost":"6",
+            "grenade_throw_mod":"+2",
+            "granade_desc":"W miejscu eksplozji pojawia się 8 dronów, każdy z nich zawiera ładunek wybuchowy(k4 obr.[Solar]). Dron może zbliżyć się do wroga, który nie znajduje się dalej niż 2’."
         })
     })
 
